@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const isLoginPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/login.html');
+    const pageName = window.location.pathname.split("/").pop();
+    // Correctly identify that the login pages are index.html and login.html
+    const isLoginPage = pageName === 'index.html' || pageName === 'login.html' || pageName === '';
 
     // If not logged in and not on the login page, redirect
     if (localStorage.getItem('isLoggedIn') !== 'true' && !isLoginPage) {
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const headerContainer = document.getElementById('header-container');
         if (headerContainer) {
             headerContainer.innerHTML = data;
-            
+
             // Add logout functionality after header is loaded
             const logoutLink = document.getElementById('logoutLink');
             if (logoutLink) {
@@ -27,15 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Highlight active nav link based on current page
             const path = window.location.pathname;
-            const pageName = path.split("/").pop();
+            const currentPageName = path.split("/").pop();
 
-            if (pageName === 'main.html' || (pageName === '' && !isLoginPage) ) {
+            if (currentPageName === 'main.html' || (currentPageName === '' && !isLoginPage) ) {
               document.getElementById('homeLink')?.classList.add('active');
-            } else if (pageName === 'about%20us.html' || pageName === 'about us.html') {
+            } else if (currentPageName === 'about%20us.html' || currentPageName === 'about us.html') {
               document.getElementById('aboutLink')?.classList.add('active');
-            } else if (pageName === 'ClubsComs.html') {
+            } else if (currentPageName === 'ClubsComs.html') {
               document.querySelector('a[href="ClubsComs.html"]')?.classList.add('active');
-            } else if (pageName === 'contact_repository.html') {
+            } else if (currentPageName === 'contact_repository.html') {
               document.querySelector('a[href="contact_repository.html"]')?.classList.add('active');
             }
         }
