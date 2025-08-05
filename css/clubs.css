@@ -201,6 +201,32 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Banner Image Classes */
+.academic-banner {
+    background-image: url('../images/ACBan.png');
+}
+
+.internship-banner {
+    background-image: url('../images/ICBan.png');
+}
+
+.athlos-banner {
+    background-image: url('../images/AthBan.png');
+}
+
+.riwaayat-banner {
+    background-image: url('../images/RiwBan.png');
+}
+
+.literati-banner {
+    background-image: url('../images/LitBan.png');
+}
+
+.utthaan-banner {
+    background-image: url('../images/UtBan.png');
+}
+
+
 .card-links {
     display: flex;
     gap: 15px;
