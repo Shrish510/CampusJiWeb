@@ -202,30 +202,12 @@ body {
 }
 
 /* Banner Image Classes */
-.academic-banner {
-    background-image: url('../images/ACBan.png');
-}
-
-.internship-banner {
-    background-image: url('../images/ICBan.png');
-}
-
-.athlos-banner {
-    background-image: url('../images/AthBan.png');
-}
-
-.riwaayat-banner {
-    background-image: url('../images/RiwBan.png');
-}
-
-.literati-banner {
-    background-image: url('../images/LitBan.png');
-}
-
-.utthaan-banner {
-    background-image: url('../images/UtBan.png');
-}
-
+.academic-banner { background-image: url('../images/ACBan.png'); }
+.internship-banner { background-image: url('../images/ICBan.png'); }
+.athlos-banner { background-image: url('../images/AthBan.png'); }
+.riwaayat-banner { background-image: url('../images/RiwBan.png'); }
+.literati-banner { background-image: url('../images/LitBan.png'); }
+.utthaan-banner { background-image: url('../images/UtBan.png'); }
 
 .card-links {
     display: flex;
@@ -252,29 +234,76 @@ body {
     color: var(--midnight);
 }
 
-.card-link.photos {
+.card-link.events, .card-link.photos {
     background: var(--asian-pear);
     color: var(--midnight);
 }
 
+.card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease-out;
+}
+
+/* --- New Dropdown Team Section Styles --- */
+
 .team-section {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
     margin-top: 0;
 }
 
 .team-section.expanded {
-    max-height: 1000px; /* Adjust if needed */
-    margin-top: 30px;
+    max-height: 500px; /* Adjust as needed */
+    margin-top: 25px;
 }
 
 .team-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     padding: 20px;
     background: var(--asian-pear);
     border-radius: 15px;
-    justify-content: center;
+}
+
+.team-member-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease;
+}
+
+.team-member-card:hover {
+    transform: scale(1.05);
+}
+
+.team-member-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    background: var(--sky);
+    border: 3px solid var(--china);
+    /* Placeholder for photo */
+    background-image: url('https://placehold.co/70x70/BAD6EB/081F5C?text=?');
+    background-size: cover;
+}
+
+.team-member-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--midnight);
+    margin-bottom: 4px;
+}
+
+.team-member-role {
+    font-size: 0.85rem;
+    color: var(--royal);
 }
