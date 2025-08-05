@@ -234,7 +234,7 @@
 /* --- Individual Team Member Photos --- */
 
 /* Academic Committee */
-.photo-ad { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=A.D.'); }
+.photo-ab { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=A.B.'); }
 .photo-bg { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=B.G.'); }
 .photo-ac-j1 { background-image: url('https://placehold.co/70x70/E6E6FA/000000?text=J1'); }
 .photo-ac-j2 { background-image: url('https://placehold.co/70x70/E0FFFF/000000?text=J2'); }
@@ -298,5 +298,6 @@
 .photo-utt-j4 { background-image: url('https://placehold.co/70x70/2F4F4F/FFFFFF?text=J4'); }
 .photo-utt-j5 { background-image: url('https://placehold.co/70x70/000000/FFFFFF?text=J5'); }
 .photo-utt-j6 { background-image: url('https://placehold.co/70x70/191970/FFFFFF?text=J6'); }
+
 
 
