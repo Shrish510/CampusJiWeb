@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const path = window.location.pathname;
             if (path.includes('ClubsComs.html')) {
               document.querySelector('a[href="ClubsComs.html"]')?.classList.add('active');
+            } else if (path.includes('login.html')) {
+                document.getElementById('loginLink')?.classList.add('active');
             }
         }
       });
