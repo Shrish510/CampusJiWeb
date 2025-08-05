@@ -10,7 +10,7 @@
  </head>
  <body>
   <div id="header-container"></div>
-  
+
   <section class="section committees-section" id="committees">
    <div class="container">
     <h2 class="section-title fade-in">
@@ -18,7 +18,7 @@
     </h2>
     <div class="cards-grid">
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/ACBan.png');"></div>
+      <div class="card-banner academic-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/academic_logo.png" alt="Academic Committee Logo"/>
@@ -32,9 +32,23 @@
       <p class="card-description">
        Acts as the bridge between the IPM students and the administration, ensuring seamless communication, organizing workshops and guest lectures, and helping maintain academic discipline. Supports faculty and the IPM Office during batch inductions.
       </p>
+      <div class="card-links">
+       <button class="card-link members" onclick="toggleTeam('academic')">
+        Meet the Team
+        <span class="toggle-icon" id="academic-icon">
+         ▼
+        </span>
+       </button>
+       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-academic')">
+        Event Gallery
+       </a>
+       <a class="card-link photos" href="#">
+        Drive
+       </a>
+      </div>
       </div>
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/ICBan.png');"></div>
+      <div class="card-banner internship-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/internship_logo.png" alt="Internship Committee Logo"/>
@@ -48,11 +62,25 @@
       <p class="card-description">
        Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
       </p>
+        <div class="card-links">
+       <button class="card-link members" onclick="toggleTeam('internship')">
+        Meet the Team
+        <span class="toggle-icon" id="internship-icon">
+         ▼
+        </span>
+       </button>
+       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-internship')">
+        Event Gallery
+       </a>
+       <a class="card-link photos" href="#">
+        Drive
+       </a>
+      </div>
       </div>
     </div>
    </div>
   </section>
-  
+
   <section class="section clubs-section" id="clubs">
    <div class="container">
     <h2 class="section-title fade-in">
@@ -60,7 +88,7 @@
     </h2>
     <div class="cards-grid">
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/AthBan.png');"></div>
+      <div class="card-banner athlos-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/sports_logo.png" alt="Athlos - The Sports Club Logo"/>
@@ -74,9 +102,23 @@
       <p class="card-description">
        Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
       </p>
+       <div class="card-links">
+       <button class="card-link members" onclick="toggleTeam('athlos')">
+        Meet the Team
+        <span class="toggle-icon" id="athlos-icon">
+         ▼
+        </span>
+       </button>
+       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-athlos')">
+        Event Gallery
+       </a>
+       <a class="card-link photos" href="#">
+        Drive
+       </a>
+      </div>
       </div>
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/RiwBan.png');"></div>
+      <div class="card-banner riwaayat-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/cultural_logo.png" alt="Riwaayat - The Cultural Club Logo"/>
@@ -90,9 +132,23 @@
       <p class="card-description">
        Promotes creativity by organizing events and competitions in art &amp; craft, dance, drama, music, and fashion. Keeps students connected with cultural values and traditions, and coordinates celebrations.
       </p>
+       <div class="card-links">
+       <button class="card-link members" onclick="toggleTeam('riwaayat')">
+        Meet the Team
+        <span class="toggle-icon" id="riwaayat-icon">
+         ▼
+        </span>
+       </button>
+       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-riwaayat')">
+        Event Gallery
+       </a>
+       <a class="card-link photos" href="#">
+        Drive
+       </a>
+      </div>
       </div>
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/LitBan.png');"></div>
+      <div class="card-banner literati-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/literary_logo.png" alt="Literati - The Literary Club Logo"/>
@@ -106,9 +162,23 @@
       <p class="card-description">
        Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
       </p>
+       <div class="card-links">
+       <button class="card-link members" onclick="toggleTeam('literati')">
+        Meet the Team
+        <span class="toggle-icon" id="literati-icon">
+         ▼
+        </span>
+       </button>
+       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-literati')">
+        Event Gallery
+       </a>
+       <a class="card-link photos" href="#">
+        Drive
+       </a>
+      </div>
       </div>
      <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/UtBan.jpg');"></div>
+      <div class="card-banner utthaan-banner"></div>
       <div class="card-header">
        <div class="card-logo">
         <img src="images/utthaan_logo.png" alt="Utthaan - The Social Welfare Club Logo"/>
@@ -140,7 +210,7 @@
     </div>
    </div>
   </section>
-  
+
   <script src="js/clubs.js"></script>
  </body>
 </html>
