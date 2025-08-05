@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background-color: #F7F2EB;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.iim-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.campusji-logo-placeholder {
+    width: 180px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D0E3FF;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #F7F2EB;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #D0E3FF;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background-color: #7096D1;
+    color: white;
+}
+
+/* Main content container */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    margin-bottom: 3rem;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(8, 31, 92, 0.15);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.slide-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.slide-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.slider-dot.active {
+    background: white;
+}
+
+/* Three Column Section */
+.three-column-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.column-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(8, 31, 92, 0.15);
+}
+
+.column-card h3 {
+    color: #081F5C;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border-bottom: 3px solid #7096D1;
+    padding-bottom: 0.5rem;
+}
+
+.mess-menu-items {
+    list-style: none;
+}
+
+.mess-menu-items li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #EDF1F6;
+    color: #334EAC;
+}
+
+.bulletin-item {
+    background: #F2F0DE;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    border-left: 4px solid #7096D1;
+}
+
+.weather-info {
+    text-align: center;
+    color: #081F5C;
+}
+
+.weather-location {
+    color: #7096D1;
+    font-weight: bold;
+}
+
+.weather-temp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #334EAC;
+    margin: 1rem 0;
+}
+
+.weather-condition {
+    color: #334EAC;
+    font-size: 1.1rem;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.weather-detail {
+    text-align: center;
+}
+
+.weather-detail strong {
+    display: block;
+    color: #7096D1;
+}
+
+/* Map Section */
+.map-section {
+    margin: 3rem 0;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
+}
+
+.map-section h2 {
+    color: #081F5C;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-bottom: 3px solid #7096D1;
+    padding-bottom: 1rem;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, #EDF1F6, #D0E3FF);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #334EAC;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px dashed #7096D1;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: 3rem 0;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
+}
+
+.faq-section h2 {
+    color: #081F5C;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-bottom: 3px solid #7096D1;
+    padding-bottom: 1rem;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid #EDF1F6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background: #F2F0DE;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #BAD6EB;
+}
+
+.faq-question h4 {
+    color: #081F5C;
+    margin: 0;
+}
+
+.faq-toggle {
+    color: #7096D1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 1rem;
+    background: white;
+    display: none;
+    color: #334EAC;
+    border-top: 1px solid #EDF1F6;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+
+    .slider-container {
+        height: 300px;
+    }
+
+    .slide-title {
+        font-size: 1.4rem;
+    }
+
+    .slide-description {
+        font-size: 1rem;
+    }
+}
