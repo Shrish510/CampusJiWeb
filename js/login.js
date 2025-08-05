@@ -17,11 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
             
-            // This simulates a successful login.
-            // In a real app, you'd verify credentials with a server.
             localStorage.setItem('isLoggedIn', 'true');
-
-            // Redirect to the main page after successful login
             window.location.href = 'main.html';
         });
     }
