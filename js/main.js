@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
               document.querySelector('a[href="ClubsComs.html"]')?.classList.add('active');
             } else if (pageName === 'contact_repository.html') {
                 document.querySelector('a[href="contact_repository.html"]')?.classList.add('active');
+            } else if (pageName === 'login.html') {
+                document.getElementById('loginLink')?.classList.add('active');
             }
         }
       })
