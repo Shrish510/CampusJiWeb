@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
               document.getElementById('clubsComsLink')?.classList.add('active');
             } else if (path.includes('contact_repository.html')) {
               document.querySelector('a[href="contact_repository.html"]')?.classList.add('active');
+            } else if (path.includes('login.html')) {
+                document.getElementById('loginLink')?.classList.add('active');
             }
         }
       })
