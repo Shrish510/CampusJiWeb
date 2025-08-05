@@ -252,20 +252,33 @@ body {
 
 .team-section {
     max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+    overflow-y: auto;
+    transition: max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
     margin-top: 0;
 }
 
 .team-section.expanded {
-    max-height: 500px; /* Adjust as needed */
+    max-height: 500px; /* Adjust as needed, can be a large value */
     margin-top: 25px;
+}
+
+.team-title {
+    font-size: 1.2rem;
+    color: var(--royal);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--sky);
+}
+
+.team-title:first-of-type {
+    margin-top: 0;
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
     padding: 20px;
     background: var(--asian-pear);
     border-radius: 15px;
@@ -297,25 +310,81 @@ body {
 
 .team-member-name {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--midnight);
     margin-bottom: 4px;
+    word-wrap: break-word;
 }
 
 .team-member-role {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--royal);
 }
 
 /* --- Individual Team Member Photos --- */
+
+/* Academic Committee */
 .photo-ad { background-image: url('https://placehold.co/70x70/FFC0CB/000000?text=A.D.'); }
 .photo-bg { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=B.G.'); }
+.photo-ac-j1 { background-image: url('https://placehold.co/70x70/E6E6FA/000000?text=J1'); }
+.photo-ac-j2 { background-image: url('https://placehold.co/70x70/E0FFFF/000000?text=J2'); }
+
+/* Internship Committee */
 .photo-cm { background-image: url('https://placehold.co/70x70/90EE90/000000?text=C.M.'); }
 .photo-ds { background-image: url('https://placehold.co/70x70/FFA07A/000000?text=D.S.'); }
-.photo-ek { background-image: url('https://placehold.co/70x70/20B2AA/FFFFFF?text=E.K.'); }
-.photo-fn { background-image: url('https://placehold.co/70x70/DA70D6/FFFFFF?text=F.N.'); }
-.photo-gp { background-image: url('https://placehold.co/70x70/BDB76B/FFFFFF?text=G.P.'); }
-.photo-hi { background-image: url('https://placehold.co/70x70/4682B4/FFFFFF?text=H.I.'); }
-.photo-ij { background-image: url('https://placehold.co/70x70/D2B48C/000000?text=I.J.'); }
-.photo-jk { background-image: url('https://placehold.co/70x70/6A5ACD/FFFFFF?text=J.K.'); }
-.photo-kl { background-image: url('https://placehold.co/70x70/7FFF00/000000?text=K.L.'); }
+.photo-ic-j1 { background-image: url('https://placehold.co/70x70/FAFAD2/000000?text=J1'); }
+.photo-ic-j2 { background-image: url('https://placehold.co/70x70/D3D3D3/000000?text=J2'); }
+.photo-ic-j3 { background-image: url('https://placehold.co/70x70/F5DEB3/000000?text=J3'); }
+.photo-ic-j4 { background-image: url('https://placehold.co/70x70/FFF5EE/000000?text=J4'); }
+.photo-ic-j5 { background-image: url('https://placehold.co/70x70/F0FFF0/000000?text=J5'); }
+.photo-ic-j6 { background-image: url('https://placehold.co/70x70/FDF5E6/000000?text=J6'); }
+.photo-ic-j7 { background-image: url('https://placehold.co/70x70/FFFAF0/000000?text=J7'); }
+.photo-ic-j8 { background-image: url('https://placehold.co/70x70/F8F8FF/000000?text=J8'); }
+
+/* Athlos */
+.photo-ath-s1 { background-image: url('https://placehold.co/70x70/FFE4C4/000000?text=S1'); }
+.photo-ath-s2 { background-image: url('https://placehold.co/70x70/FFEBCD/000000?text=S2'); }
+.photo-ath-s3 { background-image: url('https://placehold.co/70x70/FFDEAD/000000?text=S3'); }
+.photo-ath-s4 { background-image: url('https://placehold.co/70x70/FFE4B5/000000?text=S4'); }
+.photo-ath-j1 { background-image: url('https://placehold.co/70x70/FFDAB9/000000?text=J1'); }
+.photo-ath-j2 { background-image: url('https://placehold.co/70x70/FFEFD5/000000?text=J2'); }
+.photo-ath-j3 { background-image: url('https://placehold.co/70x70/FFF8DC/000000?text=J3'); }
+.photo-ath-j4 { background-image: url('https://placehold.co/70x70/FFFACD/000000?text=J4'); }
+.photo-ath-j5 { background-image: url('https://placehold.co/70x70/FFFFE0/000000?text=J5'); }
+.photo-ath-j6 { background-image: url('https://placehold.co/70x70/FFFFF0/000000?text=J6'); }
+
+/* Riwaayat */
+.photo-riw-s1 { background-image: url('https://placehold.co/70x70/F0E68C/000000?text=S1'); }
+.photo-riw-s2 { background-image: url('https://placehold.co/70x70/EEE8AA/000000?text=S2'); }
+.photo-riw-s3 { background-image: url('https://placehold.co/70x70/BDB76B/000000?text=S3'); }
+.photo-riw-s4 { background-image: url('https://placehold.co/70x70/ADFF2F/000000?text=S4'); }
+.photo-riw-j1 { background-image: url('https://placehold.co/70x70/7CFC00/000000?text=J1'); }
+.photo-riw-j2 { background-image: url('https://placehold.co/70x70/00FF00/000000?text=J2'); }
+.photo-riw-j3 { background-image: url('https://placehold.co/70x70/32CD32/000000?text=J3'); }
+.photo-riw-j4 { background-image: url('https://placehold.co/70x70/98FB98/000000?text=J4'); }
+.photo-riw-j5 { background-image: url('https://placehold.co/70x70/90EE90/000000?text=J5'); }
+.photo-riw-j6 { background-image: url('https://placehold.co/70x70/00FA9A/000000?text=J6'); }
+
+/* Literati */
+.photo-lit-s1 { background-image: url('https://placehold.co/70x70/87CEFA/000000?text=S1'); }
+.photo-lit-s2 { background-image: url('https://placehold.co/70x70/87CEEB/000000?text=S2'); }
+.photo-lit-s3 { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=S3'); }
+.photo-lit-s4 { background-image: url('https://placehold.co/70x70/B0C4DE/000000?text=S4'); }
+.photo-lit-j1 { background-image: url('https://placehold.co/70x70/B0E0E6/000000?text=J1'); }
+.photo-lit-j2 { background-image: url('https://placehold.co/70x70/AFEEEE/000000?text=J2'); }
+.photo-lit-j3 { background-image: url('https://placehold.co/70x70/E0FFFF/000000?text=J3'); }
+.photo-lit-j4 { background-image: url('https://placehold.co/70x70/F0FFFF/000000?text=J4'); }
+.photo-lit-j5 { background-image: url('https://placehold.co/70x70/F5F5F5/000000?text=J5'); }
+.photo-lit-j6 { background-image: url('https://placehold.co/70x70/DCDCDC/000000?text=J6'); }
+
+/* Utthaan */
+.photo-utt-s1 { background-image: url('https://placehold.co/70x70/C0C0C0/000000?text=S1'); }
+.photo-utt-s2 { background-image: url('https://placehold.co/70x70/D3D3D3/000000?text=S2'); }
+.photo-utt-s3 { background-image: url('https://placehold.co/70x70/A9A9A9/000000?text=S3'); }
+.photo-utt-s4 { background-image: url('https://placehold.co/70x70/808080/FFFFFF?text=S4'); }
+.photo-utt-j1 { background-image: url('https://placehold.co/70x70/696969/FFFFFF?text=J1'); }
+.photo-utt-j2 { background-image: url('https://placehold.co/70x70/778899/FFFFFF?text=J2'); }
+.photo-utt-j3 { background-image: url('https://placehold.co/70x70/708090/FFFFFF?text=J3'); }
+.photo-utt-j4 { background-image: url('https://placehold.co/70x70/2F4F4F/FFFFFF?text=J4'); }
+.photo-utt-j5 { background-image: url('https://placehold.co/70x70/000000/FFFFFF?text=J5'); }
+.photo-utt-j6 { background-image: url('https://placehold.co/70x70/191970/FFFFFF?text=J6'); }
