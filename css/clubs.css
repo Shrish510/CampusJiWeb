@@ -248,7 +248,7 @@ body {
     transition: transform 0.3s ease-out;
 }
 
-/* --- New Dropdown Team Section Styles --- */
+/* --- Dropdown Team Section Styles --- */
 
 .team-section {
     max-height: 0;
@@ -291,9 +291,8 @@ body {
     margin: 0 auto 10px;
     background: var(--sky);
     border: 3px solid var(--china);
-    /* Placeholder for photo */
-    background-image: url('https://placehold.co/70x70/BAD6EB/081F5C?text=?');
     background-size: cover;
+    background-position: center;
 }
 
 .team-member-name {
@@ -307,3 +306,16 @@ body {
     font-size: 0.85rem;
     color: var(--royal);
 }
+
+/* --- Individual Team Member Photos --- */
+.photo-ad { background-image: url('https://placehold.co/70x70/FFC0CB/000000?text=A.D.'); }
+.photo-bg { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=B.G.'); }
+.photo-cm { background-image: url('https://placehold.co/70x70/90EE90/000000?text=C.M.'); }
+.photo-ds { background-image: url('https://placehold.co/70x70/FFA07A/000000?text=D.S.'); }
+.photo-ek { background-image: url('https://placehold.co/70x70/20B2AA/FFFFFF?text=E.K.'); }
+.photo-fn { background-image: url('https://placehold.co/70x70/DA70D6/FFFFFF?text=F.N.'); }
+.photo-gp { background-image: url('https://placehold.co/70x70/BDB76B/FFFFFF?text=G.P.'); }
+.photo-hi { background-image: url('https://placehold.co/70x70/4682B4/FFFFFF?text=H.I.'); }
+.photo-ij { background-image: url('https://placehold.co/70x70/D2B48C/000000?text=I.J.'); }
+.photo-jk { background-image: url('https://placehold.co/70x70/6A5ACD/FFFFFF?text=J.K.'); }
+.photo-kl { background-image: url('https://placehold.co/70x70/7FFF00/000000?text=K.L.'); }
