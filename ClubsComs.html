@@ -11,205 +11,246 @@
  <body>
   <div id="header-container"></div>
 
-  <section class="section committees-section" id="committees">
-   <div class="container">
-    <h2 class="section-title fade-in">
-     Committees
-    </h2>
-    <div class="cards-grid">
-     <div class="card fade-in">
-      <div class="card-banner academic-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/academic_logo.png" alt="Academic Committee Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Academic Committee
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Acts as the bridge between the IPM students and the administration, ensuring seamless communication, organizing workshops and guest lectures, and helping maintain academic discipline. Supports faculty and the IPM Office during batch inductions.
-      </p>
-      <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('academic')">
-        Meet the Team
-        <span class="toggle-icon" id="academic-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-academic')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner internship-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/internship_logo.png" alt="Internship Committee Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Internship Committee
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
-      </p>
+  <main class="main-content">
+    <section class="section committees-section" id="committees">
+     <div class="container">
+      <h2 class="section-title fade-in">
+       Committees
+      </h2>
+      <div class="cards-grid">
+       <div class="card fade-in">
+        <div class="card-banner academic-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/academic_logo.png" alt="Academic Committee Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Academic Committee
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Acts as the bridge between the IPM students and the administration, ensuring seamless communication, organizing workshops and guest lectures, and helping maintain academic discipline. Supports faculty and the IPM Office during batch inductions.
+        </p>
         <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('internship')">
-        Meet the Team
-        <span class="toggle-icon" id="internship-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-internship')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
+         <button class="card-link members" onclick="toggleTeam('academic')">
+          Meet the Team
+          <span class="toggle-icon" id="academic-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="academic-team">
+          <!-- Add team members here -->
+        </div>
+       </div>
+       <div class="card fade-in">
+        <div class="card-banner internship-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/internship_logo.png" alt="Internship Committee Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Internship Committee
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
+        </p>
+          <div class="card-links">
+         <button class="card-link members" onclick="toggleTeam('internship')">
+          Meet the Team
+          <span class="toggle-icon" id="internship-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="internship-team">
+            <!-- Add team members here -->
+        </div>
+       </div>
       </div>
-      </div>
-    </div>
-   </div>
-  </section>
+     </div>
+    </section>
 
-  <section class="section clubs-section" id="clubs">
-   <div class="container">
-    <h2 class="section-title fade-in">
-     Clubs
-    </h2>
-    <div class="cards-grid">
-     <div class="card fade-in">
-      <div class="card-banner athlos-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/sports_logo.png" alt="Athlos - The Sports Club Logo"/>
+    <section class="section clubs-section" id="clubs">
+     <div class="container">
+      <h2 class="section-title fade-in">
+       Clubs
+      </h2>
+      <div class="cards-grid">
+       <div class="card fade-in">
+        <div class="card-banner athlos-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/sports_logo.png" alt="Athlos - The Sports Club Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Athlos (Sports Club)
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
+        </p>
+         <div class="card-links">
+         <button class="card-link members" onclick="toggleTeam('athlos')">
+          Meet the Team
+          <span class="toggle-icon" id="athlos-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="athlos-team">
+            <!-- Add team members here -->
+        </div>
        </div>
-       <div>
-        <h3 class="card-title">
-         Athlos (Sports Club)
-        </h3>
+       <div class="card fade-in">
+        <div class="card-banner riwaayat-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/cultural_logo.png" alt="Riwaayat - The Cultural Club Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Riwaayat (Cultural Club)
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Promotes creativity by organizing events and competitions in art &amp; craft, dance, drama, music, and fashion. Keeps students connected with cultural values and traditions, and coordinates celebrations.
+        </p>
+         <div class="card-links">
+         <button class="card-link members" onclick="toggleTeam('riwaayat')">
+          Meet the Team
+          <span class="toggle-icon" id="riwaayat-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="riwaayat-team">
+            <!-- Add team members here -->
+        </div>
+       </div>
+       <div class="card fade-in">
+        <div class="card-banner literati-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/literary_logo.png" alt="Literati - The Literary Club Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Literati (Literary Club)
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
+        </p>
+         <div class="card-links">
+         <button class="card-link members" onclick="toggleTeam('literati')">
+          Meet the Team
+          <span class="toggle-icon" id="literati-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="literati-team">
+            <!-- Add team members here -->
+        </div>
+       </div>
+       <div class="card fade-in">
+        <div class="card-banner utthaan-banner"></div>
+        <div class="card-header">
+         <div class="card-logo">
+          <img src="images/utthaan_logo.png" alt="Utthaan - The Social Welfare Club Logo"/>
+         </div>
+         <div>
+          <h3 class="card-title">
+           Utthaan (Social Welfare Club)
+          </h3>
+         </div>
+        </div>
+        <p class="card-description">
+         Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
+        </p>
+        <div class="card-links">
+         <button class="card-link members" onclick="toggleTeam('utthaan')">
+          Meet the Team
+          <span class="toggle-icon" id="utthaan-icon">
+           ▼
+          </span>
+         </button>
+         <a class="card-link events" href="#">
+          Event Gallery
+         </a>
+         <a class="card-link photos" href="#">
+          Drive
+         </a>
+        </div>
+        <div class="team-section" id="utthaan-team">
+            <div class="team-grid">
+                <div class="team-member-card">
+                    <div class="team-member-photo"></div>
+                    <div class="team-member-name">Member One</div>
+                    <div class="team-member-role">Coordinator</div>
+                </div>
+                <div class="team-member-card">
+                    <div class="team-member-photo"></div>
+                    <div class="team-member-name">Member Two</div>
+                    <div class="team-member-role">Co-Coordinator</div>
+                </div>
+                <div class="team-member-card">
+                    <div class="team-member-photo"></div>
+                    <div class="team-member-name">Member Three</div>
+                    <div class="team-member-role">Senior Member</div>
+                </div>
+                 <div class="team-member-card">
+                    <div class="team-member-photo"></div>
+                    <div class="team-member-name">Member Four</div>
+                    <div class="team-member-role">Senior Member</div>
+                </div>
+            </div>
+        </div>
        </div>
       </div>
-      <p class="card-description">
-       Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
-      </p>
-       <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('athlos')">
-        Meet the Team
-        <span class="toggle-icon" id="athlos-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-athlos')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner riwaayat-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/cultural_logo.png" alt="Riwaayat - The Cultural Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Riwaayat (Cultural Club)
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Promotes creativity by organizing events and competitions in art &amp; craft, dance, drama, music, and fashion. Keeps students connected with cultural values and traditions, and coordinates celebrations.
-      </p>
-       <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('riwaayat')">
-        Meet the Team
-        <span class="toggle-icon" id="riwaayat-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-riwaayat')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner literati-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/literary_logo.png" alt="Literati - The Literary Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Literati (Literary Club)
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
-      </p>
-       <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('literati')">
-        Meet the Team
-        <span class="toggle-icon" id="literati-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-literati')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner utthaan-banner"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/utthaan_logo.png" alt="Utthaan - The Social Welfare Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Utthaan (Social Welfare Club)
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
-      </p>
-      <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('utthaan')">
-        Meet the Team
-        <span class="toggle-icon" id="utthaan-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-utthaan')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      </div>
-    </div>
-   </div>
-  </section>
+     </div>
+    </section>
+  </main>
 
   <script src="js/clubs.js"></script>
  </body>
