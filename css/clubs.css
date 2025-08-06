@@ -234,18 +234,18 @@
 /* --- Individual Team Member Photos --- */
 
 /* Academic Committee */
-.photo-shrish { background-image: url('../images/Shrish.jpeg'); }
-.photo-akruti { background-image: url('../images/Akruti.jpeg'); }
+.photo-shrish { background-image: url('../images/Shrish.jpg'); }
+.photo-akruti { background-image: url('../images/Akruti.jpg'); }
 .photo-madhur { background-image: url('../images/ACMadhur.jpeg'); }
 .photo-sanchi { background-image: url('../images/ACSanchi.jpeg'); }
 
 /* Internship Committee */
-.photo-aditi { background-image: url('../images/Aditi.jpeg'); }
-.photo-anushree { background-image: url('../images/Anushree.jpeg'); }
-.photo-aryaa { background-image: url('../images/Aryaa.jpeg'); }
-.photo-somansha { background-image: url('../images/Somansha.jpeg'); }
-.photo-upagnya { background-image: url('../images/Upagnya.jpeg'); }
-.photo-utkarsh { background-image: url('../images/Utkarsh.jpeg'); }
+.photo-aditi { background-image: url('../images/Aditi.jpg'); }
+.photo-anushree { background-image: url('../images/Anushree.jpg'); }
+.photo-aryaa { background-image: url('../images/Aryaa.jpg'); }
+.photo-somansha { background-image: url('../images/Somansha.jpg'); }
+.photo-upagnya { background-image: url('../images/Upagnya.jpg'); }
+.photo-utkarsh { background-image: url('../images/Utkarsh.jpg'); }
 .photo-amaeya { background-image: url('../images/Amaeya.jpeg'); }
 .photo-dhruvi { background-image: url('../images/Dhruvi.jpeg'); }
 .photo-jiya { background-image: url('../images/Jiya.jpeg'); }
@@ -257,10 +257,10 @@
 
 
 /* Athlos */
-.photo-dev { background-image: url('../images/Dev.jpeg'); }
-.photo-bhavya { background-image: url('../images/Bhavya.jpeg'); }
-.photo-kaustubh { background-image: url('../images/Kaustubh.jpeg'); }
-.photo-vansh { background-image: url('../images/Vansh.jpeg'); }
+.photo-dev { background-image: url('../images/Dev.jpg'); }
+.photo-bhavya { background-image: url('../images/Bhavya.jpg'); }
+.photo-kaustubh { background-image: url('../images/Kaustubh.jpg'); }
+.photo-vansh { background-image: url('../images/Vansh.jpg'); }
 .photo-harsh { background-image: url('../images/AthHarsh.jpeg'); }
 .photo-kavya { background-image: url('../images/AthKavya.jpeg'); }
 .photo-khyati { background-image: url('../images/AthKhyati.png'); }
@@ -269,10 +269,10 @@
 .photo-yuktha { background-image: url('../images/AthYuktha.jpeg'); }
 
 /* Riwaayat */
-.photo-ishika { background-image: url('../images/Ishika.jpeg'); }
-.photo-mrinali { background-image: url('../images/Mrinali.jpeg'); }
-.photo-avi { background-image: url('../images/Avi.jpeg'); }
-.photo-yusuf { background-image: url('../images/Yusuf.jpeg'); }
+.photo-ishika { background-image: url('../images/Ishika.jpg'); }
+.photo-mrinali { background-image: url('../images/Mrinali.jpg'); }
+.photo-avi { background-image: url('../images/Avi.jpg'); }
+.photo-yusuf { background-image: url('../images/Yusuf.jpg'); }
 .photo-dhruv { background-image: url('../images/RiwDhruv.jpeg'); }
 .photo-gautam { background-image: url('../images/RiwGautam.jpeg'); }
 .photo-khushi { background-image: url('../images/RiwKhushi.jpeg'); }
@@ -281,10 +281,10 @@
 .photo-yashvi { background-image: url('../images/RiwYashvi.jpeg'); }
 
 /* Literati */
-.photo-mannat { background-image: url('../images/Mannat.jpeg'); }
-.photo-sarthak { background-image: url('../images/Sarthak.jpeg'); }
-.photo-ananya { background-image: url('../images/Ananya.jpeg'); }
-.photo-parmi { background-image: url('../images/Parmi.jpeg'); }
+.photo-mannat { background-image: url('../images/Mannat.jpg'); }
+.photo-sarthak { background-image: url('../images/Sarthak.jpg'); }
+.photo-ananya { background-image: url('../images/Ananya.jpg'); }
+.photo-parmi { background-image: url('../images/Parmi.jpg'); }
 .photo-advay { background-image: url('../images/LitAdvay.jpeg'); }
 .photo-akshun { background-image: url('../images/Akshun.jpeg'); }
 .photo-arav { background-image: url('../images/LitArav.jpeg'); }
@@ -293,13 +293,14 @@
 .photo-sangeeth { background-image: url('../images/LitSangeeth.jpeg'); }
 
 /* Utthaan */
-.photo-nandini { background-image: url('../images/Nandini.jpeg'); }
-.photo-divya { background-image: url('../images/Divya.jpeg'); }
-.photo-aryan { background-image: url('../images/Aryan.jpeg'); }
-.photo-divanshi { background-image: url('../images/Divanshi.jpeg'); }
+.photo-nandini { background-image: url('../images/Nandini.jpg'); }
+.photo-divya { background-image: url('../images/Divya.jpg'); }
+.photo-aryan { background-image: url('../images/Aryan.jpg'); }
+.photo-divanshi { background-image: url('../images/Divanshi.jpg'); }
 .photo-mahek { background-image: url('../images/RiwMahek.png'); }
 .photo-nayan { background-image: url('../images/UthNayan.jpeg'); }
 .photo-nidhi { background-image: url('../images/UthNidhi.jpeg'); }
 .photo-sangeetha { background-image: url('../images/UthSangeetha.jpeg'); }
 .photo-sithi { background-image: url('../images/UthSithi.jpeg'); }
 .photo-srishti { background-image: url('../images/UthSrishti.jpeg'); }
+
