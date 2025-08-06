@@ -234,70 +234,72 @@
 /* --- Individual Team Member Photos --- */
 
 /* Academic Committee */
-.photo-ab { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=A.B.'); }
-.photo-bg { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=B.G.'); }
-.photo-ac-j1 { background-image: url('https://placehold.co/70x70/E6E6FA/000000?text=J1'); }
-.photo-ac-j2 { background-image: url('https://placehold.co/70x70/E0FFFF/000000?text=J2'); }
+.photo-shrish { background-image: url('../images/Shrish.jpeg'); }
+.photo-akruti { background-image: url('../images/Akruti.jpeg'); }
+.photo-madhur { background-image: url('../images/ACMadhur.jpeg'); }
+.photo-sanchi { background-image: url('../images/ACSanchi.jpeg'); }
 
 /* Internship Committee */
-.photo-cm { background-image: url('https://placehold.co/70x70/90EE90/000000?text=C.M.'); }
-.photo-ds { background-image: url('https://placehold.co/70x70/FFA07A/000000?text=D.S.'); }
-.photo-ic-j1 { background-image: url('https://placehold.co/70x70/FAFAD2/000000?text=J1'); }
-.photo-ic-j2 { background-image: url('https://placehold.co/70x70/D3D3D3/000000?text=J2'); }
-.photo-ic-j3 { background-image: url('https://placehold.co/70x70/F5DEB3/000000?text=J3'); }
-.photo-ic-j4 { background-image: url('https://placehold.co/70x70/FFF5EE/000000?text=J4'); }
-.photo-ic-j5 { background-image: url('https://placehold.co/70x70/F0FFF0/000000?text=J5'); }
-.photo-ic-j6 { background-image: url('https://placehold.co/70x70/FDF5E6/000000?text=J6'); }
-.photo-ic-j7 { background-image: url('https://placehold.co/70x70/FFFAF0/000000?text=J7'); }
-.photo-ic-j8 { background-image: url('https://placehold.co/70x70/F8F8FF/000000?text=J8'); }
+.photo-aditi { background-image: url('../images/Aditi.jpeg'); }
+.photo-anushree { background-image: url('../images/Anushree.jpeg'); }
+.photo-aryaa { background-image: url('../images/Aryaa.jpeg'); }
+.photo-somansha { background-image: url('../images/Somansha.jpeg'); }
+.photo-upagnya { background-image: url('../images/Upagnya.jpeg'); }
+.photo-utkarsh { background-image: url('../images/Utkarsh.jpeg'); }
+.photo-amaeya { background-image: url('../images/Amaeya.jpeg'); }
+.photo-dhruvi { background-image: url('../images/Dhruvi.jpeg'); }
+.photo-jiya { background-image: url('../images/Jiya.jpeg'); }
+.photo-gaurav { background-image: url('../images/Gaurav.jpeg'); }
+.photo-muskan { background-image: url('../images/ICMuskan.png'); }
+.photo-sanskar { background-image: url('../images/Sanskar.jpeg'); }
+.photo-shashwat { background-image: url('../images/Shashwat.jpeg'); }
+.photo-navyansh { background-image: url('../images/Navyansh.jpeg'); }
+
 
 /* Athlos */
-.photo-ath-s1 { background-image: url('https://placehold.co/70x70/FFE4C4/000000?text=S1'); }
-.photo-ath-s2 { background-image: url('https://placehold.co/70x70/FFEBCD/000000?text=S2'); }
-.photo-ath-s3 { background-image: url('https://placehold.co/70x70/FFDEAD/000000?text=S3'); }
-.photo-ath-s4 { background-image: url('https://placehold.co/70x70/FFE4B5/000000?text=S4'); }
-.photo-ath-j1 { background-image: url('https://placehold.co/70x70/FFDAB9/000000?text=J1'); }
-.photo-ath-j2 { background-image: url('https://placehold.co/70x70/FFEFD5/000000?text=J2'); }
-.photo-ath-j3 { background-image: url('https://placehold.co/70x70/FFF8DC/000000?text=J3'); }
-.photo-ath-j4 { background-image: url('https://placehold.co/70x70/FFFACD/000000?text=J4'); }
-.photo-ath-j5 { background-image: url('https://placehold.co/70x70/FFFFE0/000000?text=J5'); }
-.photo-ath-j6 { background-image: url('https://placehold.co/70x70/FFFFF0/000000?text=J6'); }
+.photo-dev { background-image: url('../images/Dev.jpeg'); }
+.photo-bhavya { background-image: url('../images/Bhavya.jpeg'); }
+.photo-kaustubh { background-image: url('../images/Kaustubh.jpeg'); }
+.photo-vansh { background-image: url('../images/Vansh.jpeg'); }
+.photo-harsh { background-image: url('../images/AthHarsh.jpeg'); }
+.photo-kavya { background-image: url('../images/AthKavya.jpeg'); }
+.photo-khyati { background-image: url('../images/AthKhyati.png'); }
+.photo-rohan { background-image: url('../images/AthRohan.jpeg'); }
+.photo-vincent { background-image: url('../images/AthVincent.jpeg'); }
+.photo-yuktha { background-image: url('../images/AthYuktha.jpeg'); }
 
 /* Riwaayat */
-.photo-riw-s1 { background-image: url('https://placehold.co/70x70/F0E68C/000000?text=S1'); }
-.photo-riw-s2 { background-image: url('https://placehold.co/70x70/EEE8AA/000000?text=S2'); }
-.photo-riw-s3 { background-image: url('https://placehold.co/70x70/BDB76B/000000?text=S3'); }
-.photo-riw-s4 { background-image: url('https://placehold.co/70x70/ADFF2F/000000?text=S4'); }
-.photo-riw-j1 { background-image: url('https://placehold.co/70x70/7CFC00/000000?text=J1'); }
-.photo-riw-j2 { background-image: url('https://placehold.co/70x70/00FF00/000000?text=J2'); }
-.photo-riw-j3 { background-image: url('https://placehold.co/70x70/32CD32/000000?text=J3'); }
-.photo-riw-j4 { background-image: url('https://placehold.co/70x70/98FB98/000000?text=J4'); }
-.photo-riw-j5 { background-image: url('https://placehold.co/70x70/90EE90/000000?text=J5'); }
-.photo-riw-j6 { background-image: url('https://placehold.co/70x70/00FA9A/000000?text=J6'); }
+.photo-ishika { background-image: url('../images/Ishika.jpeg'); }
+.photo-mrinali { background-image: url('../images/Mrinali.jpeg'); }
+.photo-avi { background-image: url('../images/Avi.jpeg'); }
+.photo-yusuf { background-image: url('../images/Yusuf.jpeg'); }
+.photo-dhruv { background-image: url('../images/RiwDhruv.jpeg'); }
+.photo-gautam { background-image: url('../images/RiwGautam.jpeg'); }
+.photo-khushi { background-image: url('../images/RiwKhushi.jpeg'); }
+.photo-parth { background-image: url('../images/RiwParth.jpeg'); }
+.photo-samruddhi { background-image: url('../images/RiwSamruddhi.jpeg'); }
+.photo-yashvi { background-image: url('../images/RiwYashvi.jpeg'); }
 
 /* Literati */
-.photo-lit-s1 { background-image: url('https://placehold.co/70x70/87CEFA/000000?text=S1'); }
-.photo-lit-s2 { background-image: url('https://placehold.co/70x70/87CEEB/000000?text=S2'); }
-.photo-lit-s3 { background-image: url('https://placehold.co/70x70/ADD8E6/000000?text=S3'); }
-.photo-lit-s4 { background-image: url('https://placehold.co/70x70/B0C4DE/000000?text=S4'); }
-.photo-lit-j1 { background-image: url('https://placehold.co/70x70/B0E0E6/000000?text=J1'); }
-.photo-lit-j2 { background-image: url('https://placehold.co/70x70/AFEEEE/000000?text=J2'); }
-.photo-lit-j3 { background-image: url('https://placehold.co/70x70/E0FFFF/000000?text=J3'); }
-.photo-lit-j4 { background-image: url('https://placehold.co/70x70/F0FFFF/000000?text=J4'); }
-.photo-lit-j5 { background-image: url('https://placehold.co/70x70/F5F5F5/000000?text=J5'); }
-.photo-lit-j6 { background-image: url('https://placehold.co/70x70/DCDCDC/000000?text=J6'); }
+.photo-mannat { background-image: url('../images/Mannat.jpeg'); }
+.photo-sarthak { background-image: url('../images/Sarthak.jpeg'); }
+.photo-ananya { background-image: url('../images/Ananya.jpeg'); }
+.photo-parmi { background-image: url('../images/Parmi.jpeg'); }
+.photo-advay { background-image: url('../images/LitAdvay.jpeg'); }
+.photo-akshun { background-image: url('../images/Akshun.jpeg'); }
+.photo-arav { background-image: url('../images/LitArav.jpeg'); }
+.photo-arhaan { background-image: url('../images/LitArhaan.jpeg'); }
+.photo-lit-parth { background-image: url('../images/LitParth.png'); }
+.photo-sangeeth { background-image: url('../images/LitSangeeth.jpeg'); }
 
 /* Utthaan */
-.photo-utt-s1 { background-image: url('https://placehold.co/70x70/C0C0C0/000000?text=S1'); }
-.photo-utt-s2 { background-image: url('https://placehold.co/70x70/D3D3D3/000000?text=S2'); }
-.photo-utt-s3 { background-image: url('https://placehold.co/70x70/A9A9A9/000000?text=S3'); }
-.photo-utt-s4 { background-image: url('https://placehold.co/70x70/808080/FFFFFF?text=S4'); }
-.photo-utt-j1 { background-image: url('https://placehold.co/70x70/696969/FFFFFF?text=J1'); }
-.photo-utt-j2 { background-image: url('https://placehold.co/70x70/778899/FFFFFF?text=J2'); }
-.photo-utt-j3 { background-image: url('https://placehold.co/70x70/708090/FFFFFF?text=J3'); }
-.photo-utt-j4 { background-image: url('https://placehold.co/70x70/2F4F4F/FFFFFF?text=J4'); }
-.photo-utt-j5 { background-image: url('https://placehold.co/70x70/000000/FFFFFF?text=J5'); }
-.photo-utt-j6 { background-image: url('https://placehold.co/70x70/191970/FFFFFF?text=J6'); }
-
-
-
+.photo-nandini { background-image: url('../images/Nandini.jpeg'); }
+.photo-divya { background-image: url('../images/Divya.jpeg'); }
+.photo-aryan { background-image: url('../images/Aryan.jpeg'); }
+.photo-divanshi { background-image: url('../images/Divanshi.jpeg'); }
+.photo-mahek { background-image: url('../images/RiwMahek.png'); }
+.photo-nayan { background-image: url('../images/UthNayan.jpeg'); }
+.photo-nidhi { background-image: url('../images/UthNidhi.jpeg'); }
+.photo-sangeetha { background-image: url('../images/UthSangeetha.jpeg'); }
+.photo-sithi { background-image: url('../images/UthSithi.jpeg'); }
+.photo-srishti { background-image: url('../images/UthSrishti.jpeg'); }
