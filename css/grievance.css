@@ -1,0 +1,94 @@
+.page-title {
+    text-align: center;
+    color: #081F5C;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.grievance-form-container, .grievance-table-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #081F5C;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #7096D1;
+    padding-bottom: 0.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    color: #334EAC;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #BAD6EB;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #7096D1;
+    box-shadow: 0 0 0 3px rgba(112, 150, 209, 0.2);
+}
+
+.submit-button {
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #334EAC, #7096D1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(51, 78, 172, 0.3);
+}
+
+.grievance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grievance-table th, .grievance-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #EDF1F6;
+}
+
+.grievance-table th {
+    background: #EDF1F6;
+    color: #081F5C;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.status-resolved {
+    color: #5cb85c;
+    font-weight: bold;
+}
