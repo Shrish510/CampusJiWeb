@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
                   document.getElementById('aboutLink')?.classList.add('active');
                 } else if (pageName === 'ClubsComs.html') {
                   document.querySelector('a[href="ClubsComs.html"]')?.classList.add('active');
-                } else if (pageName === 'contact_repository.html') {
-                  document.querySelector('a[href="contact_repository.html"]')?.classList.add('active');
+                } else if (pageName === 'services.html' || pageName === 'contact_repository.html' || pageName === 'grievance.html') {
+                  document.getElementById('servicesLink')?.classList.add('active');
                 }
             }
           })
