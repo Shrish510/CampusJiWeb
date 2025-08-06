@@ -189,9 +189,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
-    padding: 20px;
+    padding: 10px;
     background: var(--asian-pear);
     border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.team-grid.two-column {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .team-member-card {
