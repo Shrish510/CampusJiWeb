@@ -1,5 +1,74 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Slider functionality
+    // --- Supabase Client Initialization ---
+    const SUPABASE_URL = 'https://jqiifqmiucpqeiytqhkk.supabase.co'; // <-- Replace with your URL
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxaWlmcW1pdWNwcWVpeXRxaGtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NTE4MDEsImV4cCI6MjA3MDEyNzgwMX0.giovr0elKJhb1pAoH19yfJm1Rp50eOHmQ_Uv8PIy7T4'; // <-- Replace with your anon key
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // --- Fetch and Display Mess Menu ---
+    async function getMessMenu() {
+        const menuList = document.getElementById('mess-menu-list');
+        if (!menuList) return; // Don't run if the element doesn't exist
+
+        const today = new Date().getDay(); // Sunday = 0, Monday = 1...
+        const dayOfWeek = (today === 0) ? 7 : today; // Adjust to our schema (Sunday = 7)
+
+        const { data, error } = await supabase
+            .from('mess_menu')
+            .select('*')
+            .eq('day_of_week', dayOfWeek);
+
+        if (error) {
+            console.error('Error fetching mess menu:', error);
+            menuList.innerHTML = '<li>Error loading menu.</li>';
+            return;
+        }
+
+        if (data && data.length > 0) {
+            menuList.innerHTML = ''; // Clear loading text
+            data.forEach(item => {
+                const menuItem = document.createElement('li');
+                menuItem.innerHTML = `<strong>${item.meal_time}</strong><br>${item.food_items}`;
+                menuList.appendChild(menuItem);
+            });
+        } else {
+            menuList.innerHTML = '<li>Menu not available for today.</li>';
+        }
+    }
+
+    // --- Fetch and Display Bulletin ---
+    async function getBulletin() {
+        const bulletinList = document.getElementById('bulletin-list');
+        if (!bulletinList) return; // Don't run if the element doesn't exist
+
+        const { data, error } = await supabase
+            .from('bulletin')
+            .select('*')
+            .order('created_at', { ascending: false }); // Show newest first
+
+        if (error) {
+            console.error('Error fetching bulletin:', error);
+            bulletinList.innerHTML = '<div class="bulletin-item">Error loading bulletins.</div>';
+            return;
+        }
+
+        if (data && data.length > 0) {
+            bulletinList.innerHTML = ''; // Clear loading text
+            data.forEach(item => {
+                const bulletinItem = document.createElement('div');
+                bulletinItem.className = 'bulletin-item';
+                bulletinItem.innerHTML = `<strong>${item.title}</strong><br>${item.content}`;
+                bulletinList.appendChild(bulletinItem);
+            });
+        } else {
+            bulletinList.innerHTML = '<div class="bulletin-item">No new announcements.</div>';
+        }
+    }
+    
+    // --- Call Supabase functions ---
+    getMessMenu();
+    getBulletin();
+
+    // --- Existing Slider functionality ---
     let currentSlide = 0;
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
@@ -43,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         startSlider();
     }
 
-    // FAQ functionality
+    // --- Existing FAQ functionality ---
     const faqQuestions = document.querySelectorAll('.faq-question');
     if (faqQuestions.length > 0) {
         faqQuestions.forEach(question => {
@@ -54,9 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to fetch and display weather
+    // --- Existing Weather functionality ---
     function fetchWeather() {
-        // Coordinates for Rohtak, Haryana
         const latitude = 28.90;
         const longitude = 76.61;
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relativehumidity_2m,apparent_temperature`;
@@ -71,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('weather-temp').textContent = `${Math.round(weather.temperature)}°C`;
                     document.getElementById('weather-wind').textContent = `${weather.windspeed} km/h`;
                     
-                    // Find the current hour's data for humidity and feels like temperature
                     const now = new Date();
                     const currentHourISO = now.toISOString().slice(0, 14) + "00";
                     const timeIndex = hourly.time.findIndex(t => t.startsWith(currentHourISO.slice(0,13)));
@@ -107,8 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return weatherCodes[code] || "Unknown";
     }
 
-    // Fetch weather on page load
     fetchWeather();
-    // Refresh weather every 30 minutes (1800000 milliseconds)
     setInterval(fetchWeather, 1800000);
 });
