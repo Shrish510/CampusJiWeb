@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
    <div id="header-container"></div>
@@ -63,38 +64,15 @@
         <div class="three-column-section">
             <div class="column-card">
                 <h3>Mess Menu Today</h3>
-                <ul class="mess-menu-items">
-                    <li><strong>Breakfast (7:00 AM - 10:00 AM)</strong></li>
-                    <li>Aloo Paratha, Curd, Pickle</li>
-                    <li>Tea/Coffee, Boiled Eggs</li>
-                    <li><strong>Lunch (12:30 PM - 2:30 PM)</strong></li>
-                    <li>Dal Tadka, Jeera Rice</li>
-                    <li>Mixed Vegetable, Roti</li>
-                    <li>Salad, Curd</li>
-                    <li><strong>Dinner (7:30 PM - 9:30 PM)</strong></li>
-                    <li>Chicken Curry, Steamed Rice</li>
-                    <li>Seasonal Vegetable, Chapati</li>
-                    <li>Ice Cream</li>
+                <ul id="mess-menu-list" class="mess-menu-items">
+                    <li>Loading menu...</li>
                 </ul>
             </div>
 
             <div class="column-card">
                 <h3>Bulletin</h3>
-                <div class="bulletin-item">
-                    <strong>Library Extended Hours</strong><br>
-                    The library will remain open until 11 PM during exam week.
-                </div>
-                <div class="bulletin-item">
-                    <strong>Guest Lecture</strong><br>
-                    Industry expert session on Digital Marketing tomorrow at 4 PM in Auditorium.
-                </div>
-                <div class="bulletin-item">
-                    <strong>Sports Tournament</strong><br>
-                    Inter-batch cricket tournament registrations open. Deadline: July 15th.
-                </div>
-                <div class="bulletin-item">
-                    <strong>Career Fair</strong><br>
-                    Annual placement fair scheduled for July 20-22. Dress code: Formal.
+                <div id="bulletin-list">
+                    <div class="bulletin-item">Loading bulletins...</div>
                 </div>
             </div>
 
@@ -129,7 +107,7 @@
                     width="100%"
                     height="500"
                     frameborder="0" style="border:0"
-                    src="https://maps.google.com/maps?q=28.853390835718354,76.54220669325325&hl=es;z=14&amp;output=embed"
+                    src="https://maps.google.com/maps?q=28.853390835718354,76.54220669325325&hl=es;z=14&output=embed"
                     allowfullscreen>
                 </iframe>
             </div>
