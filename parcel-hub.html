@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusJi - Parcel Hub</title>
+    <script src="js/auth.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/parcel-hub.css" />
+    <link
+      rel="icon"
+      href="images/Campusjilogo.jpg"
+      type="image/x-icon"
+      style="border-radius: 50%"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+      <div class="parcel-hub-container">
+        <div class="parcel-header">
+          <h1><i class="fas fa-box"></i> Campus Parcel Hub</h1>
+          <p>Track and manage all incoming parcels for the campus</p>
+        </div>
+
+        <div
+          id="service-login-section"
+          class="service-login-section"
+          style="display: none"
+        >
+          <div class="login-card">
+            <h2><i class="fas fa-user-shield"></i> Parcel Service Access</h2>
+            <p style="text-align: center; color: #6c757d; margin-bottom: 1rem">
+              Only authorized parcel service personnel can add new parcels.
+            </p>
+            <p style="text-align: center; color: #6c757d; font-size: 0.9rem">
+              You can still track existing parcels using the search and filter
+              options below.
+            </p>
+          </div>
+        </div>
+
+        <div
+          id="service-dashboard"
+          class="service-dashboard"
+          style="display: none"
+        >
+          <div class="dashboard-header">
+            <h2>
+              <i class="fas fa-tachometer-alt"></i> Parcel Service Dashboard
+            </h2>
+          </div>
+
+          <div class="add-parcel-section">
+            <h3><i class="fas fa-plus-circle"></i> Add New Parcel</h3>
+            <form id="add-parcel-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="recipient-name">Recipient Name</label>
+                  <input type="text" id="recipient-name" required />
+                </div>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <select id="company" required>
+                    <option value="">Select Company</option>
+                    <option value="Amazon">Amazon</option>
+                    <option value="Flipkart">Flipkart</option>
+                    <option value="Myntra">Myntra</option>
+                    <option value="Nykaa">Nykaa</option>
+                    <option value="Zomato">Zomato</option>
+                    <option value="Swiggy">Swiggy</option>
+                    <option value="Blinkit">Blinkit</option>
+                    <option value="Zepto">Zepto</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-number">Contact Number</label>
+                  <input
+                    type="tel"
+                    id="contact-number"
+                    pattern="[0-9]{10}"
+                    placeholder="10-digit number"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="other-company">Other Company (if selected)</label>
+                  <input
+                    type="text"
+                    id="other-company"
+                    placeholder="Enter company name"
+                  />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Add Parcel
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="parcel-tracking-section">
+          <div class="tracking-header">
+            <h2><i class="fas fa-search"></i> Track Your Parcel</h2>
+            <div class="search-box">
+              <input
+                type="text"
+                id="search-parcel"
+                placeholder="Search by name or contact number..."
+              />
+              <button id="search-btn" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="status-filter">
+            <button class="filter-btn active" data-status="all">
+              <i class="fas fa-list"></i> All
+            </button>
+            <button class="filter-btn" data-status="pending">
+              <i class="fas fa-clock"></i> Pending
+            </button>
+            <button class="filter-btn" data-status="collected">
+              <i class="fas fa-check-circle"></i> Collected
+            </button>
+          </div>
+
+          <div class="parcels-container">
+            <div id="parcels-list" class="parcels-list">
+            </div>
+            <div id="loading-spinner" class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i> Loading parcels...
+            </div>
+            <div id="no-parcels" class="no-parcels" style="display: none">
+              <i class="fas fa-box-open"></i>
+              <p>No parcels found</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-message"></div>
+      </div>
+    </div>
+
+    <script src="js/parcel-hub.js"></script>
+  </body>
+</html>
