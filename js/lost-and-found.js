@@ -136,7 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
         item.description || ""
       )}</div>
       
+
       <div class="listing-contact" data-contact='${JSON.stringify(contact)}'>
+
         <div><strong>Email:</strong> ${contact.email || "-"}</div>
         <div><strong>Phone:</strong> ${contact.phone || "-"}</div>
       </div>
@@ -160,7 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
           item.found ? "btn-secondary" : "btn-success"
         }" data-action="toggle-status" data-id="${item.id}" data-next="${
       item.found ? "false" : "true"
+
     }" data-owner-email="${escapeHtml(contact.email || "")}">
+
           <i class="fas ${
             item.found ? "fa-undo" : "fa-check"
           }"></i> ${toggleLabel}
@@ -319,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rowId = target.getAttribute("data-id");
     const nextVal = target.getAttribute("data-next") === "true";
+
     const ownerEmail = target.getAttribute("data-owner-email") || "";
 
     console.log("Toggling status:", {
