@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.description || ""
       )}</div>
       
-      <div class="listing-contact">
+      <div class="listing-contact" data-contact='${JSON.stringify(contact)}'>
         <div><strong>Email:</strong> ${contact.email || "-"}</div>
         <div><strong>Phone:</strong> ${contact.phone || "-"}</div>
       </div>
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
           item.found ? "btn-secondary" : "btn-success"
         }" data-action="toggle-status" data-id="${item.id}" data-next="${
       item.found ? "false" : "true"
-    }">
+    }" data-owner-email="${escapeHtml(contact.email || "")}">
           <i class="fas ${
             item.found ? "fa-undo" : "fa-check"
           }"></i> ${toggleLabel}
@@ -319,19 +319,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rowId = target.getAttribute("data-id");
     const nextVal = target.getAttribute("data-next") === "true";
+    const ownerEmail = target.getAttribute("data-owner-email") || "";
 
-    console.log("Toggling status:", { rowId, nextVal, currentUserEmail });
+    console.log("Toggling status:", {
+      rowId,
+      nextVal,
+      currentUserEmail,
+      ownerEmail,
+    });
 
     try {
-      // First check if user has permission
-      const contact = JSON.parse(
-        target.closest(".listing-card").querySelector(".listing-contact")
-          .textContent
-      );
+      // Check permission using data-owner-email directly; no JSON parsing
       const isOwner =
         currentUserEmail &&
-        contact?.email &&
-        currentUserEmail.toLowerCase() === contact.email.toLowerCase();
+        ownerEmail &&
+        currentUserEmail.toLowerCase() === ownerEmail.toLowerCase();
 
       if (!isOwner) {
         alert("You can only update your own listings.");
