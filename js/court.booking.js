@@ -25,6 +25,22 @@ let currentYear = currentDate.getFullYear();
 let allBookings = [];
 let currentUser = null;
 
+function getCourtName(court) {
+  const num = parseInt(court, 10);
+  if (num === 1) return "Badminton Court 1";
+  if (num === 2) return "Badminton Court 2";
+  if (num === 3) return "Basketball Court";
+  return `Court ${court}`;
+}
+
+function getCourtClass(court) {
+  const num = parseInt(court, 10);
+  if (num === 1) return "court-b1";
+  if (num === 2) return "court-b2";
+  if (num === 3) return "court-basketball";
+  return "court-unknown";
+}
+
 const bookingForm = document.getElementById("bookingForm");
 const bookingsList = document.getElementById("bookingsList");
 const refreshBookingsBtn = document.getElementById("refreshBookings");
@@ -252,11 +268,13 @@ function checkCourtAvailability() {
     console.log("⚠️ Court conflicts detected:", conflicts);
 
     courtSelect.style.borderColor = "#dc3545";
-    courtSelect.title = `Court ${testBooking.court} is busy at this time`;
+    courtSelect.title = `${getCourtName(
+      testBooking.court
+    )} is busy at this time`;
   } else {
     console.log("✅ Court available at this time");
     courtSelect.style.borderColor = "#28a745";
-    courtSelect.title = `Court ${testBooking.court} is available`;
+    courtSelect.title = `${getCourtName(testBooking.court)} is available`;
   }
 }
 
@@ -351,22 +369,23 @@ function validateBooking(bookingData) {
 
   if (conflicts.length > 0) {
     console.log("❌ Conflicts found:", conflicts);
-    const courtName =
-      bookingData.court == 1 ? "Badminton Court 1" : "Badminton Court 2";
+    const courtName = getCourtName(bookingData.court);
 
     const conflictDetails = conflicts
       .map(
         (c) =>
-          `${c.booker_name} (${new Date(
-            c.start_time
-          ).toLocaleTimeString()} - ${new Date(
-            c.end_time
-          ).toLocaleTimeString()})`
+          `${c.booker_name} (${new Date(c.start_time).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })} - ${new Date(c.end_time).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })})`
       )
       .join(", ");
 
     showMessage(
-      `Badminton Court ${bookingData.court} is already booked for this time slot by: ${conflictDetails}. Please choose a different time or court.`,
+      `${courtName} is already booked for this time slot by: ${conflictDetails}. Please choose a different time or court.`,
       "error"
     );
     return false;
@@ -538,8 +557,7 @@ function displayBookings(bookings) {
           : booking.court_number !== undefined
           ? booking.court_number
           : 1;
-      const courtName =
-        courtValue == 1 ? "Badminton Court 1" : "Badminton Court 2";
+      const courtName = getCourtName(courtValue);
       return `
                 <div class="booking-card">
                     <div class="booking-header">
@@ -627,21 +645,52 @@ function renderCalendar() {
   for (let i = 0; i < 42; i++) {
     const isCurrentMonth = currentDate.getMonth() === currentMonth;
     const isToday = currentDate.toDateString() === today.toDateString();
-    const hasBookings = hasBookingsOnDate(currentDate);
+
+    const dayBookings = allBookings
+      .filter((booking) => {
+        const bookingDate = new Date(booking.start_time);
+        return bookingDate.toDateString() === currentDate.toDateString();
+      })
+      .sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
 
     let dayClass = "calendar-day";
     if (!isCurrentMonth) dayClass += " other-month";
     if (isToday) dayClass += " today";
-    if (hasBookings) dayClass += " has-bookings";
+    if (dayBookings.length > 0) dayClass += " has-bookings";
 
-    const bookingIndicator = hasBookings
-      ? '<div class="booking-indicator"></div>'
-      : "";
+    const chipsToShow = dayBookings.slice(0, 3);
+    const moreCount = Math.max(0, dayBookings.length - 3);
+
+    const chipsHtml = chipsToShow
+      .map((booking) => {
+        const startTime = new Date(booking.start_time);
+        const endTime = new Date(booking.end_time);
+        const courtValue =
+          booking.court !== undefined
+            ? booking.court
+            : booking.court_number !== undefined
+            ? booking.court_number
+            : 1;
+        const courtCls = getCourtClass(courtValue);
+        const timeText = `${startTime.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })} - ${endTime.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}`;
+        const nameText = booking.booker_name || "Booked";
+        return `<div class="event-chip ${courtCls}"><span class="time">${timeText}</span><span>•</span><span class="name">${nameText}</span></div>`;
+      })
+      .join("");
+
+    const moreHtml =
+      moreCount > 0 ? `<div class="more-chip">+${moreCount} more</div>` : "";
 
     calendarHTML.push(`
             <div class="${dayClass}" onclick="showDayBookings('${currentDate.toISOString()}')">
                 <div class="day-number">${currentDate.getDate()}</div>
-                ${bookingIndicator}
+                <div class="day-events">${chipsHtml}${moreHtml}</div>
             </div>
         `);
 
@@ -714,8 +763,7 @@ function showDayBookings(dateString) {
                 : booking.court_number !== undefined
                 ? booking.court_number
                 : 1;
-            const courtName =
-              courtValue == 1 ? "Badminton Court 1" : "Badminton Court 2";
+            const courtName = getCourtName(courtValue);
             return `
                     <div class="booking-card">
                         <div class="booking-header">

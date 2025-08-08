@@ -300,6 +300,54 @@
     right: 0.5rem;
 }
 
+.day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-chip {
+    background: #f1f5f9;
+    border-left: 4px solid #94a3b8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-chip .time {
+    font-weight: 600;
+}
+
+.event-chip.court-b1 {
+    border-left-color: #3b82f6;
+    background: #eff6ff;
+    color: #1e3a8a;
+}
+
+.event-chip.court-b2 {
+    border-left-color: #10b981;
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.event-chip.court-basketball {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+    color: #92400e;
+}
+
+.more-chip {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
 /* Modal Styles */
 .modal {
     display: none;

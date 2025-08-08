@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lost & Found - CampusJi</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/lost-and-found.css" />
+    <link
+      rel="icon"
+      href="images/Campusjilogo.jpg"
+      type="image/x-icon"
+      style="border-radius: 50%"
+    />
+    <script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+      <div class="lost-found-container">
+        <div class="lost-found-header">
+          <h1><i class="fas fa-search"></i> Lost & Found Center</h1>
+          <p>
+            Report lost items or check for items that have been found by others
+          </p>
+        </div>
+
+        <div class="action-buttons">
+          <button id="cta-new-listing" class="action-btn primary">
+            <i class="fas fa-clipboard-list"></i> List Lost Item
+          </button>
+        </div>
+
+        <div id="form-section" class="form-section hidden">
+          <div class="form-card">
+            <div class="form-header">
+              <h2 id="form-title">
+                <i class="fas fa-plus-circle"></i> Create a Listing
+              </h2>
+              <button id="close-form" class="close-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+
+            <form id="listing-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-input"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="title">Item Name</label>
+                  <input
+                    id="title"
+                    type="text"
+                    class="form-input"
+                    placeholder="Black Wallet"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                  id="description"
+                  class="form-input"
+                  rows="4"
+                  placeholder="Describe the item, when/where it was lost or found..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Contact Phone</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  class="form-input"
+                  placeholder="9999999999"
+                  pattern="[0-9]{10}"
+                  title="Enter a 10-digit phone number"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="image">Photo</label>
+                <input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-success">
+                  <i class="fas fa-save"></i> Submit Listing
+                </button>
+                <button
+                  type="button"
+                  id="cancel-form"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-times"></i> Cancel
+                </button>
+              </div>
+
+              <div id="form-message" class="form-message" role="status"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="listings-section">
+          <div class="listings-header">
+            <h2><i class="fas fa-list"></i> Browse Listings</h2>
+            <div class="search-box">
+              <input
+                type="text"
+                id="search-listings"
+                placeholder="Search by item name or description..."
+              />
+              <button id="search-btn" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="lost">
+              <i class="fas fa-search-location"></i> Lost Items
+            </button>
+            <button class="filter-btn" data-filter="found">
+              <i class="fas fa-hand-holding-heart"></i> Found Items
+            </button>
+          </div>
+
+          <div class="listings-container">
+            <div id="listings-list" class="listings-grid">
+              <!-- Listings will be populated here -->
+            </div>
+            <div id="loading-spinner" class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i> Loading listings...
+            </div>
+            <div id="no-listings" class="no-listings" style="display: none">
+              <i class="fas fa-search"></i>
+              <p>No listings found</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/lost-and-found.js"></script>
+  </body>
+</html>
