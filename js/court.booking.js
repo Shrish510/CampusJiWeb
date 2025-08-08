@@ -24,6 +24,7 @@ let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
 let allBookings = [];
 let currentUser = null;
+let currentUserEmail = null;
 
 function getCourtName(court) {
   const num = parseInt(court, 10);
@@ -78,11 +79,21 @@ function initializeApp() {
   if (startTimeInput) startTimeInput.value = "09:00";
   if (endTimeInput) endTimeInput.value = "10:00";
 
-  currentUser = localStorage.getItem("userName") || "Anonymous";
+  // Derive current user name and email from localStorage (set by login.js)
+  try {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null");
+    currentUserEmail = userInfo?.email || null;
+    currentUser =
+      userInfo?.name || localStorage.getItem("userName") || "Anonymous";
+  } catch (_) {
+    currentUser = localStorage.getItem("userName") || "Anonymous";
+    currentUserEmail = null;
+  }
+
   const bookerNameInput = document.getElementById("bookerName");
   if (bookerNameInput) bookerNameInput.value = currentUser;
 
-  console.log("👤 Current user:", currentUser);
+  console.log("👤 Current user:", currentUser, "| email:", currentUserEmail);
 
   if (!supabase) {
     console.log("🔄 Loading demo data...");
@@ -422,6 +433,7 @@ async function createBooking(bookingData) {
       const { data, error } = await supabase.from("court_booking").insert([
         {
           booker_name: bookingData.booker_name,
+          email: currentUserEmail,
           start_time:
             startDateTime
               .toLocaleString("sv-SE", { timeZone: "Asia/Kolkata" })
@@ -445,6 +457,7 @@ async function createBooking(bookingData) {
       const newBooking = {
         id: Date.now(),
         booker_name: bookingData.booker_name,
+        email: currentUserEmail,
         start_time: startDateTime.toISOString(),
         end_time: endDateTime.toISOString(),
         court: parseInt(bookingData.court),
@@ -510,6 +523,23 @@ async function loadBookings() {
 
 async function deleteBooking(bookingId) {
   try {
+    // Client-side permission check: only owner (by email) can delete
+    const booking = allBookings.find((b) => b.id === bookingId);
+    if (!booking) {
+      showMessage("Booking not found", "error");
+      return;
+    }
+
+    const canDelete =
+      booking?.email &&
+      currentUserEmail &&
+      booking.email.toLowerCase() === currentUserEmail.toLowerCase();
+
+    if (!canDelete) {
+      showMessage("You can only cancel your own booking", "error");
+      return;
+    }
+
     if (supabase) {
       const { error } = await supabase
         .from("court_booking")
@@ -558,6 +588,10 @@ function displayBookings(bookings) {
           ? booking.court_number
           : 1;
       const courtName = getCourtName(courtValue);
+      const isOwner =
+        booking?.email &&
+        currentUserEmail &&
+        booking.email.toLowerCase() === currentUserEmail.toLowerCase();
       return `
                 <div class="booking-card">
                     <div class="booking-header">
@@ -591,9 +625,11 @@ function displayBookings(bookings) {
                         </div>
                     </div>
                     <div class="booking-actions">
-                        <button class="btn-danger" onclick="deleteBooking(${
-                          booking.id
-                        })">Cancel Booking</button>
+                        ${
+                          isOwner
+                            ? `<button class="btn-danger" onclick="deleteBooking(${booking.id})">Cancel Booking</button>`
+                            : ""
+                        }
                     </div>
                 </div>
             `;
@@ -609,9 +645,15 @@ function toggleMyBookings() {
   showingMyBookings = !showingMyBookings;
 
   if (showingMyBookings) {
-    const myBookings = allBookings.filter(
-      (booking) => booking.booker_name === currentUser
-    );
+    const myBookings = allBookings.filter((booking) => {
+      const emailMatch =
+        booking?.email &&
+        currentUserEmail &&
+        booking.email.toLowerCase() === currentUserEmail.toLowerCase();
+      const nameFallbackMatch =
+        !booking?.email && booking.booker_name === currentUser;
+      return emailMatch || nameFallbackMatch;
+    });
     displayBookings(myBookings);
     if (showMyBookingsBtn) {
       showMyBookingsBtn.textContent = "Show All Bookings";
