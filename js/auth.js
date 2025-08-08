@@ -47,6 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
             pageName === "grievance.html"
           ) {
             document.getElementById("servicesLink")?.classList.add("active");
+          } else if (pageName === "ipm_social.html") {
+            document
+              .querySelector('a[href="ipm_social.html"]')
+              ?.classList.add("active");
           }
         }
       })
