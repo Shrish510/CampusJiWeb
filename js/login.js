@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isLoggedIn: true,
       };
 
-      if (email === "parceladmin@gmail.com" && password === "parcel") {
+      if (email === "parceldude@gmail.com" && password === "parcel") {
         userInfo.permission = "parcel";
         userInfo.role = "parcel_service";
         userInfo.name = "Parcel Service";
