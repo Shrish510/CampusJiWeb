@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
         userInfo.permission = "parcel";
         userInfo.role = "parcel_service";
         userInfo.name = "Parcel Service";
+      } else if (email === "admin.iimrohtak@gmail.com") {
+        userInfo.permission = "admin";
+        userInfo.role = "admin";
+        userInfo.name = "Admin";
       } else {
         userInfo.permission = "user";
         userInfo.role = "student";
