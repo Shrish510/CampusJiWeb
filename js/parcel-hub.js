@@ -94,24 +94,56 @@ document.addEventListener("DOMContentLoaded", function () {
     const recipientName = document.getElementById("recipient-name").value;
     const company = document.getElementById("company").value;
     const contactNumber = document.getElementById("contact-number").value;
+    const tokenNumber = document.getElementById("token-number").value;
     const otherCompany = document.getElementById("other-company").value;
 
     const finalCompany = company === "Other" ? otherCompany : company;
 
+    // Validate token number
+    if (!tokenNumber || tokenNumber.trim() === "") {
+      showModal("Token number is required!", "error");
+      return;
+    }
+
+    const parsedTokenNumber = parseInt(tokenNumber);
+    if (isNaN(parsedTokenNumber)) {
+      showModal("Token number must be a valid number!", "error");
+      return;
+    }
+
+    const parcelData = {
+      name: recipientName,
+      company: finalCompany,
+      contact: contactNumber,
+      token_no: parsedTokenNumber,
+      status: "pending",
+      added_by: currentUser,
+      added_at: new Date().toISOString(),
+    };
+
+    console.log("Data being sent to database:", parcelData);
+
     try {
-      const { data, error } = await supabase.from("parcel_data").insert([
-        {
-          name: recipientName,
-          company: finalCompany,
-          contact: contactNumber,
-          status: "pending",
-          added_by: currentUser,
-          added_at: new Date().toISOString(),
-        },
-      ]);
+      // Try explicit column mapping
+      const insertData = {
+        name: recipientName,
+        company: finalCompany,
+        contact: contactNumber,
+        token_no: parsedTokenNumber,
+        status: "pending",
+        added_by: currentUser,
+        added_at: new Date().toISOString(),
+      };
 
-      if (error) throw error;
+      const { data, error } = await supabase
+        .from("parcel_data")
+        .insert([insertData])
+        .select();
 
+      if (error) {
+        console.error("Supabase error:", error);
+        throw error;
+      }
       showModal("Parcel added successfully!", "success");
       addParcelForm.reset();
       document.getElementById("other-company").style.display = "none";
@@ -183,7 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const filteredParcels = allParcels.filter(
       (parcel) =>
         parcel.name.toLowerCase().includes(searchTerm) ||
-        parcel.contact.toString().includes(searchTerm)
+        parcel.contact.toString().includes(searchTerm) ||
+        (parcel.token_no && parcel.token_no.toString().includes(searchTerm))
     );
 
     displayParcels(filteredParcels);
@@ -234,6 +267,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 
                 <div class="parcel-details">
+                    <div class="parcel-detail">
+                        <div class="parcel-detail-label">Token No.</div>
+                        <div class="parcel-detail-value">${
+                          parcel.token_no || "N/A"
+                        }</div>
+                    </div>
                     <div class="parcel-detail">
                         <div class="parcel-detail-label">Company</div>
                         <div class="parcel-detail-value">${escapeHtml(
@@ -327,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayCurrentUserInfo() {
     const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
     console.log("Current user info:", userInfo);
-    
+
     if (userInfo.email) {
       console.log(
         `Logged in as: ${userInfo.email} (${userInfo.role || "user"})`
