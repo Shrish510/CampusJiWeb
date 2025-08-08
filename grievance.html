@@ -14,50 +14,85 @@
     <main class="main-content">
         <h1 class="page-title">Grievance Redressal</h1>
 
-        <div class="grievance-form-container">
-            <h2>Submit a New Grievance</h2>
-            <form id="grievanceForm">
-                <div class="input-group">
-                    <label for="grievanceSubject">Subject</label>
-                    <input type="text" id="grievanceSubject" required>
-                </div>
-                <div class="input-group">
-                    <label for="grievanceDescription">Description</label>
-                    <textarea id="grievanceDescription" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Submit Grievance</button>
-            </form>
+        <!-- Admin Controls -->
+        <div id="adminControls" style="display: none;">
+            <div class="admin-header">
+                <h2>Admin Panel</h2>
+                <button id="toggleViewBtn" class="toggle-btn">Switch to User View</button>
+            </div>
         </div>
 
-        <div class="grievance-table-container">
-            <h2>Your Grievances</h2>
-            <table class="grievance-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Subject</th>
-                        <th>Status</th>
-                        <th>Remarks</th>
-                    </tr>
-                </thead>
-                <tbody id="grievanceTableBody">
-                    <tr>
-                        <td>1</td>
-                        <td>Wi-Fi not working in Hostel D</td>
-                        <td class="status-pending">Pending</td>
-                        <td>Forwarded to the IT department.</td>
-                    </tr>
-                     <tr>
-                        <td>2</td>
-                        <td>Issue with the mess menu</td>
-                        <td class="status-resolved">Resolved</td>
-                        <td>The menu has been updated after discussion with the student council.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- User View -->
+        <div id="userView">
+            <div class="grievance-form-container">
+                <h2>Submit a New Grievance</h2>
+                <form id="grievanceForm">
+                    <div class="input-group">
+                        <label for="grievanceSubject">Subject</label>
+                        <input type="text" id="grievanceSubject" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="grievanceDescription">Description</label>
+                        <textarea id="grievanceDescription" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Grievance</button>
+                </form>
+            </div>
+
+            <div class="grievance-table-container">
+                <h2>Your Grievances</h2>
+                <table class="grievance-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grievanceTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>Wi-Fi not working in Hostel D</td>
+                            <td class="status-pending">Pending</td>
+                            <td>Forwarded to the IT department.</td>
+                        </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>Issue with the mess menu</td>
+                            <td class="status-resolved">Resolved</td>
+                            <td>The menu has been updated after discussion with the student council.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Admin View -->
+        <div id="adminView" style="display: none;">
+            <div class="admin-grievance-table-container">
+                <h2>All Grievances (Admin View)</h2>
+                <table class="grievance-table admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Subject</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminGrievanceTableBody">
+                        <!-- Admin table will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
     <script src="js/grievance.js"></script>
 </body>
