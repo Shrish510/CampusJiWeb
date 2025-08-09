@@ -1,69 +1,89 @@
-.page-title {
+/* About Us Page Styles */
+
+/* Hero Section */
+.hero-section {
     text-align: center;
-    color: #081F5C;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    font-weight: bold;
+    padding: 4rem 1rem;
+    background: linear-gradient(rgba(8, 31, 92, 0.8), rgba(51, 78, 172, 0.8)), url('../images/IMG-20250709-WA0018.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    margin-bottom: 4rem;
 }
 
-/* Vision and Mission Sections */
+.hero-title {
+    color: #FFFFFF;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    color: #D0E3FF;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Vision & Mission Section */
 .vision-mission-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
 
-.vision-section, .mission-section {
-    background: white;
+.info-card {
+    background: #FFFFFF;
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-.vision-section:hover, .mission-section:hover {
-    transform: translateY(-5px);
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(8, 31, 92, 0.1);
 }
 
-.vision-section h2, .mission-section h2 {
+.info-card .icon {
+    font-size: 3rem;
+    color: #334EAC;
+    margin-bottom: 1.5rem;
+}
+
+.info-card h2 {
     color: #081F5C;
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 3px solid #7096D1;
-    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-.vision-section p, .mission-section p {
-    color: #334EAC;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: justify;
+.info-card p {
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
 }
 
 /* Team Section */
 .team-section {
-    background: white;
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
-    margin-bottom: 2rem;
+    padding: 3rem 0;
 }
 
 .team-section h2 {
     color: #081F5C;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #7096D1;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .team-intro {
     text-align: center;
-    color: #334EAC;
+    color: #555;
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -72,56 +92,48 @@
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
     justify-items: center;
 }
 
 .team-member {
-    background: #F7F2EB;
-    padding: 2rem;
+    background: #FFFFFF;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     position: relative;
-    width: 100%;
-    max-width: 280px;
+    overflow: hidden;
 }
 
 .team-member:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(8, 31, 92, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(8, 31, 92, 0.12);
 }
 
 .member-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    background: linear-gradient(135deg, #BAD6EB, #D0E3FF);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #334EAC;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 4px solid #7096D1;
+    width: 100%;
+    height: 250px;
     position: relative;
-    overflow: hidden;
 }
 
 .member-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .member-photo img {
+    transform: scale(1.05);
 }
 
 .linkedin-icon {
     position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
     background: #0A66C2;
     border-radius: 50%;
     display: flex;
@@ -130,21 +142,29 @@
     cursor: pointer;
     transition: transform 0.3s ease;
     color: white;
-    font-size: 0.9rem;
     text-decoration: none;
     border: 2px solid white;
     z-index: 10;
 }
 
+.linkedin-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
 .linkedin-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
+}
+
+.member-info {
+    padding: 1.5rem;
 }
 
 .member-name {
     color: #081F5C;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
 }
 
 .member-id {
@@ -155,8 +175,12 @@
 }
 
 .member-description {
-    color: #334EAC;
-    font-size: 0.95rem;
+    color: #555;
+    font-size: 0.9rem;
     line-height: 1.6;
-    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.1rem; }
 }
