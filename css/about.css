@@ -48,12 +48,6 @@
     box-shadow: 0 12px 35px rgba(8, 31, 92, 0.1);
 }
 
-.info-card .icon {
-    font-size: 3rem;
-    color: #334EAC;
-    margin-bottom: 1.5rem;
-}
-
 .info-card h2 {
     color: #081F5C;
     font-size: 1.8rem;
@@ -89,11 +83,26 @@
     margin-right: auto;
 }
 
+.team-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
-    justify-items: center;
+    width: 100%;
+}
+
+.team-grid.four-members {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.team-grid.three-members {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 850px; /* Adjust this to center the 3 members */
 }
 
 .team-member {
@@ -130,10 +139,10 @@
 
 .linkedin-icon {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
     background: #0A66C2;
     border-radius: 50%;
     display: flex;
@@ -148,23 +157,19 @@
 }
 
 .linkedin-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .linkedin-icon:hover {
     transform: scale(1.15);
 }
 
-.member-info {
-    padding: 1.5rem;
-}
-
 .member-name {
     color: #081F5C;
     font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin: 1rem 0 0.25rem;
 }
 
 .member-id {
@@ -178,6 +183,7 @@
     color: #555;
     font-size: 0.9rem;
     line-height: 1.6;
+    padding: 0 1.5rem 1.5rem;
 }
 
 @media (max-width: 768px) {
