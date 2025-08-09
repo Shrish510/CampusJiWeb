@@ -35,24 +35,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  fetch("header.html")
-    .then((response) => response.text())
-    .then((data) => {
-      const headerContainer = document.getElementById("header-container");
-      if (headerContainer) {
-        headerContainer.innerHTML = data;
-
-        const path = window.location.pathname;
-        if (path.includes("index.html")) {
-          document.getElementById("homeLink")?.classList.add("active");
-        } else if (
-          path.includes("about us.html") ||
-          path.includes("about%20us.html")
-        ) {
-          document.getElementById("aboutLink")?.classList.add("active");
-        } else if (path.includes("login.html")) {
-          document.getElementById("loginLink")?.classList.add("active");
-        }
-      }
-    });
+  // Removed redundant header loading logic. auth.js now handles this.
 });
