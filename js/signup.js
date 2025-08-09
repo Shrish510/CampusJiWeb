@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Error signing up: ' + error.message);
             } else {
                 alert('Sign up successful! Please check your email to verify your account.');
-                window.location.href = 'index.html';
             }
         });
     }
