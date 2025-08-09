@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Error logging in: " + error.message);
             } else {
                 // The auth.js file will handle storing user info and redirecting
-                window.location.href = "main.html";
             }
         });
     }
