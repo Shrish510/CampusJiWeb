@@ -12,6 +12,18 @@
     <div id="header-container"></div>
     <main class="main-content">
       <h1 class="page-title">Our Services</h1>
+
+      <div class="service-nav-container">
+        <select id="service-nav">
+          <option value="" selected disabled>-- Navigate to a Service --</option>
+          <option value="grievance.html">Grievance Redressal</option>
+          <option value="contact_repository.html">Contact Repository</option>
+          <option value="lost-and-found.html">Lost and Found</option>
+          <option value="court-booking.html">Court Booking</option>
+          <option value="parcel-hub.html">Parcel Hub</option>
+        </select>
+      </div>
+
       <div class="three-column-section">
         <div class="column-card">
           <h3>Grievance Redressal</h3>
@@ -41,13 +53,35 @@
       </div>
     </main>
     <script src="js/auth.js"></script>
+
+    <script>
+      document.getElementById('service-nav').addEventListener('change', function() {
+        if (this.value) {
+          window.location.href = this.value;
+        }
+      });
+    </script>
+
     <style>
       .page-title {
         text-align: center;
         color: #081f5c;
         font-size: 2.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem; /* Adjusted margin for dropdown */
         font-weight: bold;
+      }
+      /* Styles for the new dropdown */
+      .service-nav-container {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      #service-nav {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        min-width: 280px;
+        cursor: pointer;
       }
       .service-link {
         display: inline-block;
