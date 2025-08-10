@@ -22,8 +22,6 @@
 
 }
 
-
-
 /* Page Title and Section Headings */
 
 .page-title {
@@ -39,17 +37,10 @@
     font-weight: bold;
 
 }
-
-
-
 .social-section {
 
     margin-bottom: 4rem;
-
 }
-
-
-
 .section-heading {
 
     text-align: center;
@@ -63,9 +54,6 @@
     position: relative;
 
 }
-
-
-
 .section-heading::after {
 
     content: '';
@@ -87,9 +75,6 @@
     border-radius: 2px;
 
 }
-
-
-
 /* Horizontal Carousel Styles */
 
 .carousel-container {
@@ -105,9 +90,6 @@
     margin: 0 -20px;
 
 }
-
-
-
 .card-carousel {
 
     display: flex;
@@ -131,17 +113,11 @@
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
 }
-
-
-
 .card-carousel::-webkit-scrollbar {
 
     display: none; /* WebKit browsers */
 
 }
-
-
-
 .card {
 
     min-width: 300px;
@@ -157,9 +133,6 @@
     overflow: hidden;
 
 }
-
-
-
 .card:hover {
 
     transform: translateY(-5px);
@@ -167,9 +140,6 @@
     box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
 
 }
-
-
-
 .card-image-placeholder {
 
     width: 100%;
@@ -191,17 +161,11 @@
     border-bottom: 3px solid var(--china);
 
 }
-
-
-
 .card-content {
 
     padding: 1.5rem;
 
 }
-
-
-
 .card-content h3 {
 
     font-size: 1.5rem;
@@ -210,11 +174,7 @@
 
     margin-bottom: 0.5rem;
 
-}
-
-
-
-.card-content p {
+}.card-content p {
 
     font-size: 1rem;
 
@@ -223,9 +183,6 @@
     line-height: 1.5;
 
 }
-
-
-
 /* Carousel Scroll Buttons */
 
 .scroll-button {
@@ -259,9 +216,6 @@
     transition: all 0.3s ease;
 
 }
-
-
-
 .scroll-button:hover {
 
     background: var(--china);
@@ -271,25 +225,16 @@
     transform: translateY(-50%) scale(1.1);
 
 }
-
-
-
 .scroll-button.left {
 
     left: 0;
 
 }
-
-
-
 .scroll-button.right {
 
     right: 0;
 
 }
-
-
-
 /* Responsive Styles */
 
 @media (max-width: 768px) {
@@ -299,16 +244,12 @@
         min-width: 80%;
 
     }
-
-    
-
     .scroll-button {
 
         display: none;
 
     }
-
-    
+  
 
     .carousel-container {
 
