@@ -1,236 +1,39 @@
-/* --- ROOT & GENERAL STYLES --- */
-:root {
-    --royal: #334EAC;
-    --moon: #F7F2EB;
-    --china: #7096D1;
-    --midnight: #081F5C;
-    --dawn: #D0E3FF;
-    --porcelain: #F8F9FA; /* A very light grey for the background */
-    --sky: #BAD6EB;
-    --text-dark: #1D2433;
-    --text-light: #6c757d;
+/* --- Add this to the end of your ipm_social.css file --- */
+
+/* --- DYNAMIC ANIMATION STYLES --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform; /* Performance optimization */
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--porcelain);
-    color: var(--text-dark);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* --- HEADER STYLES --- */
-.site-header {
-    background-color: rgba(255, 255, 255, 0.7); /* White with transparency */
-    backdrop-filter: blur(10px); /* The "glass" effect */
-    padding: 0.75rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+/* --- FOOTER STYLES --- */
+.site-footer-main {
+    background-color: var(--midnight);
+    color: var(--porcelain);
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
-.header-logos .logo {
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.header-nav .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.header-nav .nav-link {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.header-nav .nav-link:hover {
-    background-color: var(--dawn);
-    color: var(--royal);
-}
-
-.header-nav .nav-link.active {
-    background-color: var(--royal);
-    color: white;
-    box-shadow: 0 4px 15px rgba(51, 78, 172, 0.3);
-}
-
-/* --- MAIN CONTENT & HEADINGS --- */
-.main-content {
-    max-width: 1400px;
+.footer-content {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
 }
 
-.page-title {
-    text-align: center;
-    color: var(--text-dark);
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 4rem;
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(248, 249, 250, 0.7);
 }
 
-.social-section {
-    margin-bottom: 5rem;
-}
-
-.section-heading {
-    text-align: center;
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: var(--royal);
-    margin-bottom: 3.5rem;
-    position: relative;
-}
-
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--royal), var(--china));
-    border-radius: 2px;
-}
-
-/* --- MODERN CARD STYLES --- */
-.card-carousel {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 1.5rem;
-    gap: 2rem;
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-.card-carousel::-webkit-scrollbar { display: none; }
-
-.card {
-    min-width: 320px;
-    background: white;
-    border-radius: 16px;
-    border: 1px solid #E9ECEF;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05), 0 20px 40px rgba(8, 31, 92, 0.1);
-    border-color: var(--china);
-}
-
-.card-image-placeholder {
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, var(--dawn) 0%, var(--sky) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #E9ECEF;
-}
-
-.card-icon {
-    font-size: 4rem;
-    opacity: 0.8;
-    transition: transform 0.3s ease;
-}
-
-.card:hover .card-icon {
-    transform: scale(1.1);
-}
-
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-content h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
-
-.card-content p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* --- CAROUSEL BUTTONS --- */
-.carousel-container {
-    position: relative;
-}
-
-.scroll-button {
-    background: white;
-    border: 1px solid #E9ECEF;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-    color: var(--royal);
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    transition: all 0.3s ease;
-}
-
-.scroll-button:hover {
-    background: var(--royal);
-    color: white;
-    transform: translateY(-50%) scale(1.1);
-    border-color: var(--royal);
-}
-
-.scroll-button.left { left: -10px; }
-.scroll-button.right { right: -10px; }
-
-
-/* --- RESPONSIVE STYLES --- */
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        padding: 1rem;
-        backdrop-filter: none; /* Blur effect can be heavy on mobile */
-        background-color: rgba(255, 255, 255, 0.95);
-    }
-    .header-nav .nav-links { margin-top: 1rem; }
-    
-    .main-content { padding: 2rem 1rem; }
-    .page-title { font-size: 2.5rem; }
-    .section-heading { font-size: 2rem; }
-    
-    .card { min-width: 280px; }
-    
-    .scroll-button { display: none; }
+.footer-content p:first-child {
+    font-weight: 500;
+    color: var(--porcelain);
 }
