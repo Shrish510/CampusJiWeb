@@ -4,102 +4,149 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - CampusJi</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
-  </head>
-  <body>
-    <div id="header-container"></div>
-    <main class="main-content">
-      <h1 class="page-title">Our Services</h1>
-
-      <div class="service-nav-container">
-        <select id="service-nav">
-          <option value="" selected disabled>-- Navigate to a Service --</option>
-          <option value="grievance.html">Grievance Redressal</option>
-          <option value="contact_repository.html">Contact Repository</option>
-          <option value="lost-and-found.html">Lost and Found</option>
-          <option value="court-booking.html">Court Booking</option>
-          <option value="parcel-hub.html">Parcel Hub</option>
-        </select>
-      </div>
-
-      <div class="three-column-section">
-        <div class="column-card">
-          <h3>Grievance Redressal</h3>
-          <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
-          <a href="grievance.html" class="service-link">Access System</a>
-        </div>
-        <div class="column-card">
-          <h3>Contact Repository</h3>
-          <p>Find contact information for campus authorities, services, and local vendors.</p>
-          <a href="contact_repository.html" class="service-link">View Contacts</a>
-        </div>
-        <div class="column-card">
-          <h3>Lost and Found</h3>
-          <p>Report lost items or check for items that have been found by others.</p>
-          <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
-        </div>
-        <div class="column-card">
-          <h3>Court Booking</h3>
-          <p>Book a court for your sports needs. Reserve your time slot now!</p>
-          <a href="court-booking.html" class="service-link">Book Court</a>
-        </div>
-        <div class="column-card">
-          <h3>Parcel Hub</h3>
-          <p>Track your parcels and manage your deliveries.</p>
-          <a href="parcel-hub.html" class="service-link">Access System</a>
-        </div>
-      </div>
-    </main>
-    <script src="js/auth.js"></script>
-
-    <script>
-      document.getElementById('service-nav').addEventListener('change', function() {
-        if (this.value) {
-          window.location.href = this.value;
-        }
-      });
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" />
 
     <style>
+      /* --- General Resets & Typography --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f7f6; /* Light gray background */
+        color: #333;
+      }
+
+      /* --- Header & Footer --- */
+      .site-header {
+        background-color: #ffffff;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .header-logo {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+      .site-header h1 {
+        color: #081f5c;
+        font-size: 1.8rem;
+        margin: 0;
+        font-weight: 700;
+      }
+      .site-footer {
+        text-align: center;
+        padding: 2rem;
+        margin-top: 4rem;
+        background-color: #081f5c;
+        color: #f4f7f6;
+      }
+
+      /* --- Main Content & Layout --- */
+      .main-content {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+      }
       .page-title {
         text-align: center;
         color: #081f5c;
-        font-size: 2.5rem;
-        margin-bottom: 1rem; /* Adjusted margin for dropdown */
-        font-weight: bold;
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
       }
-      /* Styles for the new dropdown */
+      .three-column-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      /* --- Dropdown Styling --- */
       .service-nav-container {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
       }
       #service-nav {
-        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        padding: 12px 20px;
         font-size: 1rem;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        min-width: 280px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        min-width: 320px;
         cursor: pointer;
+        background-color: #fff;
+        appearance: none; /* Removes default system appearance */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23081F5C%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: .65em auto;
+        transition: border-color 0.2s;
       }
+      #service-nav:hover {
+        border-color: #334eac;
+      }
+
+      /* --- Service Card Styling --- */
+      .column-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .column-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .column-card h3 {
+        color: #081f5c;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      .column-card p {
+        color: #555;
+        line-height: 1.6;
+        flex-grow: 1; /* Pushes the button to the bottom */
+      }
+
+      /* --- Button Styling --- */
       .service-link {
         display: inline-block;
-        margin-top: 1rem;
-        padding: 10px 20px;
+        margin-top: 1.5rem;
+        padding: 12px 24px;
         background-color: #334eac;
         color: white;
         text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.2s;
       }
       .service-link:hover {
         background-color: #081f5c;
-      }
-      .service-link.disabled {
-        background-color: #aaa;
-        cursor: not-allowed;
+        transform: scale(1.05);
       }
     </style>
-  </body>
-</html>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <img src="
