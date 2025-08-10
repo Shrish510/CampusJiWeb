@@ -7,60 +7,6 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
-    <style>
-      /* Background animation - brand colors untouched */
-      body {
-        background: linear-gradient(-45deg, #f5f9ff, #ffffff, #f0f4ff, #ffffff);
-        background-size: 400% 400%;
-        animation: gradientBG 15s ease infinite;
-        margin: 0;
-      }
-      @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
-      /* Responsive grid layout */
-      .three-column-section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 2rem;
-        padding: 0 2rem 3rem;
-        box-sizing: border-box;
-      }
-
-      /* Modular card design - color unchanged */
-      .column-card {
-        background: white;
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .column-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      }
-
-      /* Keep title styling as is */
-      .page-title {
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-
-      /* Dropdown spacing */
-      .service-nav-container {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      /* Keep existing service link styles */
-      .service-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-    </style>
   </head>
   <body>
     <div id="header-container"></div>
@@ -107,6 +53,7 @@
       </div>
     </main>
     <script src="js/auth.js"></script>
+
     <script>
       document.getElementById('service-nav').addEventListener('change', function() {
         if (this.value) {
@@ -114,5 +61,45 @@
         }
       });
     </script>
+
+    <style>
+      .page-title {
+        text-align: center;
+        color: #081f5c;
+        font-size: 2.5rem;
+        margin-bottom: 1rem; /* Adjusted margin for dropdown */
+        font-weight: bold;
+      }
+      /* Styles for the new dropdown */
+      .service-nav-container {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      #service-nav {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        min-width: 280px;
+        cursor: pointer;
+      }
+      .service-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 10px 20px;
+        background-color: #334eac;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .service-link:hover {
+        background-color: #081f5c;
+      }
+      .service-link.disabled {
+        background-color: #aaa;
+        cursor: not-allowed;
+      }
+    </style>
   </body>
 </html>
