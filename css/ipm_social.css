@@ -1,149 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPM Social - CampusJi</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/ipm_social.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
-</head>
-<body>
-    <div id="header-container"></div>
+/* Color Variables from main.css and image */
+:root {
+    --royal: #334EAC;
+    --moon: #F7F2EB;
+    --china: #7096D1;
+    --asian-pear: #F2F0DE;
+    --midnight: #081F5C;
+    --dawn: #D0E3FF;
+    --jicama: #FFF9F0;
+    --porcelain: #EDF1F6;
+    --sky: #BAD6EB;
+}
 
-    <main class="main-content">
-        <h1 class="page-title">IPM Social</h1>
+/* Page Title and Section Headings */
+.page-title {
+    text-align: center;
+    color: var(--midnight);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
 
-        <section class="social-section">
-            <h2 class="section-heading">Top Places to Hang Out</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="hangout-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Movie Theatres</h3>
-                            <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafés & Eateries</h3>
-                            <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Shopping Malls</h3>
-                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Sports Complex</h3>
-                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Gaming Zones</h3>
-                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
-            </div>
-        </section>
+.social-section {
+    margin-bottom: 4rem;
+}
 
-        <section class="social-section">
-            <h2 class="section-heading">Salon Services Nearby</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Modern Cuts</h3>
-                            <p>Haircuts, styling, and grooming services for all students.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Beauty Bliss</h3>
-                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Campus Barber</h3>
-                            <p>A quick and affordable option for a classic trim or shave.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Spa & Wellness</h3>
-                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('salon-carousel', 'right')">❯</button>
-            </div>
-        </section>
+.section-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--royal);
+    margin-bottom: 2rem;
+    position: relative;
+}
 
-        <section class="social-section">
-            <h2 class="section-heading">Top Restaurants</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="restaurant-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>The Food Court</h3>
-                            <p>Variety of cuisines from local vendors and popular chains.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafeteria</h3>
-                            <p>Our own campus cafeteria serving delicious meals and snacks.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Pizza Palace</h3>
-                            <p>The go-to spot for pizza nights and group study sessions.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Burger Junction</h3>
-                            <p>Best burgers and fries in the city, with a special student discount.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Dhaba Delight</h3>
-                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
-            </div>
-        </section>
-    </main>
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--royal), var(--china));
+    border-radius: 2px;
+}
 
-    <script src="js/auth.js"></script>
-    <script src="js/ipm_social.js"></script>
-</body>
-</html>
+/* Horizontal Carousel Styles */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 -20px;
+}
+
+.card-carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem;
+    gap: 2rem;
+    flex: 1;
+    /* Hide scrollbar for aesthetics */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.card-carousel::-webkit-scrollbar {
+    display: none; /* WebKit browsers */
+}
+
+.card {
+    min-width: 300px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
+}
+
+.card-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--dawn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--royal);
+    border-bottom: 3px solid var(--china);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    color: var(--midnight);
+    margin-bottom: 0.5rem;
+}
+.card-content p {
+    font-size: 1rem;
+    color: var(--royal);
+    line-height: 1.5;
+}
+
+/* Carousel Scroll Buttons */
+.scroll-button {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: var(--royal);
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.scroll-button:hover {
+    background: var(--china);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-button.left {
+    left: 0;
+}
+
+.scroll-button.right {
+    right: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        min-width: 80%;
+    }
+
+    .scroll-button {
+        display: none;
+    }
+
+    .carousel-container {
+        margin: 0;
+    }
+}
