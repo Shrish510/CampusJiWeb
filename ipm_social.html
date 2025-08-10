@@ -9,8 +9,22 @@
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
 </head>
 <body>
-    <div id="header-container"></div>
-
+    <header class="site-header">
+        <div class="header-logos">
+            <img src="images/logo1.png" alt="University Logo" class="logo">
+            <img src="images/Campusjilogo.jpg" alt="CampusJi Logo" class="logo">
+        </div>
+        <nav class="header-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Clubs and Committees</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">IPM Social</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
     <main class="main-content">
         <h1 class="page-title">IPM Social</h1>
         
@@ -37,113 +51,3 @@
                         <div class="card-image-placeholder"></div>
                         <div class="card-content">
                             <h3>Shopping Malls</h3>
-                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Sports Complex</h3>
-                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Gaming Zones</h3>
-                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
-            </div>
-        </section>
-
-        <section class="social-section">
-            <h2 class="section-heading">Salon Services Nearby</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Modern Cuts</h3>
-                            <p>Haircuts, styling, and grooming services for all students.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Beauty Bliss</h3>
-                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Campus Barber</h3>
-                            <p>A quick and affordable option for a classic trim or shave.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Spa & Wellness</h3>
-                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('salon-carousel', 'right')">❯</button>
-            </div>
-        </section>
-
-        <section class="social-section">
-            <h2 class="section-heading">Top Restaurants</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="restaurant-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>The Food Court</h3>
-                            <p>Variety of cuisines from local vendors and popular chains.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafeteria</h3>
-                            <p>Our own campus cafeteria serving delicious meals and snacks.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Pizza Palace</h3>
-                            <p>The go-to spot for pizza nights and group study sessions.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Burger Junction</h3>
-                            <p>Best burgers and fries in the city, with a special student discount.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Dhaba Delight</h3>
-                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
-            </div>
-        </section>
-    </main>
-
-    <script src="js/auth.js"></script>
-    <script src="js/ipm_social.js"></script>
-</body>
-</html>
