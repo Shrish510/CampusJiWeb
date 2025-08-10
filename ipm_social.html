@@ -4,146 +4,407 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPM Social - CampusJi</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/ipm_social.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
+    <style>
+        /* 1. Updated CSS Variables to match the header image */
+        :root {
+            --header-bg: #334EAC; /* Royal blue from image */
+            --active-nav-bg: #7096D1; /* Lighter blue for active button */
+            --background-color: #f5f3f0;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --card-background: white;
+            --card-heading-color: #081F5C; /* Midnight blue for card text */
+            --border-radius-m: 10px;
+            --border-radius-l: 15px;
+            --shadow-color: rgba(8, 31, 92, 0.1);
+            --shadow-hover-color: rgba(8, 31, 92, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            min-height: 100vh;
+            color: var(--text-primary);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* 2. HEADER & NAVIGATION STYLED AS PER IMAGE */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: var(--header-bg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 50px; /* Control logo size */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a, .nav-links .logout-btn {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px; /* Slightly more rounded */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover, .nav-links .logout-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Style for the active 'IPM Social' button */
+        .nav-links a.active {
+            background-color: var(--active-nav-bg);
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        /* MAIN CONTENT & SECTIONS */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 2rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title, .section-heading {
+            text-align: center;
+            color: var(--card-heading-color);
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: bold;
+        }
+
+        .page-title { font-size: 3rem; }
+        .section-heading { font-size: 2rem; }
+
+        .page-title::after, .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            background: linear-gradient(90deg, var(--header-bg), var(--active-nav-bg));
+            border-radius: 2px;
+        }
+        
+        .page-title::after { width: 100px; bottom: -15px; }
+        .section-heading::after { width: 60px; bottom: -10px; }
+
+        .social-section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .social-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* CAROUSEL & CARDS */
+        .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-carousel {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            flex: 1;
+        }
+        .card-carousel::-webkit-scrollbar { display: none; }
+
+        .place-card {
+            all: unset; 
+            display: block;
+            min-width: 300px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius-l);
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            animation: cardPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes cardPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .place-card:nth-of-type(2) { animation-delay: 0.5s; }
+        .place-card:nth-of-type(3) { animation-delay: 1s; }
+        
+        .place-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 30px var(--shadow-hover-color);
+            border-color: var(--header-bg);
+            animation-play-state: paused;
+        }
+        
+        .place-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #D0E3FF, var(--active-nav-bg));
+            border-radius: var(--border-radius-m);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .place-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--card-heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .place-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .place-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .place-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--header-bg);
+            font-weight: 600;
+        }
+
+        .place-distance {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        /* SCROLL CONTROLS */
+        .scroll-button {
+            background-color: var(--card-background);
+            border: 2px solid var(--header-bg);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--header-bg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-button:hover {
+            background-color: var(--header-bg);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .scroll-button:active {
+            transform: scale(0.95);
+            transition-duration: 0.1s;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .nav-links { display: none; } /* Hide links on smaller screens for this example */
+        }
+
+        @media (max-width: 768px) {
+            .header-nav { padding: 0 1rem; }
+            .main-content { padding: 100px 1rem 1rem; }
+            .page-title { font-size: 2rem; }
+            .section-heading { font-size: 1.5rem; }
+            .place-card { min-width: 280px; }
+            .scroll-button { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <div id="header-container"></div>
-
+    
+    <nav class="header-nav">
+        <a href="#home" class="logo-link" aria-label="Homepage">
+            <div class="logo-section">
+                <img src="images/logo-1.png" alt="IPM Logo" class="logo">
+                <img src="images/logo-2.png" alt="CampusJi Logo" class="logo">
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#clubs">Clubs and Committees</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#social" class="active">IPM Social</a></li>
+            <li><button class="logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+    
     <main class="main-content">
         <h1 class="page-title">IPM Social</h1>
-
+        
         <section class="social-section">
             <h2 class="section-heading">Top Places to Hang Out</h2>
             <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
+                <button class="scroll-button left" aria-label="Scroll left">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Movie Theatres</h3>
-                            <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafés & Eateries</h3>
-                            <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Shopping Malls</h3>
-                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Sports Complex</h3>
-                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Gaming Zones</h3>
-                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
-                        </div>
-                    </div>
+                    <button class="place-card"><div class="place-image">🎮</div><div class="place-name">Gaming Zone</div><div class="place-description">Ultimate gaming experience with PS5, Xbox, and VR setups. Perfect for competitive gaming sessions.</div><div class="place-details"><div class="place-rating">⭐ 4.8</div><div class="place-distance">0.5 km</div></div></button>
+                    <button class="place-card"><div class="place-image">☕</div><div class="place-name">Campus Café</div><div class="place-description">Cozy spot for coffee and conversations. Free WiFi, study-friendly atmosphere, and great snacks.</div><div class="place-details"><div class="place-rating">⭐ 4.6</div><div class="place-distance">0.2 km</div></div></button>
+                    <button class="place-card"><div class="place-image">🏓</div><div class="place-name">Recreation Center</div><div class="place-description">Table tennis, pool, and indoor games. Great place to unwind and meet new people.</div><div class="place-details"><div class="place-rating">⭐ 4.7</div><div class="place-distance">0.3 km</div></div></button>
+                    <button class="place-card"><div class="place-image">🎬</div><div class="place-name">Movie Lounge</div><div class="place-description">Private screening rooms with latest movies. Perfect for group movie nights and celebrations.</div><div class="place-details"><div class="place-rating">⭐ 4.9</div><div class="place-distance">0.7 km</div></div></button>
                 </div>
-                <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
+                <button class="scroll-button right" aria-label="Scroll right">❯</button>
             </div>
         </section>
 
         <section class="social-section">
             <h2 class="section-heading">Salon Services Nearby</h2>
             <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
+                <button class="scroll-button left" aria-label="Scroll left">❮</button>
                 <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Modern Cuts</h3>
-                            <p>Haircuts, styling, and grooming services for all students.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Beauty Bliss</h3>
-                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Campus Barber</h3>
-                            <p>A quick and affordable option for a classic trim or shave.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Spa & Wellness</h3>
-                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
-                        </div>
-                    </div>
+                    <button class="place-card"><div class="place-image">💇</div><div class="place-name">Style Studio</div><div class="place-description">Professional haircuts, styling, and grooming services. Student discounts available.</div><div class="place-details"><div class="place-rating">⭐ 4.5</div><div class="place-distance">0.4 km</div></div></button>
+                    <button class="place-card"><div class="place-image">💅</div><div class="place-name">Nail Art Corner</div><div class="place-description">Trendy nail art, manicures, and pedicures. Quick service with creative designs.</div><div class="place-details"><div class="place-rating">⭐ 4.3</div><div class="place-distance">0.6 km</div></div></button>
+                    <button class="place-card"><div class="place-image">🧴</div><div class="place-name">Glow Spa</div><div class="place-description">Relaxing spa treatments, facials, and skincare services. Perfect for stress relief.</div><div class="place-details"><div class="place-rating">⭐ 4.7</div><div class="place-distance">0.8 km</div></div></button>
                 </div>
-                <button class="scroll-button right" onclick="scrollCarousel('salon-carousel', 'right')">❯</button>
+                <button class="scroll-button right" aria-label="Scroll right">❯</button>
             </div>
         </section>
 
         <section class="social-section">
             <h2 class="section-heading">Top Restaurants</h2>
             <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
+                <button class="scroll-button left" aria-label="Scroll left">❮</button>
                 <div class="card-carousel" id="restaurant-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>The Food Court</h3>
-                            <p>Variety of cuisines from local vendors and popular chains.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafeteria</h3>
-                            <p>Our own campus cafeteria serving delicious meals and snacks.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Pizza Palace</h3>
-                            <p>The go-to spot for pizza nights and group study sessions.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Burger Junction</h3>
-                            <p>Best burgers and fries in the city, with a special student discount.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Dhaba Delight</h3>
-                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
-                        </div>
-                    </div>
+                    <button class="place-card"><div class="place-image">🍕</div><div class="place-name">Pizza Palace</div><div class="place-description">Authentic wood-fired pizzas with student-friendly prices. Late night delivery available.</div><div class="place-details"><div class="place-rating">⭐ 4.6</div><div class="place-distance">0.3 km</div></div></button>
+                    <button class="place-card"><div class="place-image">🍜</div><div class="place-name">Noodle House</div><div class="place-description">Asian cuisine with variety of noodles, rice bowls, and dumplings. Quick service and fresh ingredients.</div><div class="place-details"><div class="place-rating">⭐ 4.4</div><div class="place-distance">0.5 km</div></div></button>
+                    <button class="place-card"><div class="place-image">🍛</div><div class="place-name">Curry Corner</div><div class="place-description">Traditional Indian cuisine with home-style cooking. Affordable meals and vegetarian options.</div><div class="place-details"><div class="place-rating">⭐ 4.8</div><div class="place-distance">0.4 km</div></div></button>
                 </div>
-                <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
+                <button class="scroll-button right" aria-label="Scroll right">❯</button>
             </div>
         </section>
     </main>
 
-    <script src="js/auth.js"></script>
-    <script src="js/ipm_social.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            function setupCarousels() {
+                document.querySelectorAll('.carousel-container').forEach(container => {
+                    const carousel = container.querySelector('.card-carousel');
+                    const leftBtn = container.querySelector('.scroll-button.left');
+                    const rightBtn = container.querySelector('.scroll-button.right');
+                    
+                    if (!carousel || !leftBtn || !rightBtn) return;
+                    
+                    const scroll = (direction) => {
+                        const firstCard = carousel.querySelector('.place-card');
+                        if (!firstCard) return;
+                        const scrollAmount = firstCard.offsetWidth + 24;
+                        carousel.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+                    };
+
+                    leftBtn.addEventListener('click', () => scroll('left'));
+                    rightBtn.addEventListener('click', () => scroll('right'));
+                });
+            }
+
+            function setupScrollAnimations() {
+                const sections = document.querySelectorAll('.social-section');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                sections.forEach(section => observer.observe(section));
+            }
+
+            function setupInteractions() {
+                document.querySelectorAll('.place-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const placeName = this.querySelector('.place-name').textContent;
+                        alert(`More info about ${placeName} coming soon!`);
+                    });
+                });
+                
+                document.querySelector('.logout-btn')?.addEventListener('click', () => {
+                    if (confirm('Are you sure you want to logout?')) {
+                        alert('Logout successful!');
+                    }
+                });
+            }
+            
+            setupCarousels();
+            setupScrollAnimations();
+            setupInteractions();
+        });
+    </script>
 </body>
 </html>
