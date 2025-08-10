@@ -1,117 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - CampusJi</title>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - CampusJi</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <main class="main-content">
+      <h1 class="page-title">Our Services</h1>
 
-  <style>
-    /* Background animation */
-    body {
-      background: linear-gradient(-45deg, #f5f9ff, #ffffff, #f0f4ff, #ffffff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Responsive grid for services */
-    .three-column-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      padding: 0 2rem 3rem;
-    }
-
-    /* Card styling - keeping original colors */
-    .column-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .column-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    /* Keep your existing title style */
-    .page-title {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    /* Keep dropdown style but add hover focus effect */
-    #service-nav {
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    #service-nav:focus {
-      outline: none;
-      border-color: #334eac;
-      box-shadow: 0 0 8px rgba(51, 78, 172, 0.3);
-    }
-  </style>
-</head>
-<body>
-  <div id="header-container"></div>
-
-  <main class="main-content">
-    <h1 class="page-title">Our Services</h1>
-
-    <div class="service-nav-container">
-      <select id="service-nav">
-        <option value="" selected disabled>-- Navigate to a Service --</option>
-        <option value="grievance.html">Grievance Redressal</option>
-        <option value="contact_repository.html">Contact Repository</option>
-        <option value="lost-and-found.html">Lost and Found</option>
-        <option value="court-booking.html">Court Booking</option>
-        <option value="parcel-hub.html">Parcel Hub</option>
-      </select>
-    </div>
-
-    <div class="three-column-section">
-      <div class="column-card">
-        <h3>Grievance Redressal</h3>
-        <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
-        <a href="grievance.html" class="service-link">Access System</a>
+      <div class="service-nav-container">
+        <select id="service-nav">
+          <option value="" selected disabled>-- Navigate to a Service --</option>
+          <option value="grievance.html">Grievance Redressal</option>
+          <option value="contact_repository.html">Contact Repository</option>
+          <option value="lost-and-found.html">Lost and Found</option>
+          <option value="court-booking.html">Court Booking</option>
+          <option value="parcel-hub.html">Parcel Hub</option>
+        </select>
       </div>
-      <div class="column-card">
-        <h3>Contact Repository</h3>
-        <p>Find contact information for campus authorities, services, and local vendors.</p>
-        <a href="contact_repository.html" class="service-link">View Contacts</a>
-      </div>
-      <div class="column-card">
-        <h3>Lost and Found</h3>
-        <p>Report lost items or check for items that have been found by others.</p>
-        <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
-      </div>
-      <div class="column-card">
-        <h3>Court Booking</h3>
-        <p>Book a court for your sports needs. Reserve your time slot now!</p>
-        <a href="court-booking.html" class="service-link">Book Court</a>
-      </div>
-      <div class="column-card">
-        <h3>Parcel Hub</h3>
-        <p>Track your parcels and manage your deliveries.</p>
-        <a href="parcel-hub.html" class="service-link">Access System</a>
-      </div>
-    </div>
-  </main>
 
-  <script src="js/auth.js"></script>
-  <script>
-    document.getElementById('service-nav').addEventListener('change', function() {
-      if (this.value) {
-        window.location.href = this.value;
+      <div class="three-column-section">
+        <div class="column-card">
+          <h3>Grievance Redressal</h3>
+          <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
+          <a href="grievance.html" class="service-link">Access System</a>
+        </div>
+        <div class="column-card">
+          <h3>Contact Repository</h3>
+          <p>Find contact information for campus authorities, services, and local vendors.</p>
+          <a href="contact_repository.html" class="service-link">View Contacts</a>
+        </div>
+        <div class="column-card">
+          <h3>Lost and Found</h3>
+          <p>Report lost items or check for items that have been found by others.</p>
+          <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
+        </div>
+        <div class="column-card">
+          <h3>Court Booking</h3>
+          <p>Book a court for your sports needs. Reserve your time slot now!</p>
+          <a href="court-booking.html" class="service-link">Book Court</a>
+        </div>
+        <div class="column-card">
+          <h3>Parcel Hub</h3>
+          <p>Track your parcels and manage your deliveries.</p>
+          <a href="parcel-hub.html" class="service-link">Access System</a>
+        </div>
+      </div>
+    </main>
+    <script src="js/auth.js"></script>
+
+    <script>
+      document.getElementById('service-nav').addEventListener('change', function() {
+        if (this.value) {
+          window.location.href = this.value;
+        }
+      });
+    </script>
+
+    <style>
+      .page-title {
+        text-align: center;
+        color: #081f5c;
+        font-size: 2.5rem;
+        margin-bottom: 1rem; /* Adjusted margin for dropdown */
+        font-weight: bold;
       }
-    });
-  </script>
-</body>
+      /* Styles for the new dropdown */
+      .service-nav-container {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      #service-nav {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        min-width: 280px;
+        cursor: pointer;
+      }
+      .service-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 10px 20px;
+        background-color: #334eac;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .service-link:hover {
+        background-color: #081f5c;
+      }
+      .service-link.disabled {
+        background-color: #aaa;
+        cursor: not-allowed;
+      }
+    </style>
+  </body>
 </html>
