@@ -66,8 +66,12 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        background: linear-gradient(to right top, #f4f6f9, #ffffff);
-        color: #333;
+        /* Background color reverted to default white */
+      }
+      .main-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
       }
       .page-title {
         text-align: center;
@@ -75,7 +79,6 @@
         font-size: 2.8rem;
         margin-bottom: 1.5rem;
         font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
       }
       .service-nav-container {
         text-align: center;
@@ -86,37 +89,45 @@
         font-family: 'Poppins', sans-serif;
         font-size: 1rem;
         border-radius: 8px;
-        border: 1px solid #ddd;
+        border: 2px solid #dde2f1; /* Border color fits the theme */
         min-width: 300px;
         cursor: pointer;
         background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      #service-nav:focus {
+        outline: none;
+        border-color: #334eac;
       }
       .three-column-section {
-        /* This is a placeholder for your existing grid styles in main.css/style.css */
-        /* For demonstration, I'll add basic flex properties */
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
+        gap: 2.5rem; /* Increased gap for better spacing */
       }
       .column-card {
         background-color: #ffffff;
+        border: 1px solid #eef2f7;
         border-radius: 12px;
         padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(13, 31, 92, 0.06);
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        flex-basis: 300px; /* Example width */
+        flex-basis: 310px;
+        display: flex;
+        flex-direction: column;
       }
       .column-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 12px 24px rgba(13, 31, 92, 0.1);
       }
       .column-card h3 {
         color: #081f5c;
         margin-bottom: 1rem;
         font-weight: 600;
+      }
+      .column-card p {
+        flex-grow: 1; /* Ensures cards are same height if text length varies */
+        color: #555;
       }
       .service-link {
         display: inline-block;
@@ -140,3 +151,16 @@
     </style>
   </body>
 </html>
+***
+## Summary of Changes
+
+### 🎨 Colors Restored
+The page's color palette has been reverted to the **original white background** with the **primary blue (`#081f5c`) and accent blue (`#334eac`)** for titles and links, just as you requested.
+
+***
+### ✨ Layout and Appeal Enhanced
+While the colors are original, the following enhancements to the **layout and visual appeal** have been kept and improved:
+* **Centered Layout:** The main content now has a `max-width` and is centered, creating a more structured and professional appearance on wider screens.
+* **Floating Cards:** The service cards still have **icons**, **shadows**, and the engaging **hover effect** that makes them lift off the page. The spacing (`gap`) between them has been increased slightly for a less cluttered look.
+* **Uniform Card Height:** The cards in each row will now automatically be the **same height** regardless of text length, thanks to flexbox properties. This creates a clean, symmetrical grid.
+* **Modern Typography:** The elegant **'Poppins' font** is still in use to maintain a modern and readable feel.
