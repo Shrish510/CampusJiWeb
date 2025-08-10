@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPM Social - CampusJi</title>
     <style>
-        /* 1. Updated CSS Variables to match the header image */
+        /* CSS variables from your selected theme */
         :root {
-            --header-bg: #334EAC; /* Royal blue from image */
-            --active-nav-bg: #7096D1; /* Lighter blue for active button */
-            --background-color: #f5f3f0;
-            --text-primary: #333;
-            --text-secondary: #666;
-            --card-background: white;
-            --card-heading-color: #081F5C; /* Midnight blue for card text */
-            --border-radius-m: 10px;
-            --border-radius-l: 15px;
+            --royal: #334EAC;
+            --moon: #F7F2EB;
+            --china: #7096D1;
+            --midnight: #081F5C;
+            --dawn: #D0E3FF;
+            --porcelain: #EDF1F6;
+            
             --shadow-color: rgba(8, 31, 92, 0.1);
-            --shadow-hover-color: rgba(8, 31, 92, 0.2);
+            --shadow-hover-color: rgba(8, 31, 92, 0.15);
         }
 
         * {
@@ -26,23 +24,24 @@
             box-sizing: border-box;
         }
 
+        /* Consistent font applied to the entire page */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-color);
+            background-color: var(--porcelain);
             min-height: 100vh;
-            color: var(--text-primary);
+            color: var(--midnight);
             position: relative;
             overflow-x: hidden;
         }
         
-        /* 2. HEADER & NAVIGATION STYLED AS PER IMAGE */
+        /* HEADER & NAVIGATION */
         .header-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 80px;
-            background-color: var(--header-bg);
+            background-color: var(--royal);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -57,10 +56,17 @@
             gap: 1rem;
         }
         
+        /* This wrapper makes the logos clickable */
+        .logo-link {
+            text-decoration: none;
+        }
+
+        /* Styling for the logo images */
         .logo {
-            height: 50px; /* Control logo size */
+            height: 50px;
             width: auto;
             display: block;
+            border-radius: 50%; /* Makes the logos circular as per the image */
         }
 
         .nav-links {
@@ -74,7 +80,7 @@
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border-radius: 8px; /* Slightly more rounded */
+            border-radius: 8px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             font-size: 1rem;
         }
@@ -84,9 +90,8 @@
             transform: translateY(-2px);
         }
 
-        /* Style for the active 'IPM Social' button */
         .nav-links a.active {
-            background-color: var(--active-nav-bg);
+            background-color: var(--china);
             font-weight: 600;
         }
 
@@ -94,7 +99,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-family: inherit;
+            font-family: inherit; /* Ensures button font matches body font */
         }
         
         /* MAIN CONTENT & SECTIONS */
@@ -108,27 +113,31 @@
 
         .page-title, .section-heading {
             text-align: center;
-            color: var(--card-heading-color);
             position: relative;
             margin-bottom: 3rem;
             font-weight: bold;
         }
 
-        .page-title { font-size: 3rem; }
-        .section-heading { font-size: 2rem; }
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--midnight);
+        }
+        .section-heading {
+            font-size: 2rem;
+            color: var(--royal);
+        }
 
-        .page-title::after, .section-heading::after {
+        .section-heading::after {
             content: '';
             position: absolute;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            height: 4px;
-            background: linear-gradient(90deg, var(--header-bg), var(--active-nav-bg));
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--royal), var(--china));
             border-radius: 2px;
         }
-        
-        .page-title::after { width: 100px; bottom: -15px; }
-        .section-heading::after { width: 60px; bottom: -10px; }
 
         .social-section {
             margin-bottom: 4rem;
@@ -146,15 +155,16 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            padding: 0 20px;
+            margin: 0 -20px;
         }
 
         .card-carousel {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             overflow-x: auto;
             scroll-behavior: smooth;
-            padding: 1rem 0;
+            padding: 1rem;
             scrollbar-width: none;
             -ms-overflow-style: none;
             flex: 1;
@@ -165,58 +175,44 @@
             all: unset; 
             display: block;
             min-width: 300px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius-l);
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            border: 1px solid #eee;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            text-align: left;
-            position: relative;
             overflow: hidden;
-            animation: cardPulse 3s ease-in-out infinite;
         }
-        
-        @keyframes cardPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
-        .place-card:nth-of-type(2) { animation-delay: 0.5s; }
-        .place-card:nth-of-type(3) { animation-delay: 1s; }
-        
+
         .place-card:hover {
-            transform: translateY(-8px) scale(1.03);
+            transform: translateY(-5px);
             box-shadow: 0 12px 30px var(--shadow-hover-color);
-            border-color: var(--header-bg);
-            animation-play-state: paused;
         }
-        
+
         .place-image {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #D0E3FF, var(--active-nav-bg));
-            border-radius: var(--border-radius-m);
-            margin-bottom: 1rem;
+            height: 200px;
+            background: var(--dawn);
+            border-bottom: 3px solid var(--china);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: white;
-        }
-        
-        .place-name {
-            font-size: 1.3rem;
             font-weight: bold;
-            color: var(--card-heading-color);
+            color: var(--royal);
+        }
+
+        .card-content-wrapper { padding: 1.5rem; }
+
+        .place-name {
+            font-size: 1.5rem;
+            color: var(--midnight);
             margin-bottom: 0.5rem;
         }
 
         .place-description {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 1rem;
+            color: var(--royal);
+            line-height: 1.5;
             margin-bottom: 1rem;
         }
 
@@ -226,62 +222,40 @@
             align-items: center;
             border-top: 1px solid #eee;
             padding-top: 1rem;
-        }
-        
-        .place-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--header-bg);
-            font-weight: 600;
+            font-size: 1rem;
+            color: var(--royal);
         }
 
-        .place-distance {
-            font-size: 0.8rem;
-            color: #888;
-        }
-        
-        /* SCROLL CONTROLS */
         .scroll-button {
-            background-color: var(--card-background);
-            border: 2px solid var(--header-bg);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--header-bg);
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            color: var(--royal);
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .scroll-button:hover {
-            background-color: var(--header-bg);
+            background: var(--china);
             color: white;
             transform: scale(1.1);
         }
-
-        .scroll-button:active {
-            transform: scale(0.95);
-            transition-duration: 0.1s;
-        }
         
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .nav-links { display: none; } /* Hide links on smaller screens for this example */
-        }
+        @media (max-width: 900px) { .nav-links { display: none; } }
 
         @media (max-width: 768px) {
             .header-nav { padding: 0 1rem; }
             .main-content { padding: 100px 1rem 1rem; }
-            .page-title { font-size: 2rem; }
-            .section-heading { font-size: 1.5rem; }
-            .place-card { min-width: 280px; }
+            .carousel-container { margin: 0; padding: 0; }
+            .place-card { min-width: 80%; }
             .scroll-button { display: none; }
         }
     </style>
@@ -313,10 +287,30 @@
             <div class="carousel-container">
                 <button class="scroll-button left" aria-label="Scroll left">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
-                    <button class="place-card"><div class="place-image">🎮</div><div class="place-name">Gaming Zone</div><div class="place-description">Ultimate gaming experience with PS5, Xbox, and VR setups. Perfect for competitive gaming sessions.</div><div class="place-details"><div class="place-rating">⭐ 4.8</div><div class="place-distance">0.5 km</div></div></button>
-                    <button class="place-card"><div class="place-image">☕</div><div class="place-name">Campus Café</div><div class="place-description">Cozy spot for coffee and conversations. Free WiFi, study-friendly atmosphere, and great snacks.</div><div class="place-details"><div class="place-rating">⭐ 4.6</div><div class="place-distance">0.2 km</div></div></button>
-                    <button class="place-card"><div class="place-image">🏓</div><div class="place-name">Recreation Center</div><div class="place-description">Table tennis, pool, and indoor games. Great place to unwind and meet new people.</div><div class="place-details"><div class="place-rating">⭐ 4.7</div><div class="place-distance">0.3 km</div></div></button>
-                    <button class="place-card"><div class="place-image">🎬</div><div class="place-name">Movie Lounge</div><div class="place-description">Private screening rooms with latest movies. Perfect for group movie nights and celebrations.</div><div class="place-details"><div class="place-rating">⭐ 4.9</div><div class="place-distance">0.7 km</div></div></button>
+                    <button class="place-card">
+                        <div class="place-image">🎮</div>
+                        <div class="card-content-wrapper">
+                            <div class="place-name">Gaming Zone</div>
+                            <div class="place-description">Ultimate gaming experience with PS5, Xbox, and VR setups. Perfect for competitive gaming sessions.</div>
+                            <div class="place-details">⭐ 4.8<span>0.5 km</span></div>
+                        </div>
+                    </button>
+                    <button class="place-card">
+                        <div class="place-image">☕</div>
+                        <div class="card-content-wrapper">
+                           <div class="place-name">Campus Café</div>
+                           <div class="place-description">Cozy spot for coffee and conversations. Free WiFi, study-friendly atmosphere, and great snacks.</div>
+                           <div class="place-details">⭐ 4.6<span>0.2 km</span></div>
+                        </div>
+                    </button>
+                    <button class="place-card">
+                        <div class="place-image">🏓</div>
+                        <div class="card-content-wrapper">
+                            <div class="place-name">Recreation Center</div>
+                            <div class="place-description">Table tennis, pool, and indoor games. Great place to unwind and meet new people.</div>
+                            <div class="place-details">⭐ 4.7<span>0.3 km</span></div>
+                        </div>
+                    </button>
                 </div>
                 <button class="scroll-button right" aria-label="Scroll right">❯</button>
             </div>
@@ -327,22 +321,22 @@
             <div class="carousel-container">
                 <button class="scroll-button left" aria-label="Scroll left">❮</button>
                 <div class="card-carousel" id="salon-carousel">
-                    <button class="place-card"><div class="place-image">💇</div><div class="place-name">Style Studio</div><div class="place-description">Professional haircuts, styling, and grooming services. Student discounts available.</div><div class="place-details"><div class="place-rating">⭐ 4.5</div><div class="place-distance">0.4 km</div></div></button>
-                    <button class="place-card"><div class="place-image">💅</div><div class="place-name">Nail Art Corner</div><div class="place-description">Trendy nail art, manicures, and pedicures. Quick service with creative designs.</div><div class="place-details"><div class="place-rating">⭐ 4.3</div><div class="place-distance">0.6 km</div></div></button>
-                    <button class="place-card"><div class="place-image">🧴</div><div class="place-name">Glow Spa</div><div class="place-description">Relaxing spa treatments, facials, and skincare services. Perfect for stress relief.</div><div class="place-details"><div class="place-rating">⭐ 4.7</div><div class="place-distance">0.8 km</div></div></button>
-                </div>
-                <button class="scroll-button right" aria-label="Scroll right">❯</button>
-            </div>
-        </section>
-
-        <section class="social-section">
-            <h2 class="section-heading">Top Restaurants</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" aria-label="Scroll left">❮</button>
-                <div class="card-carousel" id="restaurant-carousel">
-                    <button class="place-card"><div class="place-image">🍕</div><div class="place-name">Pizza Palace</div><div class="place-description">Authentic wood-fired pizzas with student-friendly prices. Late night delivery available.</div><div class="place-details"><div class="place-rating">⭐ 4.6</div><div class="place-distance">0.3 km</div></div></button>
-                    <button class="place-card"><div class="place-image">🍜</div><div class="place-name">Noodle House</div><div class="place-description">Asian cuisine with variety of noodles, rice bowls, and dumplings. Quick service and fresh ingredients.</div><div class="place-details"><div class="place-rating">⭐ 4.4</div><div class="place-distance">0.5 km</div></div></button>
-                    <button class="place-card"><div class="place-image">🍛</div><div class="place-name">Curry Corner</div><div class="place-description">Traditional Indian cuisine with home-style cooking. Affordable meals and vegetarian options.</div><div class="place-details"><div class="place-rating">⭐ 4.8</div><div class="place-distance">0.4 km</div></div></button>
+                     <button class="place-card">
+                        <div class="place-image">💇</div>
+                        <div class="card-content-wrapper">
+                            <div class="place-name">Style Studio</div>
+                            <div class="place-description">Professional haircuts, styling, and grooming services. Student discounts available.</div>
+                            <div class="place-details">⭐ 4.5<span>0.4 km</span></div>
+                        </div>
+                    </button>
+                    <button class="place-card">
+                        <div class="place-image">💅</div>
+                        <div class="card-content-wrapper">
+                            <div class="place-name">Nail Art Corner</div>
+                            <div class="place-description">Trendy nail art, manicures, and pedicures. Quick service with creative designs.</div>
+                            <div class="place-details">⭐ 4.3<span>0.6 km</span></div>
+                        </div>
+                    </button>
                 </div>
                 <button class="scroll-button right" aria-label="Scroll right">❯</button>
             </div>
@@ -351,29 +345,25 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
             function setupCarousels() {
                 document.querySelectorAll('.carousel-container').forEach(container => {
                     const carousel = container.querySelector('.card-carousel');
                     const leftBtn = container.querySelector('.scroll-button.left');
                     const rightBtn = container.querySelector('.scroll-button.right');
-                    
                     if (!carousel || !leftBtn || !rightBtn) return;
                     
                     const scroll = (direction) => {
                         const firstCard = carousel.querySelector('.place-card');
                         if (!firstCard) return;
-                        const scrollAmount = firstCard.offsetWidth + 24;
+                        const scrollAmount = firstCard.offsetWidth + 32; /* 2rem gap */
                         carousel.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
                     };
-
                     leftBtn.addEventListener('click', () => scroll('left'));
                     rightBtn.addEventListener('click', () => scroll('right'));
                 });
             }
 
             function setupScrollAnimations() {
-                const sections = document.querySelectorAll('.social-section');
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -382,8 +372,7 @@
                         }
                     });
                 }, { threshold: 0.1 });
-
-                sections.forEach(section => observer.observe(section));
+                document.querySelectorAll('.social-section').forEach(section => observer.observe(section));
             }
 
             function setupInteractions() {
