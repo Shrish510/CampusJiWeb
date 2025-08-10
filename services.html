@@ -1,82 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - CampusJi</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="icon"
       href="images/Campusjilogo.jpg"
       type="image/x-icon"
       style="border-radius: 50%"
     />
-  </head>
-  <body>
-    <div id="header-container"></div>
 
-    <main class="main-content">
-      <h1
-        class="page-title"
-        style="
-          text-align: center;
-          color: #081f5c;
-          font-size: 2.5rem;
-          margin-bottom: 3rem;
-          font-weight: bold;
-        "
-      >
-        Our Services
-      </h1>
-
-      <div class="three-column-section">
-        <div class="column-card">
-          <h3>Grievance Redressal</h3>
-          <p>
-            Submit and track your grievances. We are here to help you with any
-            issues you are facing on campus.
-          </p>
-          <a href="grievance.html" class="service-link">Access System</a>
-        </div>
-
-        <div class="column-card">
-          <h3>Contact Repository</h3>
-          <p>
-            Find contact information for campus authorities, services, and local
-            vendors.
-          </p>
-          <a href="contact_repository.html" class="service-link"
-            >View Contacts</a
-          >
-        </div>
-
-        <div class="column-card">
-          <h3>Lost and Found</h3>
-          <p>
-            Report lost items or check for items that have been found by others.
-          </p>
-          <a href="lost-and-found.html" class="service-link"
-            >Open Lost & Found</a
-          >
-        </div>
-
-        <div class="column-card">
-          <h3>Court Booking</h3>
-          <p>Book a court for your sports needs. Reserve your time slot now!</p>
-          <a href="court-booking.html" class="service-link">Book Court</a>
-        </div>
-
-        <div class="column-card">
-          <h3>Parcel Hub</h3>
-          <p>Track your parcels and manage your deliveries.</p>
-          <a href="parcel-hub.html" class="service-link">Access System</a>
-        </div>
-      </div>
-    </main>
-
-    <script src="js/auth.js"></script>
     <style>
+      /* --- Basic Page Styles --- */
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        background-color: #fdfaf4; /* Light cream background from image */
+      }
+
+      main {
+        padding: 2rem;
+      }
+
+      /* --- Header and Navigation Styles (New) --- */
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #081f5c; /* Dark blue from header image */
+        padding: 10px 30px;
+        color: white;
+      }
+
+      .logo-container img {
+        height: 50px;
+        margin-right: 15px;
+        vertical-align: middle;
+      }
+
+      .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin-left: 25px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      /* Style for the active page link, matching the screenshot */
+      .nav-links a.active,
+      .nav-links a:hover {
+        background-color: #5b7ac7; /* Lighter blue for highlight */
+      }
+      
+      /* --- Dropdown Menu Styles (New) --- */
+      /* The container for the dropdown menu */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* The dropdown box itself. Hidden by default. */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff; /* White background */
+        min-width: 220px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1; /* Ensures dropdown appears on top */
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-top: 10px; /* Space between button and dropdown */
+      }
+
+      /* Links inside the dropdown menu */
+      .dropdown-content a {
+        color: #081f5c; /* Dark blue text to match theme */
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      /* Changes background of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* --- Main Content Styles (From your original file) --- */
       .page-title {
         text-align: center;
         color: #081f5c;
@@ -84,23 +113,5 @@
         margin-bottom: 3rem;
         font-weight: bold;
       }
-      .service-link {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 10px 20px;
-        background-color: #334eac;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
-      .service-link:hover {
-        background-color: #081f5c;
-      }
-      .service-link.disabled {
-        background-color: #aaa;
-        cursor: not-allowed;
-      }
-    </style>
-  </body>
-</html>
+
+      .three
