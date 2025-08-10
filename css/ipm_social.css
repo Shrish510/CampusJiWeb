@@ -1,236 +1,129 @@
-/* --- ROOT & GENERAL STYLES --- */
-:root {
-    --royal: #334EAC;
-    --moon: #F7F2EB;
-    --china: #7096D1;
-    --midnight: #081F5C;
-    --dawn: #D0E3FF;
-    --porcelain: #F8F9FA; /* A very light grey for the background */
-    --sky: #BAD6EB;
-    --text-dark: #1D2433;
-    --text-light: #6c757d;
-}
-
+/* --- Basic Setup & Background --- */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--porcelain);
-    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    /* IMPORTANT: Replace with your IIM Rohtak campus image URL. 
+      A high-quality, wide photo works best.
+    */
+    background-image: url('https://images.unsplash.com/photo-1589982433036-396a73154133?q=80&w=2940&auto=format&fit=crop');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* This creates the artistic monochrome effect */
+    filter: grayscale(100%) brightness(0.6);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- HEADER STYLES --- */
-.site-header {
-    background-color: rgba(255, 255, 255, 0.7); /* White with transparency */
-    backdrop-filter: blur(10px); /* The "glass" effect */
-    padding: 0.75rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-logos .logo {
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.header-nav .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.header-nav .nav-link {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.header-nav .nav-link:hover {
-    background-color: var(--dawn);
-    color: var(--royal);
-}
-
-.header-nav .nav-link.active {
-    background-color: var(--royal);
-    color: white;
-    box-shadow: 0 4px 15px rgba(51, 78, 172, 0.3);
-}
-
-/* --- MAIN CONTENT & HEADINGS --- */
-.main-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
+/* --- Main Content & Grid --- */
+.services-container {
+    width: 100%;
+    max-width: 1200px;
 }
 
 .page-title {
     text-align: center;
-    color: var(--text-dark);
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.social-section {
-    margin-bottom: 5rem;
-}
-
-.section-heading {
-    text-align: center;
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: var(--royal);
-    margin-bottom: 3.5rem;
-    position: relative;
-}
-
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--royal), var(--china));
-    border-radius: 2px;
-}
-
-/* --- MODERN CARD STYLES --- */
-.card-carousel {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 1.5rem;
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 }
-.card-carousel::-webkit-scrollbar { display: none; }
 
+/* --- The Glass Card --- */
 .card {
-    min-width: 320px;
-    background: white;
+    background: rgba(30, 30, 30, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(12px); /* The frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    
     border-radius: 16px;
-    border: 1px solid #E9ECEF;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    padding: 2rem;
+    text-decoration: none;
+    color: #fff;
+    
+    box-shadow: 0 0 0 rgba(0,0,0,0.2); /* Initial shadow */
+    position: relative; /* Needed for the arrow */
+    
+    /* Smooth transition for all effects */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* --- Card Interactivity --- */
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05), 0 20px 40px rgba(8, 31, 92, 0.1);
-    border-color: var(--china);
+    transform: translateY(-10px);
+    background: rgba(45, 45, 45, 0.5);
+    border-color: rgba(66, 153, 225, 0.5); /* Blue glow on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.card-image-placeholder {
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, var(--dawn) 0%, var(--sky) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #E9ECEF;
-}
-
+/* --- Card Content --- */
 .card-icon {
-    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+.card-icon img {
+    width: 50px;
+    height: 50px;
+    filter: invert(1); /* Makes icons white */
     opacity: 0.8;
-    transition: transform 0.3s ease;
 }
 
-.card:hover .card-icon {
-    transform: scale(1.1);
-}
-
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-content h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
-
-.card-content p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* --- CAROUSEL BUTTONS --- */
-.carousel-container {
-    position: relative;
-}
-
-.scroll-button {
-    background: white;
-    border: 1px solid #E9ECEF;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+.card-title {
     font-size: 1.5rem;
-    color: var(--royal);
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+}
+
+.card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* --- The Hover Arrow --- */
+.card-arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    transition: all 0.3s ease;
+    bottom: 1.5rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.scroll-button:hover {
-    background: var(--royal);
-    color: white;
-    transform: translateY(-50%) scale(1.1);
-    border-color: var(--royal);
+.card:hover .card-arrow {
+    opacity: 1; /* Shows on hover */
+    transform: translateX(0);
 }
 
-.scroll-button.left { left: -10px; }
-.scroll-button.right { right: -10px; }
-
-
-/* --- RESPONSIVE STYLES --- */
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        padding: 1rem;
-        backdrop-filter: none; /* Blur effect can be heavy on mobile */
-        background-color: rgba(255, 255, 255, 0.95);
+    body {
+        padding: 2rem 1rem;
     }
-    .header-nav .nav-links { margin-top: 1rem; }
-    
-    .main-content { padding: 2rem 1rem; }
-    .page-title { font-size: 2.5rem; }
-    .section-heading { font-size: 2rem; }
-    
-    .card { min-width: 280px; }
-    
-    .scroll-button { display: none; }
+    .page-title {
+        font-size: 2.25rem;
+    }
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
