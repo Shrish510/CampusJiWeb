@@ -4,396 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPM Social - CampusJi</title>
-    <style>
-        /* CSS variables from your selected theme */
-        :root {
-            --royal: #334EAC;
-            --moon: #F7F2EB;
-            --china: #7096D1;
-            --midnight: #081F5C;
-            --dawn: #D0E3FF;
-            --porcelain: #EDF1F6;
-            
-            --shadow-color: rgba(8, 31, 92, 0.1);
-            --shadow-hover-color: rgba(8, 31, 92, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Consistent font applied to the entire page */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--porcelain);
-            min-height: 100vh;
-            color: var(--midnight);
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* HEADER & NAVIGATION */
-        .header-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background-color: var(--royal);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        /* This wrapper makes the logos clickable */
-        .logo-link {
-            text-decoration: none;
-        }
-
-        /* Styling for the logo images */
-        .logo {
-            height: 50px;
-            width: auto;
-            display: block;
-            border-radius: 50%; /* Makes the logos circular as per the image */
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-links a, .nav-links .logout-btn {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover, .nav-links .logout-btn:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a.active {
-            background-color: var(--china);
-            font-weight: 600;
-        }
-
-        .logout-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit; /* Ensures button font matches body font */
-        }
-        
-        /* MAIN CONTENT & SECTIONS */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 2rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-title, .section-heading {
-            text-align: center;
-            position: relative;
-            margin-bottom: 3rem;
-            font-weight: bold;
-        }
-
-        .page-title {
-            font-size: 2.5rem;
-            color: var(--midnight);
-        }
-        .section-heading {
-            font-size: 2rem;
-            color: var(--royal);
-        }
-
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--royal), var(--china));
-            border-radius: 2px;
-        }
-
-        .social-section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .social-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* CAROUSEL & CARDS */
-        .carousel-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            margin: 0 -20px;
-        }
-
-        .card-carousel {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 1rem;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            flex: 1;
-        }
-        .card-carousel::-webkit-scrollbar { display: none; }
-
-        .place-card {
-            all: unset; 
-            display: block;
-            min-width: 300px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .place-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px var(--shadow-hover-color);
-        }
-
-        .place-image {
-            width: 100%;
-            height: 200px;
-            background: var(--dawn);
-            border-bottom: 3px solid var(--china);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--royal);
-        }
-
-        .card-content-wrapper { padding: 1.5rem; }
-
-        .place-name {
-            font-size: 1.5rem;
-            color: var(--midnight);
-            margin-bottom: 0.5rem;
-        }
-
-        .place-description {
-            font-size: 1rem;
-            color: var(--royal);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .place-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-            font-size: 1rem;
-            color: var(--royal);
-        }
-
-        .scroll-button {
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            color: var(--royal);
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .scroll-button:hover {
-            background: var(--china);
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        @media (max-width: 900px) { .nav-links { display: none; } }
-
-        @media (max-width: 768px) {
-            .header-nav { padding: 0 1rem; }
-            .main-content { padding: 100px 1rem 1rem; }
-            .carousel-container { margin: 0; padding: 0; }
-            .place-card { min-width: 80%; }
-            .scroll-button { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/ipm_social.css">
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
 </head>
 <body>
-    
-    <nav class="header-nav">
-        <a href="#home" class="logo-link" aria-label="Homepage">
-            <div class="logo-section">
-                <img src="images/logo-1.png" alt="IPM Logo" class="logo">
-                <img src="images/logo-2.png" alt="CampusJi Logo" class="logo">
-            </div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#clubs">Clubs and Committees</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#social" class="active">IPM Social</a></li>
-            <li><button class="logout-btn">Logout</button></li>
-        </ul>
-    </nav>
-    
+    <div id="header-container"></div>
+
     <main class="main-content">
         <h1 class="page-title">IPM Social</h1>
-        
+
         <section class="social-section">
             <h2 class="section-heading">Top Places to Hang Out</h2>
             <div class="carousel-container">
-                <button class="scroll-button left" aria-label="Scroll left">❮</button>
+                <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
-                    <button class="place-card">
-                        <div class="place-image">🎮</div>
-                        <div class="card-content-wrapper">
-                            <div class="place-name">Gaming Zone</div>
-                            <div class="place-description">Ultimate gaming experience with PS5, Xbox, and VR setups. Perfect for competitive gaming sessions.</div>
-                            <div class="place-details">⭐ 4.8<span>0.5 km</span></div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Movie Theatres</h3>
+                            <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
                         </div>
-                    </button>
-                    <button class="place-card">
-                        <div class="place-image">☕</div>
-                        <div class="card-content-wrapper">
-                           <div class="place-name">Campus Café</div>
-                           <div class="place-description">Cozy spot for coffee and conversations. Free WiFi, study-friendly atmosphere, and great snacks.</div>
-                           <div class="place-details">⭐ 4.6<span>0.2 km</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Cafés & Eateries</h3>
+                            <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
                         </div>
-                    </button>
-                    <button class="place-card">
-                        <div class="place-image">🏓</div>
-                        <div class="card-content-wrapper">
-                            <div class="place-name">Recreation Center</div>
-                            <div class="place-description">Table tennis, pool, and indoor games. Great place to unwind and meet new people.</div>
-                            <div class="place-details">⭐ 4.7<span>0.3 km</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Shopping Malls</h3>
+                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
                         </div>
-                    </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Sports Complex</h3>
+                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Gaming Zones</h3>
+                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
+                        </div>
+                    </div>
                 </div>
-                <button class="scroll-button right" aria-label="Scroll right">❯</button>
+                <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
             </div>
         </section>
 
         <section class="social-section">
             <h2 class="section-heading">Salon Services Nearby</h2>
             <div class="carousel-container">
-                <button class="scroll-button left" aria-label="Scroll left">❮</button>
+                <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="salon-carousel">
-                     <button class="place-card">
-                        <div class="place-image">💇</div>
-                        <div class="card-content-wrapper">
-                            <div class="place-name">Style Studio</div>
-                            <div class="place-description">Professional haircuts, styling, and grooming services. Student discounts available.</div>
-                            <div class="place-details">⭐ 4.5<span>0.4 km</span></div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Modern Cuts</h3>
+                            <p>Haircuts, styling, and grooming services for all students.</p>
                         </div>
-                    </button>
-                    <button class="place-card">
-                        <div class="place-image">💅</div>
-                        <div class="card-content-wrapper">
-                            <div class="place-name">Nail Art Corner</div>
-                            <div class="place-description">Trendy nail art, manicures, and pedicures. Quick service with creative designs.</div>
-                            <div class="place-details">⭐ 4.3<span>0.6 km</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Beauty Bliss</h3>
+                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
                         </div>
-                    </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Campus Barber</h3>
+                            <p>A quick and affordable option for a classic trim or shave.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Spa & Wellness</h3>
+                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
+                        </div>
+                    </div>
                 </div>
-                <button class="scroll-button right" aria-label="Scroll right">❯</button>
+                <button class="scroll-button right" onclick="scrollCarousel('salon-carousel', 'right')">❯</button>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <h2 class="section-heading">Top Restaurants</h2>
+            <div class="carousel-container">
+                <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
+                <div class="card-carousel" id="restaurant-carousel">
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>The Food Court</h3>
+                            <p>Variety of cuisines from local vendors and popular chains.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Cafeteria</h3>
+                            <p>Our own campus cafeteria serving delicious meals and snacks.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Pizza Palace</h3>
+                            <p>The go-to spot for pizza nights and group study sessions.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Burger Junction</h3>
+                            <p>Best burgers and fries in the city, with a special student discount.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image-placeholder"></div>
+                        <div class="card-content">
+                            <h3>Dhaba Delight</h3>
+                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
             </div>
         </section>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            function setupCarousels() {
-                document.querySelectorAll('.carousel-container').forEach(container => {
-                    const carousel = container.querySelector('.card-carousel');
-                    const leftBtn = container.querySelector('.scroll-button.left');
-                    const rightBtn = container.querySelector('.scroll-button.right');
-                    if (!carousel || !leftBtn || !rightBtn) return;
-                    
-                    const scroll = (direction) => {
-                        const firstCard = carousel.querySelector('.place-card');
-                        if (!firstCard) return;
-                        const scrollAmount = firstCard.offsetWidth + 32; /* 2rem gap */
-                        carousel.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-                    };
-                    leftBtn.addEventListener('click', () => scroll('left'));
-                    rightBtn.addEventListener('click', () => scroll('right'));
-                });
-            }
-
-            function setupScrollAnimations() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                document.querySelectorAll('.social-section').forEach(section => observer.observe(section));
-            }
-
-            function setupInteractions() {
-                document.querySelectorAll('.place-card').forEach(card => {
-                    card.addEventListener('click', function() {
-                        const placeName = this.querySelector('.place-name').textContent;
-                        alert(`More info about ${placeName} coming soon!`);
-                    });
-                });
-                
-                document.querySelector('.logout-btn')?.addEventListener('click', () => {
-                    if (confirm('Are you sure you want to logout?')) {
-                        alert('Logout successful!');
-                    }
-                });
-            }
-            
-            setupCarousels();
-            setupScrollAnimations();
-            setupInteractions();
-        });
-    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/ipm_social.js"></script>
 </body>
 </html>
