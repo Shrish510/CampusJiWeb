@@ -3,164 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPM Social - CampusJi</title>
+    <title>Campus Services Hub</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/ipm_social.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-logos">
-            <img src="images/logo1.png" alt="University Logo" class="logo">
-            <img src="images/Campusjilogo.jpg" alt="CampusJi Logo" class="logo">
+
+    <main class="services-container">
+        <h1 class="page-title">Services Hub</h1>
+
+        <div class="card-grid">
+            <a href="#" class="card">
+                <div class="card-icon">
+                    <img src="https://img.icons8.com/ios/100/ffffff/complaint.png" alt="Grievance Icon"/>
+                </div>
+                <h3 class="card-title">Grievance Redressal</h3>
+                <p class="card-description">Submit and track your grievances. We are here to help with any issues you are facing on campus.</p>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-icon">
+                    <img src="https://img.icons8.com/ios/100/ffffff/contacts.png" alt="Contacts Icon"/>
+                </div>
+                <h3 class="card-title">Contact Repository</h3>
+                <p class="card-description">Find contact information for campus authorities, services, and local vendors.</p>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-icon">
+                    <img src="https://img.icons8.com/ios/100/ffffff/find-matching-job.png" alt="Lost and Found Icon"/>
+                </div>
+                <h3 class="card-title">Lost and Found</h3>
+                <p class="card-description">Report lost items or check for items that have been found by others.</p>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-icon">
+                    <img src="https://img.icons8.com/ios/100/ffffff/tennis-ball.png" alt="Court Booking Icon"/>
+                </div>
+                <h3 class="card-title">Court Booking</h3>
+                <p class="card-description">Book a court for your sports needs. Reserve your time slot now!</p>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="#" class="card">
+                <div class="card-icon">
+                    <img src="https://img.icons8.com/ios/100/ffffff/box.png" alt="Parcel Hub Icon"/>
+                </div>
+                <h3 class="card-title">Parcel Hub</h3>
+                <p class="card-description">Track your parcels and manage your deliveries from one central place.</p>
+                <span class="card-arrow">→</span>
+            </a>
+
         </div>
-        <nav class="header-nav">
-            <ul class="nav-links">
-                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Clubs and Committees</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">IPM Social</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="main-content">
-        <h1 class="page-title">Explore Life Around Campus</h1>
-        
-        <section class="social-section">
-            <h2 class="section-heading">Top Places to Hang Out</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="hangout-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🎬</span></div>
-                        <div class="card-content">
-                            <h3>Movie Theatres</h3>
-                            <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">☕</span></div>
-                        <div class="card-content">
-                            <h3>Cafés & Eateries</h3>
-                            <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🛍️</span></div>
-                        <div class="card-content">
-                            <h3>Shopping Malls</h3>
-                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🏀</span></div>
-                        <div class="card-content">
-                            <h3>Sports Complex</h3>
-                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🎮</span></div>
-                        <div class="card-content">
-                            <h3>Gaming Zones</h3>
-                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
-            </div>
-        </section>
-
-        <section class="social-section">
-            <h2 class="section-heading">Salon Services Nearby</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">✂️</span></div>
-                        <div class="card-content">
-                            <h3>Modern Cuts</h3>
-                            <p>Haircuts, styling, and grooming services for all students.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">✨</span></div>
-                        <div class="card-content">
-                            <h3>Beauty Bliss</h3>
-                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">💈</span></div>
-                        <div class="card-content">
-                            <h3>Campus Barber</h3>
-                            <p>A quick and affordable option for a classic trim or shave.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">💆</span></div>
-                        <div class="card-content">
-                            <h3>Spa & Wellness</h3>
-                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('salon-carousel', 'right')">❯</button>
-            </div>
-        </section>
-
-        <section class="social-section">
-            <h2 class="section-heading">Top Restaurants</h2>
-            <div class="carousel-container">
-                <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
-                <div class="card-carousel" id="restaurant-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🍽️</span></div>
-                        <div class="card-content">
-                            <h3>The Food Court</h3>
-                            <p>Variety of cuisines from local vendors and popular chains.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🥪</span></div>
-                        <div class="card-content">
-                            <h3>Campus Cafeteria</h3>
-                            <p>Our own cafeteria serving delicious, budget-friendly meals and snacks.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🍕</span></div>
-                        <div class="card-content">
-                            <h3>Pizza Palace</h3>
-                            <p>The go-to spot for pizza nights and group study sessions.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🍔</span></div>
-                        <div class="card-content">
-                            <h3>Burger Junction</h3>
-                            <p>The best burgers and fries in the city, with a special student discount.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"><span class="card-icon">🍛</span></div>
-                        <div class="card-content">
-                            <h3>Dhaba Delight</h3>
-                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
-            </div>
-        </section>
     </main>
 
-    <script src="js/auth.js"></script>
-    <script src="js/ipm_social.js"></script>
 </body>
 </html>
