@@ -4,94 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services - CampusJi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" />
+
   <style>
+    /* Background animation */
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f7faff, #e9f0ff);
-      color: #081f5c;
+      background: linear-gradient(-45deg, #f5f9ff, #ffffff, #f0f4ff, #ffffff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .page-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin: 2rem 0 1rem;
-      font-weight: bold;
-    }
-
-    /* Dropdown */
-    .service-nav-container {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    #service-nav {
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      min-width: 280px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    #service-nav:focus {
-      outline: none;
-      border-color: #334eac;
-      box-shadow: 0 0 8px rgba(51, 78, 172, 0.4);
-    }
-
-    /* Grid layout */
+    /* Responsive grid for services */
     .three-column-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       padding: 0 2rem 3rem;
     }
 
-    /* Card styling */
+    /* Card styling - keeping original colors */
     .column-card {
       background: white;
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      text-align: center;
+      border-radius: 12px;
+      padding: 1.5rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeIn 0.8s ease-in-out;
     }
     .column-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    /* Icon styling */
-    .service-icon {
-      font-size: 2.5rem;
-      color: #334eac;
+    /* Keep your existing title style */
+    .page-title {
+      text-align: center;
       margin-bottom: 1rem;
     }
 
-    /* Button styling */
-    .service-link {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #334eac, #081f5c);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s ease;
-      font-weight: 500;
+    /* Keep dropdown style but add hover focus effect */
+    #service-nav {
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .service-link:hover {
-      background: linear-gradient(135deg, #081f5c, #334eac);
-      box-shadow: 0 0 12px rgba(8,31,92,0.4);
-    }
-
-    /* Fade-in animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+    #service-nav:focus {
+      outline: none;
+      border-color: #334eac;
+      box-shadow: 0 0 8px rgba(51, 78, 172, 0.3);
     }
   </style>
 </head>
@@ -114,35 +78,26 @@
 
     <div class="three-column-section">
       <div class="column-card">
-        <i class="fas fa-exclamation-circle service-icon"></i>
         <h3>Grievance Redressal</h3>
         <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
         <a href="grievance.html" class="service-link">Access System</a>
       </div>
-
       <div class="column-card">
-        <i class="fas fa-address-book service-icon"></i>
         <h3>Contact Repository</h3>
         <p>Find contact information for campus authorities, services, and local vendors.</p>
         <a href="contact_repository.html" class="service-link">View Contacts</a>
       </div>
-
       <div class="column-card">
-        <i class="fas fa-search service-icon"></i>
         <h3>Lost and Found</h3>
         <p>Report lost items or check for items that have been found by others.</p>
         <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
       </div>
-
       <div class="column-card">
-        <i class="fas fa-volleyball-ball service-icon"></i>
         <h3>Court Booking</h3>
         <p>Book a court for your sports needs. Reserve your time slot now!</p>
         <a href="court-booking.html" class="service-link">Book Court</a>
       </div>
-
       <div class="column-card">
-        <i class="fas fa-box-open service-icon"></i>
         <h3>Parcel Hub</h3>
         <p>Track your parcels and manage your deliveries.</p>
         <a href="parcel-hub.html" class="service-link">Access System</a>
@@ -150,6 +105,7 @@
     </div>
   </main>
 
+  <script src="js/auth.js"></script>
   <script>
     document.getElementById('service-nav').addEventListener('change', function() {
       if (this.value) {
