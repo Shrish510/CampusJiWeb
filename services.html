@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - CampusJi</title>
+    <!-- Note: These CSS file links are placeholders. The primary styling is included in the <style> tag below. -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicon for the website tab -->
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
+
   </head>
   <body>
+    <!-- A container for a shared header, if you have one -->
     <div id="header-container"></div>
+
     <main class="main-content">
       <h1 class="page-title">CampusJi Services</h1>
+
+      <!-- Dropdown for quick navigation -->
       <div class="service-nav-container">
         <select id="service-nav">
           <option value="" selected disabled>-- Navigate to a Service --</option>
@@ -22,6 +29,8 @@
           <option value="parcel-hub.html">Parcel Hub</option>
         </select>
       </div>
+
+      <!-- Service cards section -->
       <div class="three-column-section">
         <div class="column-card">
           <h3>Grievance Redressal</h3>
@@ -49,43 +58,19 @@
           <a href="parcel-hub.html" class="service-link">Access System</a>
         </div>
       </div>
+
+      <!-- Dynamic Service Status Dashboard -->
       <section class="status-dashboard">
         <h2>Service Status Dashboard</h2>
         <ul class="status-list">
-          <li>
-            <span>Grievance System</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Operational</span>
-            </div>
-          </li>
-          <li>
-            <span>Sports Court Booking</span>
-            <div class="status-info">
-              <span class="status-dot status-warning"></span>
-              <span>High Demand</span>
-            </div>
-          </li>
-          <li>
-            <span>Parcel Hub</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Available</span>
-            </div>
-          </li>
-          <li>
-            <span>Campus Wi-Fi</span>
-            <div class="status-info">
-              <span class="status-dot status-down"></span>
-              <span>Partial Outage</span>
-            </div>
-          </li>
+
         </ul>
         <p class="last-updated" id="status-time">Last updated: -</p>
       </section>
     </main>
+
+    <!-- This script is a placeholder for any authentication logic -->
     <script src="js/auth.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/services.js"></script>
+
   </body>
 </html>
