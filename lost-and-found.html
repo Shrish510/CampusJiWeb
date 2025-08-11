@@ -4,21 +4,444 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lost & Found - CampusJi</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/lost-and-found.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       href="images/Campusjilogo.jpg"
       type="image/x-icon"
       style="border-radius: 50%"
     />
-    <script src="js/auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --primary-hover: #0056b3;
+        --secondary-color: #6c757d;
+        --success-color: #28a745;
+        --danger-color: #dc3545;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --text-color: #495057;
+        --bg-color: #eef2f9;
+        --card-bg: #ffffff;
+        --border-color: #dee2e6;
+        --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        --border-radius: 12px;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .main-content {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .lost-found-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .lost-found-header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .lost-found-header h1 .fa-search {
+        color: var(--primary-color);
+      }
+      
+      .lost-found-header p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        color: var(--secondary-color);
+      }
+
+      .action-buttons {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .action-btn {
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 14px 30px;
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      }
+
+      .action-btn:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+      }
+
+      .action-btn .fas {
+        margin-right: 10px;
+      }
+      
+      /* --- Form Section --- */
+      .form-section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      
+      .form-section:not(.hidden) {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .form-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+
+      .form-section:not(.hidden) .form-card {
+        transform: scale(1);
+      }
+
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+      }
+
+      .form-header h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--dark-color);
+      }
+      
+      .close-btn {
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      
+      .close-btn:hover {
+        color: var(--danger-color);
+      }
+      
+      .form-row {
+        display: flex;
+        gap: 1.5rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1.5rem;
+        flex: 1;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dark-color);
+      }
+      
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+      }
+
+      input[type="file"].form-input {
+          padding: 8px 15px;
+      }
+      
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .btn {
+        padding: 12px 25px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-success {
+        background: var(--success-color);
+        color: white;
+      }
+      .btn-success:hover {
+        background-color: #218838;
+      }
+
+      .btn-secondary {
+        background: var(--secondary-color);
+        color: white;
+      }
+      .btn-secondary:hover {
+        background-color: #5a6268;
+      }
+      
+      .form-message {
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 500;
+      }
+      
+      /* --- Listings Section --- */
+      .listings-section {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+      
+      .listings-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .listings-header h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-color);
+      }
+      
+      .search-box {
+        display: flex;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        max-width: 400px;
+        flex-grow: 1;
+      }
+      
+      .search-box input {
+        border: none;
+        padding: 10px 15px;
+        font-size: 1rem;
+        flex-grow: 1;
+      }
+
+      .search-box input:focus {
+        outline: none;
+      }
+      
+      .search-box button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .search-box button:hover {
+        background: var(--primary-hover);
+      }
+
+      .filter-buttons {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        background: var(--bg-color);
+        padding: 6px;
+        border-radius: 10px;
+        width: fit-content;
+      }
+
+      .filter-btn {
+        background: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      
+      .filter-btn .fas {
+        margin-right: 8px;
+      }
+
+      .filter-btn.active, .filter-btn:hover {
+        background: var(--card-bg);
+        color: var(--primary-color);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+
+      .listings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      /* --- Individual Listing Card Design --- */
+      .listing-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .listing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+      
+      .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .card-status {
+        align-self: flex-start;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-status.lost {
+        background: rgba(220, 53, 69, 0.1);
+        color: var(--danger-color);
+      }
+
+      .card-status.found {
+        background: rgba(40, 167, 69, 0.1);
+        color: var(--success-color);
+      }
+      
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--dark-color);
+        margin: 0 0 0.5rem;
+      }
+      
+      .card-description {
+        font-size: 0.95rem;
+        color: var(--secondary-color);
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+      }
+      
+      .card-footer {
+        border-top: 1px solid var(--border-color);
+        padding-top: 1rem;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--secondary-color);
+      }
+      
+      .card-footer span {
+        display: flex;
+        align-items: center;
+      }
+      
+      .card-footer .fas {
+        margin-right: 8px;
+        color: var(--primary-color);
+      }
+
+      .loading-spinner, .no-listings {
+        text-align: center;
+        padding: 3rem;
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+      }
+
+      .loading-spinner .fa-spinner {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .no-listings .fa-search {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--border-color);
+      }
+    </style>
   </head>
   <body>
     <div id="header-container"></div>
@@ -28,13 +451,13 @@
         <div class="lost-found-header">
           <h1><i class="fas fa-search"></i> Lost & Found Center</h1>
           <p>
-            Report lost items or check for items that have been found by others
+            Help reunite owners with their cherished belongings. Report a lost item or post something you've found.
           </p>
         </div>
 
         <div class="action-buttons">
-          <button id="cta-new-listing" class="action-btn primary">
-            <i class="fas fa-clipboard-list"></i> List Lost Item
+          <button id="cta-new-listing" class="action-btn">
+            <i class="fas fa-plus-circle"></i> Create a New Listing
           </button>
         </div>
 
@@ -42,7 +465,7 @@
           <div class="form-card">
             <div class="form-header">
               <h2 id="form-title">
-                <i class="fas fa-plus-circle"></i> Create a Listing
+                <i class="fas fa-clipboard-list"></i> Create a Listing
               </h2>
               <button id="close-form" class="close-btn">
                 <i class="fas fa-times"></i>
@@ -53,71 +476,36 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Your Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    class="form-input"
-                    placeholder="John Doe"
-                    required
-                  />
+                  <input id="name" type="text" class="form-input" placeholder="e.g., John Doe" required />
                 </div>
                 <div class="form-group">
                   <label for="title">Item Name</label>
-                  <input
-                    id="title"
-                    type="text"
-                    class="form-input"
-                    placeholder="Black Wallet"
-                    required
-                  />
+                  <input id="title" type="text" class="form-input" placeholder="e.g., Black Leather Wallet" required />
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea
-                  id="description"
-                  class="form-input"
-                  rows="4"
-                  placeholder="Describe the item, when/where it was lost or found..."
-                  required
-                ></textarea>
+                <textarea id="description" class="form-input" rows="4" placeholder="Describe the item, when/where it was lost or found..." required></textarea>
               </div>
-
-              <div class="form-group">
-                <label for="phone">Contact Phone</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  class="form-input"
-                  placeholder="9999999999"
-                  pattern="[0-9]{10}"
-                  title="Enter a 10-digit phone number"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="image">Photo</label>
-                <input
-                  id="image"
-                  type="file"
-                  accept="image/*"
-                  class="form-input"
-                  required
-                />
+              
+              <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Contact Phone</label>
+                    <input id="phone" type="tel" class="form-input" placeholder="e.g., 9999999999" pattern="[0-9]{10}" title="Enter a 10-digit phone number" required />
+                </div>
+                <div class="form-group">
+                    <label for="image">Photo of the Item</label>
+                    <input id="image" type="file" accept="image/*" class="form-input" required />
+                </div>
               </div>
 
               <div class="form-actions">
+                <button type="button" id="cancel-form" class="btn btn-secondary">
+                  <i class="fas fa-times"></i> Cancel
+                </button>
                 <button type="submit" class="btn btn-success">
                   <i class="fas fa-save"></i> Submit Listing
-                </button>
-                <button
-                  type="button"
-                  id="cancel-form"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-times"></i> Cancel
                 </button>
               </div>
 
@@ -128,14 +516,10 @@
 
         <div class="listings-section">
           <div class="listings-header">
-            <h2><i class="fas fa-list"></i> Browse Listings</h2>
+            <h2><i class="fas fa-list-alt"></i> Current Listings</h2>
             <div class="search-box">
-              <input
-                type="text"
-                id="search-listings"
-                placeholder="Search by item name or description..."
-              />
-              <button id="search-btn" class="btn btn-primary">
+              <input type="text" id="search-listings" placeholder="Search for headphones, keys, etc..." />
+              <button id="search-btn" class="btn-primary">
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -152,22 +536,89 @@
 
           <div class="listings-container">
             <div id="listings-list" class="listings-grid">
-              <!-- Listings will be populated here -->
+              <div class="listing-card">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=2070" alt="Headphones" class="card-img-top">
+                <div class="card-body">
+                  <span class="card-status lost">Lost</span>
+                  <h3 class="card-title">Sony WH-1000XM4 Headphones</h3>
+                  <p class="card-description">Lost my black Sony headphones, likely in the main library on the 2nd floor. They are in a hard black case.</p>
+                  <div class="card-footer">
+                    <span><i class="fas fa-phone"></i> 9876543210</span>
+                    <span><i class="fas fa-user"></i> Priya Sharma</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="listing-card">
+                <img src="https://images.unsplash.com/photo-1543364195-077a17c30b3b?q=80&w=2070" alt="Keys" class="card-img-top">
+                <div class="card-body">
+                  <span class="card-status found">Found</span>
+                  <h3 class="card-title">Set of Keys on a Lanyard</h3>
+                  <p class="card-description">Found a set of keys with a blue university lanyard and a small keychain. Found near the campus coffee shop.</p>
+                  <div class="card-footer">
+                    <span><i class="fas fa-phone"></i> 8765432109</span>
+                    <span><i class="fas fa-user"></i> Raj Patel</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="listing-card">
+                <img src="https://images.unsplash.com/photo-1585583422938-2315b8a68a52?q=80&w=1932" alt="Water Bottle" class="card-img-top">
+                <div class="card-body">
+                  <span class="card-status lost">Lost</span>
+                  <h3 class="card-title">Steel Water Bottle</h3>
+                  <p class="card-description">Lost a silver steel water bottle with a few stickers on it. Might have left it in the gymnasium.</p>
+                  <div class="card-footer">
+                    <span><i class="fas fa-phone"></i> 7654321098</span>
+                    <span><i class="fas fa-user"></i> Anjali Mehta</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div id="loading-spinner" class="loading-spinner">
-              <i class="fas fa-spinner fa-spin"></i> Loading listings...
+            
+            <div id="loading-spinner" class="loading-spinner" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Loading listings...</p>
             </div>
-            <div id="no-listings" class="no-listings" style="display: none">
-              <i class="fas fa-search"></i>
-              <p>No listings found</p>
+            <div id="no-listings" class="no-listings" style="display: none;">
+              <i class="fas fa-box-open"></i>
+              <p>No listings match your criteria.</p>
             </div>
           </div>
         </div>
       </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // A little bit of JS to make the new design interactive
+        // This can be moved to your lost-and-found.js file
 
-    <script src="js/lost-and-found.js?v=2"></script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const newListingBtn = document.getElementById('cta-new-listing');
+            const formSection = document.getElementById('form-section');
+            const closeFormBtn = document.getElementById('close-form');
+            const cancelFormBtn = document.getElementById('cancel-form');
+            
+            const showForm = () => formSection.classList.remove('hidden');
+            const hideForm = () => formSection.classList.add('hidden');
 
-  </body>
+            newListingBtn.addEventListener('click', showForm);
+            closeFormBtn.addEventListener('click', hideForm);
+            cancelFormBtn.addEventListener('click', hideForm);
+
+            // Filter buttons logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // Add your filtering logic here based on btn.dataset.filter
+                });
+            });
+        });
+    </script>
+    </body>
 </html>
