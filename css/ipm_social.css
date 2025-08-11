@@ -254,3 +254,15 @@
         box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1); /* Reset shadow */
     }
 }
+@media (max-width: 768px) {
+  .card-carousel {
+    display: block;
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  .card {
+    min-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
