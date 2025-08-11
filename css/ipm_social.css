@@ -99,7 +99,7 @@
 .card-image {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* This ensures the image covers the area, cropping if necessary */
+    object-fit: cover;
     border-bottom: 3px solid var(--china);
 }
 
@@ -159,14 +159,12 @@
 .salon-card-expandable {
     position: relative;
     overflow: hidden;
-    /* Define a fixed height for the collapsed state */
-    height: 280px; /* Adjust as needed */
+    height: 280px;
     transition: height 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .salon-card-expandable .card-content {
-    /* Ensure content is visible in collapsed state */
-    padding-bottom: 1rem; /* Adjust as needed */
+    padding-bottom: 1rem;
 }
 
 .salon-card-expandable .expanded-info {
@@ -180,13 +178,12 @@
 }
 
 .salon-card-expandable:hover {
-    /* Expand height on hover */
-    height: 380px; /* Adjust as needed to fit expanded content */
+    height: 380px;
     box-shadow: 0 15px 30px rgba(8, 31, 92, 0.2);
 }
 
 .salon-card-expandable:hover .expanded-info {
-    max-height: 150px; /* Sufficient height for expanded content */
+    max-height: 150px;
     opacity: 1;
 }
 
@@ -222,47 +219,42 @@
 }
 
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .card {
-        min-width: 80%;
-    }
-
-    .scroll-button {
-        display: none;
-    }
-
-    .carousel-container {
-        margin: 0;
-    }
-
-    .salon-card-expandable {
-        height: auto; /* Allow height to adjust on smaller screens */
-        min-height: 280px; /* Ensure a minimum height */
-    }
-
-    .salon-card-expandable .expanded-info {
-        max-height: none; /* Always show expanded info on small screens */
-        opacity: 1;
-        padding-top: 0.5rem;
-        border-top: 1px solid #eee;
-        margin-top: 0.5rem;
-    }
-
-    .salon-card-expandable:hover {
-        transform: none; /* Disable hover transform on small screens */
-        box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1); /* Reset shadow */
-    }
-}
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
   .card-carousel {
-    display: block;
-    overflow-x: hidden;
-    padding: 0;
+    display: block; /* Stacks the cards vertically */
+    overflow-x: hidden; /* Disables horizontal scrolling */
+    padding: 0; /* Removes padding that was forcing horizontal space */
   }
 
   .card {
-    min-width: 100%;
-    margin-bottom: 2rem;
+    min-width: 100%; /* Makes each card take up the full width */
+    margin-bottom: 2rem; /* Adds space between stacked cards */
+  }
+
+  .scroll-button {
+    display: none; /* Hides the scroll buttons on mobile */
+  }
+
+  .carousel-container {
+    margin: 0; /* Removes the negative margin */
+  }
+
+  .salon-card-expandable {
+    height: auto; /* Allows the card height to be dynamic */
+    min-height: 280px; /* Ensures a minimum height */
+  }
+
+  .salon-card-expandable .expanded-info {
+    max-height: none; /* Always show expanded info on small screens */
+    opacity: 1;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
+  }
+
+  .salon-card-expandable:hover {
+    transform: none; /* Disables hover transform on small screens */
+    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1); /* Resets the shadow */
   }
 }
