@@ -6,100 +6,60 @@
     <title>Services - CampusJi</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
+    <link rel="stylesheet" href="css/services.css" />
   </head>
   <body>
     <div id="header-container"></div>
     <main class="main-content">
       <h1 class="page-title">Our Services</h1>
+      <p class="page-subtitle">Select a service below to get started.</p>
 
-      <div class="service-nav-container">
-        <select id="service-nav">
-          <option value="" selected disabled>-- Navigate to a Service --</option>
-          <option value="grievance.html">Grievance Redressal</option>
-          <option value="contact_repository.html">Contact Repository</option>
-          <option value="lost-and-found.html">Lost and Found</option>
-          <option value="court-booking.html">Court Booking</option>
-          <option value="parcel-hub.html">Parcel Hub</option>
-        </select>
-      </div>
-
-      <div class="three-column-section">
-        <div class="column-card">
+      <div class="service-grid">
+        
+        <a href="grievance.html" class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
           <h3>Grievance Redressal</h3>
-          <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
-          <a href="grievance.html" class="service-link">Access System</a>
-        </div>
-        <div class="column-card">
+          <p>Submit and track grievances for any issues you face on campus.</p>
+        </a>
+
+        <a href="contact_repository.html" class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-address-book"></i>
+          </div>
           <h3>Contact Repository</h3>
           <p>Find contact information for campus authorities, services, and local vendors.</p>
-          <a href="contact_repository.html" class="service-link">View Contacts</a>
-        </div>
-        <div class="column-card">
+        </a>
+
+        <a href="lost-and-found.html" class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
           <h3>Lost and Found</h3>
           <p>Report lost items or check for items that have been found by others.</p>
-          <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
-        </div>
-        <div class="column-card">
+        </a>
+
+        <a href="court-booking.html" class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-volleyball"></i>
+          </div>
           <h3>Court Booking</h3>
           <p>Book a court for your sports needs. Reserve your time slot now!</p>
-          <a href="court-booking.html" class="service-link">Book Court</a>
-        </div>
-        <div class="column-card">
+        </a>
+
+        <a href="parcel-hub.html" class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
           <h3>Parcel Hub</h3>
-          <p>Track your parcels and manage your deliveries.</p>
-          <a href="parcel-hub.html" class="service-link">Access System</a>
-        </div>
+          <p>Track your incoming parcels and manage your deliveries seamlessly.</p>
+        </a>
+
       </div>
     </main>
     <script src="js/auth.js"></script>
-
-    <script>
-      document.getElementById('service-nav').addEventListener('change', function() {
-        if (this.value) {
-          window.location.href = this.value;
-        }
-      });
-    </script>
-
-    <style>
-      .page-title {
-        text-align: center;
-        color: #081f5c;
-        font-size: 2.5rem;
-        margin-bottom: 1rem; /* Adjusted margin for dropdown */
-        font-weight: bold;
-      }
-      /* Styles for the new dropdown */
-      .service-nav-container {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-      #service-nav {
-        padding: 10px;
-        font-size: 1rem;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        min-width: 280px;
-        cursor: pointer;
-      }
-      .service-link {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 10px 20px;
-        background-color: #334eac;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
-      .service-link:hover {
-        background-color: #081f5c;
-      }
-      .service-link.disabled {
-        background-color: #aaa;
-        cursor: not-allowed;
-      }
-    </style>
   </body>
 </html>
