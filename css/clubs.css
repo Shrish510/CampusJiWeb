@@ -116,12 +116,12 @@ body {
 }
 
 /* Banner Image Classes */
-.academic-banner { background-image: url('../images/ACBan.png'); }
-.internship-banner { background-image: url('../images/ICBan.png'); }
-.athlos-banner { background-image: url('../images/AthBan.png'); }
-.riwaayat-banner { background-image: url('../images/RiwBan.png'); }
-.literati-banner { background-image: url('../images/LitBan.png'); }
-.utthaan-banner { background-image: url('../images/UtBan.png'); }
+.academic-banner { background-image: url('../images/ACBan.webp'); }
+.internship-banner { background-image: url('../images/ICBan.webp'); }
+.athlos-banner { background-image: url('../images/AthBan.webp'); }
+.riwaayat-banner { background-image: url('../images/RiwBan.webp'); }
+.literati-banner { background-image: url('../images/LitBan.webp'); }
+.utthaan-banner { background-image: url('../images/UtBan.webp'); }
 
 .card-links {
     display: flex;
@@ -243,72 +243,73 @@ body {
 /* --- Individual Team Member Photos --- */
 
 /* Academic Committee */
-.photo-shrish { background-image: url('../images/Shrish.jpg'); }
-.photo-akruti { background-image: url('../images/Akruti.jpg'); }
-.photo-madhur { background-image: url('../images/ACMadhur.jpeg'); }
-.photo-sanchi { background-image: url('../images/ACSanchi.jpeg'); }
+.photo-shrish { background-image: url('../images/Shrish.webp'); }
+.photo-akruti { background-image: url('../images/Akruti.webp'); }
+.photo-madhur { background-image: url('../images/ACMadhur.webp'); }
+.photo-sanchi { background-image: url('../images/ACSanchi.webp'); }
 
 /* Internship Committee */
-.photo-aditi { background-image: url('../images/Aditi.jpg'); }
-.photo-anushree { background-image: url('../images/Anushree.jpg'); }
-.photo-aryaa { background-image: url('../images/Aryaa.jpg'); }
-.photo-somansha { background-image: url('../images/Somansha.jpg'); }
-.photo-upagnya { background-image: url('../images/Upagnya.jpg'); }
-.photo-utkarsh { background-image: url('../images/Utkarsh.jpg'); }
-.photo-amaeya { background-image: url('../images/Amaeya.jpeg'); }
-.photo-dhruvi { background-image: url('../images/Dhruvi.jpeg'); }
-.photo-jiya { background-image: url('../images/Jiya.jpeg'); }
-.photo-gaurav { background-image: url('../images/Gaurav.jpeg'); }
-.photo-muskan { background-image: url('../images/Muskan.jpeg'); }
-.photo-sanskar { background-image: url('../images/Sanskar.jpeg'); }
-.photo-shashwat { background-image: url('../images/Shashwat.jpeg'); }
-.photo-navyansh { background-image: url('../images/Navyansh.jpeg'); }
+.photo-aditi { background-image: url('../images/Aditi.webp'); }
+.photo-anushree { background-image: url('../images/Anushree.webp'); }
+.photo-aryaa { background-image: url('../images/Aryaa.webp'); }
+.photo-somansha { background-image: url('../images/Somansha.webp'); }
+.photo-upagnya { background-image: url('../images/Upagnya.webp'); }
+.photo-utkarsh { background-image: url('../images/Utkarsh.webp'); }
+.photo-amaeya { background-image: url('../images/Amaeya.webp'); }
+.photo-dhruvi { background-image: url('../images/Dhruvi.webp'); }
+.photo-jiya { background-image: url('../images/Jiya.webp'); }
+.photo-gaurav { background-image: url('../images/Gaurav.webp'); }
+.photo-muskan { background-image: url('../images/Muskan.webp'); }
+.photo-sanskar { background-image: url('../images/Sanskar.webp'); }
+.photo-shashwat { background-image: url('../images/Shashwat.webp'); }
+.photo-navyansh { background-image: url('../images/Navyansh.webp'); }
 
 
 /* Athlos */
-.photo-dev { background-image: url('../images/Dev.jpg'); }
-.photo-bhavya { background-image: url('../images/Bhavya.jpg'); }
-.photo-kaustubh { background-image: url('../images/Kaustubh.jpg'); }
-.photo-vansh { background-image: url('../images/Vansh.jpg'); }
-.photo-harsh { background-image: url('../images/AthHarsh.jpeg'); }
-.photo-kavya { background-image: url('../images/AthKavya.jpeg'); }
-.photo-khyati { background-image: url('../images/AthKhyati.png'); }
-.photo-rohan { background-image: url('../images/AthRohan.jpeg'); }
-.photo-vincent { background-image: url('../images/AthVincent.jpeg'); }
-.photo-yuktha { background-image: url('../images/AthYuktha.jpeg'); }
+.photo-dev { background-image: url('../images/Dev.webp'); }
+.photo-bhavya { background-image: url('../images/Bhavya.webp'); }
+.photo-kaustubh { background-image: url('../images/Kaustubh.webp'); }
+.photo-vansh { background-image: url('../images/Vansh.webp'); }
+.photo-harsh { background-image: url('../images/AthHarsh.webp'); }
+.photo-kavya { background-image: url('../images/AthKavya.webp'); }
+.photo-khyati { background-image: url('../images/AthKhyati.webp'); }
+.photo-rohan { background-image: url('../images/AthRohan.webp'); }
+.photo-vincent { background-image: url('../images/AthVincent.webp'); }
+.photo-yuktha { background-image: url('../images/AthYuktha.webp'); }
 
 /* Riwaayat */
-.photo-ishika { background-image: url('../images/Ishika.jpg'); }
-.photo-mrinali { background-image: url('../images/Mrinali.jpg'); }
-.photo-avi { background-image: url('../images/Avi.jpg'); }
-.photo-yusuf { background-image: url('../images/Yusuf.jpg'); }
-.photo-dhruv { background-image: url('../images/RiwDhruv.jpeg'); }
-.photo-gautam { background-image: url('../images/RiwGautam.jpeg'); }
-.photo-khushi { background-image: url('../images/RiwKhushi.jpeg'); }
-.photo-parth { background-image: url('../images/RiwParth.jpeg'); }
-.photo-samruddhi { background-image: url('../images/RiwSamruddhi.jpeg'); }
-.photo-yashvi { background-image: url('../images/RiwYashvi.jpeg'); }
+.photo-ishika { background-image: url('../images/Ishika.webp'); }
+.photo-mrinali { background-image: url('../images/Mrinali.webp'); }
+.photo-avi { background-image: url('../images/Avi.webp'); }
+.photo-yusuf { background-image: url('../images/Yusuf.webp'); }
+.photo-dhruv { background-image: url('../images/RiwDhruv.webp'); }
+.photo-gautam { background-image: url('../images/RiwGautam.webp'); }
+.photo-khushi { background-image: url('../images/RiwKhushi.webp'); }
+.photo-parth { background-image: url('../images/RiwParth.webp'); }
+.photo-samruddhi { background-image: url('../images/RiwSamruddhi.webp'); }
+.photo-yashvi { background-image: url('../images/RiwYashvi.webp'); }
 
 /* Literati */
-.photo-mannat { background-image: url('../images/Mannat.jpg'); }
-.photo-sarthak { background-image: url('../images/Sarthak.jpg'); }
-.photo-ananya { background-image: url('../images/Ananya.jpg'); }
-.photo-parmi { background-image: url('../images/Parmi.jpg'); }
-.photo-advay { background-image: url('../images/LitAdvay.jpeg'); }
-.photo-akshun { background-image: url('../images/LitAkshun.png'); }
-.photo-arav { background-image: url('../images/LitArav.jpeg'); }
-.photo-arhaan { background-image: url('../images/LitArhaan.jpeg'); }
-.photo-lit-parth { background-image: url('../images/LitParth.png'); }
-.photo-sangeeth { background-image: url('../images/LitSangeeth.jpeg'); }
+.photo-mannat { background-image: url('../images/Mannat.webp'); }
+.photo-sarthak { background-image: url('../images/Sarthak.webp'); }
+.photo-ananya { background-image: url('../images/Ananya.webp'); }
+.photo-parmi { background-image: url('../images/Parmi.webp'); }
+.photo-advay { background-image: url('../images/LitAdvay.webp'); }
+.photo-akshun { background-image: url('../images/LitAkshun.webp'); }
+.photo-arav { background-image: url('../images/LitArav.webp'); }
+.photo-arhaan { background-image: url('../images/LitArhaan.webp'); }
+.photo-lit-parth { background-image: url('../images/LitParth.webp'); }
+.photo-sangeeth { background-image: url('../images/LitSangeeth.webp'); }
 
 /* Utthaan */
-.photo-nandini { background-image: url('../images/Nandini.jpg'); }
-.photo-divya { background-image: url('../images/Divya.jpg'); }
-.photo-aryan { background-image: url('../images/Aryan.jpg'); }
-.photo-divanshi { background-image: url('../images/Divanshi.jpg'); }
-.photo-mahek { background-image: url('../images/RiwMahek.png'); }
-.photo-nayan { background-image: url('../images/UthNayan.jpeg'); }
-.photo-nidhi { background-image: url('../images/UthNidhi.jpeg'); }
-.photo-sangeetha { background-image: url('../images/UthSangeetha.jpeg'); }
-.photo-sithi { background-image: url('../images/UthSithi.jpeg'); }
-.photo-srishti { background-image: url('../images/UthSrishti.jpeg'); }
+.photo-nandini { background-image: url('../images/Nandini.webp'); }
+.photo-divya { background-image: url('../images/Divya.webp'); }
+.photo-aryan { background-image: url('../images/Aryan.webp'); }
+.photo-divanshi { background-image: url('../images/Divanshi.webp'); }
+.photo-mahek { background-image: url('../images/RiwMahek.webp'); }
+.photo-nayan { background-image: url('../images/UthNayan.webp'); }
+.photo-nidhi { background-image: url('../images/UthNidhi.webp'); }
+.photo-sangeetha { background-image: url('../images/UthSangeetha.webp'); }
+.photo-sithi { background-image: url('../images/UthSithi.webp'); }
+.photo-srishti { background-image: url('../images/UthSrishti.webp'); }
+
