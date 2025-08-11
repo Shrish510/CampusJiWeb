@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /hiddenpage.html
+Disallow: /contact_repository.html
