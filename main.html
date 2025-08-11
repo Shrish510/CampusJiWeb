@@ -77,24 +77,38 @@
                 </div>
             </div>
 
-            <div class="column-card">
-                <h3>Weather</h3>
-                <div class="weather-info">
-                    <div class="weather-location" id="weather-location">Rohtak, Haryana</div>
-                    <div class="weather-temp" id="weather-temp">--°C</div>
-                    <div class="weather-condition" id="weather-condition">Loading...</div>
-                    <div class="weather-details">
-                        <div class="weather-detail">
-                            <strong>Humidity</strong>
-                            <span id="weather-humidity">--%</span>
+            <div class="weather-calendar-container">
+                <div class="column-card weather-card">
+                    <h3>Weather</h3>
+                    <div class="weather-info">
+                        <div class="weather-location" id="weather-location">Rohtak, Haryana</div>
+                        <div class="weather-temp" id="weather-temp">--°C</div>
+                        <div class="weather-condition" id="weather-condition">Loading...</div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <strong>Humidity</strong>
+                                <span id="weather-humidity">--%</span>
+                            </div>
+                            <div class="weather-detail">
+                                <strong>Wind</strong>
+                                <span id="weather-wind">-- km/h</span>
+                            </div>
+                            <div class="weather-detail">
+                                <strong>Feels Like</strong>
+                                <span id="weather-feels-like">--°C</span>
+                            </div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Wind</strong>
-                            <span id="weather-wind">-- km/h</span>
+                    </div>
+                </div>
+                
+                <div class="column-card lost-found-card">
+                    <h3>Latest Lost & Found Items</h3>
+                    <div class="lost-found-container">
+                        <div id="latest-lost-found">
+                            <div class="loading-item">Loading latest items...</div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Feels Like</strong>
-                            <span id="weather-feels-like">--°C</span>
+                        <div class="view-all-link">
+                            <a href="lost-and-found.html" class="view-all-btn">View All Items</a>
                         </div>
                     </div>
                 </div>
