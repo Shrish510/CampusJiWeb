@@ -160,6 +160,18 @@ function setupEventListeners() {
     }
   });
 
+  if (bookingsList) {
+    bookingsList.addEventListener("click", (e) => {
+      if (e.target.matches(".btn-danger[data-booking-id]")) {
+        const bookingId = e.target.dataset.bookingId;
+        if (confirm("Are you sure you want to cancel this booking?")) {
+          deleteBooking(parseInt(bookingId, 10));
+        }
+      }
+    });
+    console.log("✅ Bookings list delegate listener added");
+  }
+
   console.log("✅ All event listeners set up successfully");
 }
 
@@ -625,7 +637,7 @@ function displayBookings(bookings) {
                     <div class="booking-actions">
                         ${
                           isOwner
-                            ? `<button class="btn-danger" onclick="deleteBooking(${booking.id})">Cancel Booking</button>`
+                            ? `<button class="btn-danger" data-booking-id="${booking.id}">Cancel Booking</button>`
                             : ""
                         }
                     </div>
