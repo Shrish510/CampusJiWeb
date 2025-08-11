@@ -121,28 +121,7 @@
 
     <div id="messageContainer" class="message-container"></div>
 
-    <script src="js/court.booking.js?v=2"></script>
-
-    <script>
-      // Wait for the document to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Find the date input element by its ID
-        const dateInput = document.getElementById('startDate');
-
-        if (dateInput) {
-          // Listen for the 'change' event, which fires when a date is selected
-          dateInput.addEventListener('change', function() {
-            // If the input has a value (a date was chosen)
-            if (this.value) {
-              // Add the 'date-selected' class to apply our CSS style
-              this.classList.add('date-selected');
-            } else {
-              // If the date is cleared, remove the class to revert to the default style
-              this.classList.remove('date-selected');
-            }
-          });
-        }
-      });
-    </script>
+    <script src="js/common.js"></script>
+    <script type="module" src="js/court.booking.js?v=2"></script>
   </body>
 </html>
