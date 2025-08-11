@@ -20,7 +20,7 @@
         position: relative; /* Needed for z-index stacking */
       }
 
-      /* --- Background Floating Icons --- */
+      /* --- [ADDED] Background Floating Icons --- */
       .background-icons {
         position: fixed;
         top: 0;
@@ -36,6 +36,7 @@
         position: absolute;
         opacity: 0.1; /* Very faint to not distract */
         filter: grayscale(100%);
+        color: #343a40;
       }
 
       .icon-book {
@@ -51,6 +52,7 @@
         right: 12%;
         transform: rotate(15deg);
       }
+      /* --- [END ADDED SECTION] --- */
 
       .main-content {
         max-width: 1200px; /* Constrains width for better look on large screens */
@@ -200,18 +202,29 @@
   </head>
   <body>
     <div class="background-icons">
-      <img
-        src="images/book-icon.svg"
-        alt=""
+      <svg
         class="bg-icon icon-book"
-      />
-      <img
-        src="images/lightbulb-icon.svg"
-        alt=""
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"
+        />
+      </svg>
+      <svg
         class="bg-icon icon-lightbulb"
-      />
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"
+        />
+      </svg>
     </div>
-
     <div id="header-container"></div>
     <main class="main-content">
       <h1 class="page-title">CampusJi Services</h1>
