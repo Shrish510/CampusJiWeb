@@ -4,13 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lost & Found - CampusJi</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -25,16 +19,18 @@
     <link rel="stylesheet" href="css/main.css" />
 
     <style>
+      /* --- Color and Font theme updated to match the image --- */
       :root {
-        --primary-color: #007bff;
-        --primary-hover: #0056b3;
+        /* Using the dark slate blue from the image as the primary color */
+        --primary-color: #2e4057; 
+        --primary-hover: #212f40; /* A darker shade for hover effects */
         --secondary-color: #6c757d;
         --success-color: #28a745;
         --danger-color: #dc3545;
         --light-color: #f8f9fa;
-        --dark-color: #343a40;
-        --text-color: #495057;
-        --bg-color: #eef2f9;
+        --dark-color: #2e4057; /* Updated to match the primary brand color */
+        --text-color: #4a5461; /* A slightly lighter shade for readability */
+        --bg-color: #f8f5f2; /* Warm, off-white background from the image */
         --card-bg: #ffffff;
         --border-color: #dee2e6;
         --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -42,11 +38,17 @@
       }
 
       body {
-        font-family: "Poppins", sans-serif;
+        /* Using a classic serif font to match the image's style */
+        font-family: "Georgia", serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         line-height: 1.6;
         margin: 0;
+      }
+      
+      /* Re-applying font to inputs as they don't always inherit */
+      .form-input, .search-box input {
+        font-family: "Georgia", serif;
       }
 
       .main-content {
@@ -93,13 +95,13 @@
         border-radius: var(--border-radius);
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        box-shadow: 0 4px 10px rgba(46, 64, 87, 0.3);
       }
 
       .action-btn:hover {
         background-color: var(--primary-hover);
         transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+        box-shadow: 0 6px 15px rgba(46, 64, 87, 0.4);
       }
 
       .action-btn .fas {
@@ -194,7 +196,6 @@
         padding: 12px 15px;
         border: 1px solid var(--border-color);
         border-radius: 8px;
-        font-family: "Poppins", sans-serif;
         font-size: 1rem;
         transition: border-color 0.3s ease, box-shadow 0.3s ease;
       }
@@ -202,7 +203,7 @@
       .form-input:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        box-shadow: 0 0 0 3px rgba(46, 64, 87, 0.2);
       }
 
       input[type="file"].form-input {
@@ -222,6 +223,7 @@
         border: none;
         cursor: pointer;
         font-weight: 600;
+        font-family: "Poppins", sans-serif; /* Keep buttons sans-serif for clarity */
         transition: all 0.3s ease;
       }
       
@@ -322,6 +324,7 @@
         color: var(--secondary-color);
         cursor: pointer;
         border-radius: 8px;
+        font-family: "Poppins", sans-serif; /* Keep buttons sans-serif for clarity */
         transition: all 0.3s ease;
       }
       
@@ -378,6 +381,7 @@
         font-size: 0.8rem;
         text-transform: uppercase;
         margin-bottom: 0.75rem;
+        font-family: "Poppins", sans-serif; /* Keep status tags sans-serif */
       }
 
       .card-status.lost {
@@ -574,7 +578,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
             
             <div id="loading-spinner" class="loading-spinner" style="display: none;">
@@ -593,32 +596,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
     <script>
-        // A little bit of JS to make the new design interactive
-        // This can be moved to your lost-and-found.js file
+      document.addEventListener('DOMContentLoaded', function() {
+        const newListingBtn = document.getElementById('cta-new-listing');
+        const formSection = document.getElementById('form-section');
+        const closeFormBtn = document.getElementById('close-form');
+        const cancelFormBtn = document.getElementById('cancel-form');
+        
+        const showForm = () => formSection.classList.remove('hidden');
+        const hideForm = () => formSection.classList.add('hidden');
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const newListingBtn = document.getElementById('cta-new-listing');
-            const formSection = document.getElementById('form-section');
-            const closeFormBtn = document.getElementById('close-form');
-            const cancelFormBtn = document.getElementById('cancel-form');
-            
-            const showForm = () => formSection.classList.remove('hidden');
-            const hideForm = () => formSection.classList.add('hidden');
+        newListingBtn.addEventListener('click', showForm);
+        closeFormBtn.addEventListener('click', hideForm);
+        cancelFormBtn.addEventListener('click', hideForm);
 
-            newListingBtn.addEventListener('click', showForm);
-            closeFormBtn.addEventListener('click', hideForm);
-            cancelFormBtn.addEventListener('click', hideForm);
-
-            // Filter buttons logic
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    // Add your filtering logic here based on btn.dataset.filter
-                });
-            });
+        // Filter buttons logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          });
         });
+      });
     </script>
-    </body>
+  </body>
 </html>
