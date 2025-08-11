@@ -12,6 +12,17 @@ body {
     color: #333; /* Improved text color for readability */
 }
 
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Header Styles (Keeping this section as-is per your request) */
 .header {
     background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
@@ -81,8 +92,8 @@ body {
     width: 100%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* Slightly stronger shadow */
+    margin-bottom: 2.5rem; /* More spacing */
 }
 
 .slider {
@@ -120,10 +131,12 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    animation: slideInUp 0.8s ease-out; /* Add animation */
 }
 
 .slide-description {
     font-size: 1.2rem;
+    animation: slideInUp 1s ease-out; /* Add animation with delay */
 }
 
 .slider-nav {
@@ -153,7 +166,7 @@ body {
 .three-column-section {
     display: flex;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem; /* More spacing */
 }
 
 .column-card {
@@ -162,28 +175,55 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     padding: 2rem;
     flex: 1;
-    min-height: 350px;
+    min-height: 380px; /* Increased min-height for better balance */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+}
+
+.column-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .column-card h3 {
     color: #081F5C;
     font-family: Georgia, serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Slightly larger heading */
     margin-bottom: 1.5rem;
+    text-align: center; /* Center align card headings */
 }
 
 .mess-menu-items {
     list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.mess-menu-items li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 1.1rem;
+    color: #555;
+}
+.mess-menu-items li:last-child {
+    border-bottom: none;
 }
 
+
 /* Updated Bulletin Section */
+#bulletin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Spacing between bulletin items */
+}
+
 .bulletin-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
-    margin-bottom: 1rem;
+    padding-top: 0.5rem;
 }
 
 .bulletin-item:last-child {
@@ -193,58 +233,83 @@ body {
 
 .bulletin-icon-container {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
+    width: 45px; /* Larger icon container */
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #334EAC;
     border-radius: 50%;
     color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Shadow for icon */
 }
 
 .bulletin-icon {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Larger icon */
+}
+
+.bulletin-content p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .read-more-btn {
     text-decoration: none;
     color: #334EAC;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 .read-more-btn:hover {
     color: #081F5C;
+    transform: translateX(5px);
 }
 
 /* Updated Weather Section */
 .weather-info {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Occupy full card height */
+    padding-top: 1rem; /* Adjust padding */
+}
+
+.weather-icon-container {
+    margin-bottom: 1rem;
 }
 
 .weather-icon {
-    font-size: 5rem;
+    font-size: 6rem; /* Even larger icon */
     color: #334EAC;
-    margin-bottom: 1rem;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
 }
 
+/* Example: Specific icon styles (can be controlled by JS based on condition) */
+.fas.fa-sun { color: #FFD700; } /* Sunny yellow */
+.fas.fa-cloud-showers-heavy { color: #708090; } /* Grey for rain */
+.fas.fa-cloud { color: #A9A9A9; } /* Light grey for cloudy */
+
+
 .weather-location {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Slightly larger */
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #334EAC;
+    color: #081F5C; /* Darker blue */
 }
 
 .weather-temp {
-    font-size: 4rem;
+    font-size: 4.5rem; /* Larger temperature */
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: #081F5C;
 }
 
 .weather-condition {
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Slightly larger */
     margin-bottom: 1.5rem;
     color: #666;
 }
@@ -253,23 +318,37 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    margin-top: auto; /* Push details to the bottom */
 }
 
 .weather-detail {
     text-align: center;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    background-color: #F0F4F7; /* Light background for details */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .weather-detail strong {
     display: block;
     font-size: 0.9rem;
-    color: #666;
+    color: #444;
+    margin-bottom: 0.2rem;
+}
+.weather-detail span {
+    font-weight: bold;
+    color: #333;
 }
 
 .weather-reminder {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
+    margin-top: 2rem; /* More space for the reminder */
+    font-size: 1.2rem;
     font-style: italic;
     color: #334EAC;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #E6EEF9; /* Light blue background for reminder */
+    border-radius: 8px;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -277,36 +356,54 @@ body {
 .map-section {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    padding: 2rem;
-    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* Stronger shadow */
+    padding: 2.5rem; /* More padding */
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.map-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
 }
 .map-section h2 {
     color: #081F5C;
     font-family: Georgia, serif;
-    font-size: 2rem;
+    font-size: 2.2rem; /* Larger heading */
     margin-bottom: 1.5rem;
+    text-align: center;
+}
+.map-placeholder {
+    border-radius: 10px;
+    overflow: hidden; /* Ensures iframe corners are rounded */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 /* FAQ Section */
 .faq-section {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* Stronger shadow */
+    padding: 2.5rem; /* More padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.faq-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
 }
 
 .faq-section h2 {
     color: #081F5C;
     font-family: Georgia, serif;
-    font-size: 2rem;
+    font-size: 2.2rem; /* Larger heading */
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .faq-item {
     border-radius: 8px;
     margin-bottom: 1rem;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Shadow for individual FAQ items */
 }
 
 .faq-question {
@@ -324,11 +421,13 @@ body {
 .faq-question h4 {
     color: #333;
     margin: 0;
+    font-size: 1.1rem; /* Adjusted font size */
 }
 .faq-toggle {
     font-size: 1.5rem;
     font-weight: bold;
     transition: transform 0.3s ease;
+    color: #334EAC; /* Color the toggle */
 }
 .faq-item.active .faq-toggle {
     transform: rotate(45deg);
@@ -338,6 +437,8 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: white; /* Answer background */
+    color: #555;
 }
 .faq-item.active .faq-answer {
     max-height: 200px;
@@ -346,6 +447,9 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
     .three-column-section {
         flex-direction: column;
         gap: 1.5rem;
@@ -353,6 +457,7 @@ body {
     .column-card {
         width: 100%;
         min-height: auto;
+        padding: 1.5rem;
     }
     .header-container {
         flex-direction: column;
@@ -362,17 +467,34 @@ body {
     .nav-menu {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 1rem;
     }
     .slide img {
-        height: 300px;
+        height: 250px; /* Adjust height for smaller screens */
     }
     .slide-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     .slide-description {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .map-placeholder iframe {
-        height: 300px;
+        height: 250px;
+    }
+    .map-section h2, .faq-section h2 {
+        font-size: 1.8rem;
+    }
+    .weather-icon {
+        font-size: 4rem;
+    }
+    .weather-temp {
+        font-size: 3rem;
+    }
+    .weather-condition {
+        font-size: 1.2rem;
+    }
+    .weather-reminder {
+        font-size: 1rem;
+        padding: 0.8rem;
     }
 }
