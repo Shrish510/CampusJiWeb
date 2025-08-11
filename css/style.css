@@ -92,6 +92,8 @@
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .column-card:hover {
@@ -275,6 +277,7 @@
         font-size: 1rem;
     }
 }
+
 
 /* --- General Page Styling --- */
 body {
