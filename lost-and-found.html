@@ -540,45 +540,7 @@
 
           <div class="listings-container">
             <div id="listings-list" class="listings-grid">
-              
-              <div class="listing-card" data-status="lost">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070" alt="Headphones" class="card-img-top">
-                <div class="card-body">
-                  <span class="card-status lost">Lost</span>
-                  <h3 class="card-title">Sony WH-1000XM4 Headphones</h3>
-                  <p class="card-description">Lost my black Sony headphones, likely in the main library on the 2nd floor. They are in a hard black case.</p>
-                  <div class="card-footer">
-                    <span><i class="fas fa-phone"></i> 9876543210</span>
-                    <span><i class="fas fa-user"></i> Priya Sharma</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="listing-card" data-status="found">
-                <img src="https://images.unsplash.com/photo-1588871205163-9a3b37b42d75?q=80&w=2070" alt="Keys" class="card-img-top">
-                <div class="card-body">
-                  <span class="card-status found">Found</span>
-                  <h3 class="card-title">Set of Keys on a Lanyard</h3>
-                  <p class="card-description">Found a set of keys with a blue university lanyard and a small keychain. Found near the campus coffee shop.</p>
-                  <div class="card-footer">
-                    <span><i class="fas fa-phone"></i> 8765432109</span>
-                    <span><i class="fas fa-user"></i> Raj Patel</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="listing-card" data-status="lost">
-                <img src="https://images.unsplash.com/photo-1613229792024-6d6146436e42?q=80&w=1974" alt="Water Bottle" class="card-img-top">
-                <div class="card-body">
-                  <span class="card-status lost">Lost</span>
-                  <h3 class="card-title">Steel Water Bottle</h3>
-                  <p class="card-description">Lost a silver steel water bottle with a few stickers on it. Might have left it in the gymnasium.</p>
-                  <div class="card-footer">
-                    <span><i class="fas fa-phone"></i> 7654321098</span>
-                    <span><i class="fas fa-user"></i> Anjali Mehta</span>
-                  </div>
-                </div>
-              </div>
+              <!-- Listings will be dynamically loaded here -->
             </div>
             
             <div id="loading-spinner" class="loading-spinner" style="display: none;">
@@ -596,80 +558,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // --- Element Selections ---
-        const newListingBtn = document.getElementById('cta-new-listing');
-        const formSection = document.getElementById('form-section');
-        const closeFormBtn = document.getElementById('close-form');
-        const cancelFormBtn = document.getElementById('cancel-form');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const searchInput = document.getElementById('search-listings');
-        const searchBtn = document.getElementById('search-btn');
-        const noListingsMsg = document.getElementById('no-listings');
-        
-        // --- Form Toggle Logic ---
-        const showForm = () => formSection.classList.remove('hidden');
-        const hideForm = () => formSection.classList.add('hidden');
-        newListingBtn.addEventListener('click', showForm);
-        closeFormBtn.addEventListener('click', hideForm);
-        cancelFormBtn.addEventListener('click', hideForm);
-        
-        // --- UNIFIED FILTERING AND SEARCHING LOGIC ---
-
-        function updateDisplayedListings() {
-          // Get the current active filter category (e.g., 'lost' or 'found')
-          const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-          // Get the search term and convert to lowercase for case-insensitive search
-          const searchTerm = searchInput.value.toLowerCase();
-          
-          const allListings = document.querySelectorAll('#listings-list .listing-card');
-          let visibleCount = 0;
-
-          allListings.forEach(card => {
-            const itemStatus = card.dataset.status;
-            const itemTitle = card.querySelector('.card-title').textContent.toLowerCase();
-            const itemDescription = card.querySelector('.card-description').textContent.toLowerCase();
-
-            // Check if the card matches the active category filter
-            const categoryMatch = itemStatus === activeFilter;
-            // Check if the card's title or description includes the search term
-            const searchMatch = itemTitle.includes(searchTerm) || itemDescription.includes(searchTerm);
-
-            // Show the card only if it matches both the category and the search term
-            if (categoryMatch && searchMatch) {
-              card.style.display = ''; // Show the card
-              visibleCount++;
-            } else {
-              card.style.display = 'none'; // Hide the card
-            }
-          });
-
-          // Display the "no listings" message if no cards are visible
-          noListingsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-
-        // --- Event Listeners ---
-
-        // 1. For Filter Buttons (Lost/Found)
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            updateDisplayedListings();
-          });
-        });
-
-        // 2. For Live Search as user types
-        searchInput.addEventListener('input', updateDisplayedListings);
-
-        // 3. For Search Button click (optional, but good practice)
-        searchBtn.addEventListener('click', updateDisplayedListings);
-        
-        // --- Initial Page Load ---
-        // Call the function once to set the initial state based on default filters.
-        updateDisplayedListings();
-      });
-    </script>
+    <script type="module" src="js/lost-and-found.js"></script>
   </body>
 </html>
