@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TRVKNL4W');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TRVKNL4W");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - CampusJi</title>
@@ -15,14 +22,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Favicon for the website tab -->
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%" />
-
+    <link
+      rel="icon"
+      href="images/Campusjilogo.jpg"
+      type="image/x-icon"
+      style="border-radius: 50%"
+    />
   </head>
   <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- A container for a shared header, if you have one -->
     <div id="header-container"></div>
 
@@ -32,7 +49,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Dropdown for quick navigation -->
       <div class="service-nav-container">
         <select id="service-nav">
-          <option value="" selected disabled>-- Navigate to a Service --</option>
+          <option value="" selected disabled>
+            -- Navigate to a Service --
+          </option>
           <option value="grievance.html">Grievance Redressal</option>
           <option value="contact_repository.html">Contact Repository</option>
           <option value="lost-and-found.html">Lost and Found</option>
@@ -45,18 +64,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="three-column-section">
         <div class="column-card">
           <h3>Grievance Redressal</h3>
-          <p>Submit and track your grievances. We are here to help you with any issues you are facing on campus.</p>
+          <p>
+            Submit and track your grievances. We are here to help you with any
+            issues you are facing on campus.
+          </p>
           <a href="grievance.html" class="service-link">Access System</a>
         </div>
         <div class="column-card">
           <h3>Contact Repository</h3>
-          <p>Find contact information for campus authorities, services, and local vendors.</p>
-          <a href="contact_repository.html" class="service-link">View Contacts</a>
+          <p>
+            Find contact information for campus authorities, services, and local
+            vendors.
+          </p>
+          <a href="contact_repository.html" class="service-link"
+            >View Contacts</a
+          >
         </div>
         <div class="column-card">
           <h3>Lost and Found</h3>
-          <p>Report lost items or check for items that have been found by others.</p>
-          <a href="lost-and-found.html" class="service-link">Open Lost & Found</a>
+          <p>
+            Report lost items or check for items that have been found by others.
+          </p>
+          <a href="lost-and-found.html" class="service-link"
+            >Open Lost & Found</a
+          >
         </div>
         <div class="column-card">
           <h3>Court Booking</h3>
@@ -69,15 +100,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="parcel-hub.html" class="service-link">Access System</a>
         </div>
       </div>
-
-      <!-- Dynamic Service Status Dashboard -->
-      <section class="status-dashboard">
-        <h2>Service Status Dashboard</h2>
-        <ul class="status-list">
-
-        </ul>
-        <p class="last-updated" id="status-time">Last updated: -</p>
-      </section>
     </main>
 
     <!-- This script is a placeholder for any authentication logic -->

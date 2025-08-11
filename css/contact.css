@@ -1,5 +1,7 @@
 .main-content {
     max-width: 1400px;
+    padding-top: 5rem;
+    /* Added to prevent content from hiding behind the fixed header */
 }
 
 .page-title {
@@ -160,6 +162,7 @@
     margin-bottom: 1rem;
     color: #BAD6EB;
 }
+
 .no-results-subtext {
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -187,7 +190,9 @@
         gap: 1rem;
     }
 
-    .search-input, .search-button, .clear-search {
+    .search-input,
+    .search-button,
+    .clear-search {
         width: 100%;
     }
 
