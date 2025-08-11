@@ -8,96 +8,23 @@
 <link rel="stylesheet" href="css/contact.css">
 <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
 <style>
-    /* General Body Style */
-    body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background-color: #f4f4f9;
-    }
-
-    /* Header Styles */
-    header {
-        background-color: #333;
-        color: white;
-        padding: 1rem 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-    }
-    .logo-link img {
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 12px;
-    }
-    .logo-link .brand-name {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-    nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        gap: 25px;
-    }
-    nav a {
-        text-decoration: none;
-        color: #f0f0f0;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-    /* Highlight active page and hover effect */
-    nav a:hover,
-    nav a.active {
-        color: #ffc107; /* Same yellow as starred icon */
-    }
-
-    /* Star Icon Styles */
     .star-icon {
         cursor: pointer;
         margin-left: 8px;
         font-size: 1.2em;
-        color: #cccccc;
+        color: #cccccc; /* Default empty star color */
         transition: color 0.2s ease-in-out;
     }
     .star-icon:hover {
         color: #aaaaaa;
     }
     .star-icon.starred {
-        color: #ffc107;
+        color: #ffc107; /* Gold color for a filled star */
     }
 </style>
 </head>
 <body>
-
-<header>
-    <div class="header-content">
-        <a href="index.html" class="logo-link">
-            <img src="images/Campusjilogo.jpg" alt="CampusJi Logo">
-            <span class="brand-name">CampusJi</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html" class="active">Contact Repository</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
+<div id="header-container"></div>
 <main class="main-content">
 <h1 class="page-title">Contact Repository</h1>
 <div class="search-section">
@@ -187,23 +114,6 @@
 </div>
 </div>
 </main>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const stars = document.querySelectorAll('.star-icon');
-        stars.forEach(star => {
-            star.addEventListener('click', (event) => {
-                event.stopPropagation(); 
-                star.classList.toggle('starred');
-                if (star.classList.contains('starred')) {
-                    star.textContent = '★';
-                } else {
-                    star.textContent = '☆';
-                }
-            });
-        });
-    });
-</script>
-
+<script src="js/contact.js"></script>
 </body>
 </html>
