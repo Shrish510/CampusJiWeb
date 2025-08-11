@@ -58,6 +58,11 @@
               </select>
             </div>
 
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="lookingForPartner" name="lookingForPartner" />
+              <label for="lookingForPartner">I'm looking for a partner</label>
+            </div>
+
             <button type="submit" class="btn-primary">Book Court</button>
           </form>
         </div>
@@ -66,14 +71,20 @@
           <h2>Current Bookings</h2>
           <div class="bookings-controls">
             <button id="refreshBookings" class="btn-secondary">Refresh</button>
-            <button id="showMyBookings" class="btn-secondary">
-              My Bookings
-            </button>
+            <button id="showMyBookings" class="btn-secondary">My Bookings</button>
           </div>
           <div id="bookingsList" class="bookings-list">
             <div class="loading">Loading bookings...</div>
           </div>
         </div>
+
+        <div class="waitlist-section">
+            <h2>My Waitlisted Slots</h2>
+            <div id="waitlistDisplay" class="bookings-list">
+                <p>You are not on any waitlists.</p>
+            </div>
+        </div>
+
 
         <div class="calendar-section">
           <h2>Calendar View</h2>
@@ -91,7 +102,8 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Booking Details</h2>
-        <div id="modalContent"></div>
+        <div id="modalContent">
+          </div>
       </div>
     </div>
 
