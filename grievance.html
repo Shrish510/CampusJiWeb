@@ -146,7 +146,19 @@
     <main class="main-content">
         <h1 class="page-title">Grievance Redressal</h1>
 
-        <div id="adminControls" style="display: none;"> ... </div>
+        <div id="adminControls" style="display: none;">
+            <div class="grievance-form-container">
+                <h2>Admin Controls</h2>
+                <div class="input-group">
+                    <label for="adminStatusFilter">Filter by status</label>
+                    <select id="adminStatusFilter">
+                        <option value="">All</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
         <div id="userView">
             <div class="grievance-form-container">
@@ -154,7 +166,11 @@
                 <form id="grievanceForm">
                     <div class="input-group">
                         <label for="grievanceSubject">Subject</label>
-                        <textarea id="grievanceSubject" rows="5" required></textarea>
+                        <textarea id="grievanceSubject" rows="3" required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="grievanceDescription">Description</label>
+                        <textarea id="grievanceDescription" rows="6" required></textarea>
                     </div>
                     <button type="submit" class="submit-button">Submit Grievance</button>
                 </form>
@@ -167,6 +183,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Subject</th>
+                            <th>Description</th>
                             <th>Status</th>
                             <th>Remarks</th>
                         </tr>
@@ -217,7 +234,24 @@
             </section>
         </div>
 
-        <div id="adminView" style="display: none;"> ... </div>
+        <div id="adminView" style="display: none;">
+            <div class="grievance-table-container">
+                <h2>All Grievances (Admin)</h2>
+                <table class="grievance-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminGrievanceTableBody"></tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
