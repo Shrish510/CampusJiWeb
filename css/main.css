@@ -1,7 +1,5 @@
-/* =========================
-   FONT & RESET
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Georgia:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -9,32 +7,44 @@
     box-sizing: border-box;
 }
 
+/* BODY & BACKGROUND */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F7F2EB; /* original cream */
-    line-height: 1.6;
+    background-color: #F7F2EB;
     color: #333;
-    position: relative;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Background subtle pattern */
-body::before {
+/* Floating shapes in background */
+body::before,
+body::after {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(112,150,209,0.15) 0%, transparent 70%);
     z-index: -1;
+    animation: float 12s infinite ease-in-out;
 }
 
-/* =========================
-   HEADER
-========================= */
+body::before {
+    top: -100px;
+    left: -150px;
+}
+body::after {
+    bottom: -120px;
+    right: -150px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(20px) translateX(15px); }
+}
+
+/* HEADER */
 .header {
-    background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
+    background: linear-gradient(135deg, #334EAC, #081F5C);
     padding: 1rem 0;
     box-shadow: 0 4px 15px rgba(8, 31, 92, 0.3);
     position: sticky;
@@ -44,7 +54,7 @@ body::before {
 
 .header-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,9 +67,15 @@ body::before {
     gap: 1rem;
 }
 
-.iim-logo, .campusji-logo {
-    width: 60px;
-    height: 60px;
+.site-title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.campusji-logo {
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: 3px solid white;
     object-fit: cover;
@@ -75,7 +91,7 @@ body::before {
     color: #F7F2EB;
     text-decoration: none;
     font-weight: 600;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -90,30 +106,81 @@ body::before {
     color: white;
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+/* HERO SECTION */
+.hero {
+    position: relative;
+    padding: 3rem 2rem 5rem;
+    background: linear-gradient(180deg, #334EAC 0%, #081F5C 100%);
+    color: white;
+    text-align: center;
+    overflow: hidden;
 }
 
-/* =========================
-   SLIDER
-========================= */
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #7096D1;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #5a7bb0;
+    transform: translateY(-2px);
+}
+
+/* HERO BACKGROUND SHAPES */
+.hero-bg-shapes::before,
+.hero-bg-shapes::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    animation: pulse 8s infinite ease-in-out;
+}
+
+.hero-bg-shapes::before {
+    width: 300px; height: 300px;
+    top: -100px; left: -100px;
+}
+
+.hero-bg-shapes::after {
+    width: 250px; height: 250px;
+    bottom: -80px; right: -80px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* SLIDER */
 .slider-container {
-    position: relative;
-    overflow: hidden;
+    margin-top: 3rem;
     border-radius: 20px;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .slider img {
     width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .slider img:hover {
@@ -124,35 +191,33 @@ body::before {
     position: absolute;
     bottom: 0;
     padding: 1.2rem;
-    width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
     color: white;
 }
 
 .slide-title {
-    font-size: 1.5rem;
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .slide-description {
-    font-size: 0.95rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    opacity: 0.85;
 }
 
 .slider-nav {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 .slider-dot {
-    width: 12px;
-    height: 12px;
+    width: 12px; height: 12px;
     background: #ccc;
     border-radius: 50%;
-    cursor: pointer;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .slider-dot.active, .slider-dot:hover {
@@ -160,40 +225,26 @@ body::before {
     transform: scale(1.2);
 }
 
-/* =========================
-   THREE-COLUMN SECTION
-========================= */
+/* FEATURE CARDS */
 .three-column-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-bottom: 2rem;
+    padding: 3rem 2rem;
 }
 
 .column-card {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
     padding: 1.5rem;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    backdrop-filter: blur(6px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.column-card::before {
-    content: "";
-    position: absolute;
-    top: -10px; right: -10px;
-    width: 60px; height: 60px;
-    background: radial-gradient(circle, #7096D1 20%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.2;
-    z-index: 0;
 }
 
 .column-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .column-card h3 {
@@ -201,76 +252,45 @@ body::before {
     font-weight: 700;
     margin-bottom: 1rem;
     color: #334EAC;
-    position: relative;
-    z-index: 1;
 }
 
-/* =========================
-   MAP SECTION
-========================= */
+/* MAP SECTION */
 .map-section {
-    margin: 3rem 0;
     background: #eef3ff;
-    padding: 1.5rem;
+    padding: 2rem;
+    margin: 3rem 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    position: relative;
-}
-
-.map-section::after {
-    content: "";
-    position: absolute;
-    bottom: -20px; left: -20px;
-    width: 100px; height: 100px;
-    background: radial-gradient(circle, #334EAC 30%, transparent 80%);
-    opacity: 0.1;
-    border-radius: 50%;
 }
 
 .map-section h2 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 700;
     color: #334EAC;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .map-placeholder iframe {
     border-radius: 15px;
 }
 
-/* =========================
-   FAQ SECTION
-========================= */
+/* FAQ */
 .faq-section {
-    margin: 3rem 0;
+    padding: 3rem 2rem;
 }
 
 .faq-section h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
     color: #334EAC;
     margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
 .faq-item {
     background: white;
-    margin-bottom: 1rem;
     padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    cursor: pointer;
     transition: transform 0.3s ease;
-    position: relative;
-}
-
-.faq-item::after {
-    content: "";
-    position: absolute;
-    top: 10px; right: 10px;
-    width: 20px; height: 20px;
-    background: url('data:image/svg+xml;utf8,<svg fill="%23334EAC" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>') no-repeat center;
-    background-size: contain;
-    opacity: 0.4;
 }
 
 .faq-item:hover {
@@ -286,6 +306,7 @@ body::before {
 .faq-toggle {
     font-size: 1.5rem;
     color: #334EAC;
+    cursor: pointer;
 }
 
 .faq-answer {
@@ -295,9 +316,7 @@ body::before {
     color: #555;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
