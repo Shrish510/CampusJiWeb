@@ -115,5 +115,61 @@
 </div>
 </main>
 <script src="js/contact.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const STORAGE_KEY = 'campusji_starred_contacts';
+
+    // Function to get a unique ID for a contact row
+    const getContactId = (starElement) => {
+        const row = starElement.closest('.contact-row');
+        const name = row.querySelector('.contact-name').innerText.replace('☆', '').replace('★', '').trim();
+        const profession = row.querySelector('.contact-profession').innerText.trim();
+        return `${name}-${profession}`; // Create a simple unique ID
+    };
+
+    // Function to load starred status from localStorage
+    const loadStarredStatus = () => {
+        const starredContacts = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        document.querySelectorAll('.star-icon').forEach(star => {
+            const contactId = getContactId(star);
+            if (starredContacts[contactId]) {
+                star.classList.add('starred');
+                star.textContent = '★'; // Solid star
+            }
+        });
+    };
+
+    // Function to save starred status to localStorage
+    const saveStarredStatus = () => {
+        const starredContacts = {};
+        document.querySelectorAll('.star-icon.starred').forEach(star => {
+            const contactId = getContactId(star);
+            starredContacts[contactId] = true;
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(starredContacts));
+    };
+
+    // Add click event listeners to all stars
+    document.querySelectorAll('.star-icon').forEach(star => {
+        star.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent any other clicks from firing
+            star.classList.toggle('starred');
+            
+            // Change icon based on state
+            if (star.classList.contains('starred')) {
+                star.textContent = '★'; // Solid star
+            } else {
+                star.textContent = '☆'; // Outline star
+            }
+
+            saveStarredStatus(); // Save the new state
+        });
+    });
+
+    // Load the initial state when the page loads
+    loadStarredStatus();
+});
+</script>
 </body>
 </html>
