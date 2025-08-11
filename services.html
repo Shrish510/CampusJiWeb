@@ -17,6 +17,39 @@
       body {
         background-color: #f5f1eb; /* Custom beige from image */
         color: #343a40; /* Darker grey for better text readability */
+        position: relative; /* Needed for z-index stacking */
+      }
+
+      /* --- Background Floating Icons --- */
+      .background-icons {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Places the container behind the content */
+        overflow: hidden; /* Prevents icons from creating scrollbars */
+        pointer-events: none; /* Allows clicks to go through to the content */
+      }
+
+      .bg-icon {
+        position: absolute;
+        opacity: 0.1; /* Very faint to not distract */
+        filter: grayscale(100%);
+      }
+
+      .icon-book {
+        width: 150px;
+        top: 15%;
+        left: 18%;
+        transform: rotate(-15deg);
+      }
+
+      .icon-lightbulb {
+        width: 100px;
+        bottom: 8%;
+        right: 12%;
+        transform: rotate(15deg);
       }
 
       .main-content {
@@ -33,7 +66,7 @@
         margin-bottom: 1.5rem;
         font-weight: 700;
       }
-      
+
       /* --- Navigation Dropdown --- */
       .service-nav-container {
         text-align: center;
@@ -148,9 +181,15 @@
         border-radius: 50%;
         margin-right: 10px;
       }
-      .status-ok { background-color: #28a745; } /* Green */
-      .status-warning { background-color: #ffc107; } /* Yellow */
-      .status-down { background-color: #dc3545; } /* Red */
+      .status-ok {
+        background-color: #28a745;
+      } /* Green */
+      .status-warning {
+        background-color: #ffc107;
+      } /* Yellow */
+      .status-down {
+        background-color: #dc3545;
+      } /* Red */
       .last-updated {
         text-align: center;
         margin-top: 1.5rem;
@@ -160,6 +199,19 @@
     </style>
   </head>
   <body>
+    <div class="background-icons">
+      <img
+        src="images/book-icon.svg"
+        alt=""
+        class="bg-icon icon-book"
+      />
+      <img
+        src="images/lightbulb-icon.svg"
+        alt=""
+        class="bg-icon icon-lightbulb"
+      />
+    </div>
+
     <div id="header-container"></div>
     <main class="main-content">
       <h1 class="page-title">CampusJi Services</h1>
@@ -174,7 +226,7 @@
           <option value="parcel-hub.html">Parcel Hub</option>
         </select>
       </div>
-      
+
       <div class="three-column-section">
         <div class="column-card">
           <h3>Grievance Redressal</h3>
@@ -232,7 +284,7 @@
               <span>High Demand</span>
             </div>
           </li>
-           <li>
+          <li>
             <span>Parcel Hub</span>
             <div class="status-info">
               <span class="status-dot status-ok"></span>
@@ -249,7 +301,7 @@
         </ul>
         <p class="last-updated" id="status-time">Last updated: -</p>
       </section>
-      </main>
+    </main>
     <script src="js/auth.js"></script>
     <script>
       // Navigation Dropdown script
