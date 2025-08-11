@@ -397,7 +397,7 @@ body {
 
 /* Banner specific gradients when images fail to load */
 .academic-banner {
-    background: var(--gradient-primary), url('../images/AcBanner.png');
+    background: var(--gradient-primary), url('../images/ACBan.png');
 }
 
 .internship-banner {
