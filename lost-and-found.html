@@ -540,7 +540,8 @@
 
           <div class="listings-container">
             <div id="listings-list" class="listings-grid">
-              <div class="listing-card">
+              
+              <div class="listing-card" data-status="lost">
                 <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=2070" alt="Headphones" class="card-img-top">
                 <div class="card-body">
                   <span class="card-status lost">Lost</span>
@@ -553,7 +554,7 @@
                 </div>
               </div>
 
-              <div class="listing-card">
+              <div class="listing-card" data-status="found">
                 <img src="https://images.unsplash.com/photo-1543364195-077a17c30b3b?q=80&w=2070" alt="Keys" class="card-img-top">
                 <div class="card-body">
                   <span class="card-status found">Found</span>
@@ -566,7 +567,7 @@
                 </div>
               </div>
 
-              <div class="listing-card">
+              <div class="listing-card" data-status="lost">
                 <img src="https://images.unsplash.com/photo-1585583422938-2315b8a68a52?q=80&w=1932" alt="Water Bottle" class="card-img-top">
                 <div class="card-body">
                   <span class="card-status lost">Lost</span>
@@ -608,15 +609,42 @@
         newListingBtn.addEventListener('click', showForm);
         closeFormBtn.addEventListener('click', hideForm);
         cancelFormBtn.addEventListener('click', hideForm);
+        
+        // --- NEW AND IMPROVED FILTERING LOGIC ---
 
-        // Filter buttons logic
+        // Function to filter listings based on a category ('lost' or 'found')
+        function filterListings(category) {
+            const listings = document.querySelectorAll('#listings-list .listing-card');
+            listings.forEach(card => {
+                // Check if the card's data-status matches the selected category
+                if (card.dataset.status === category) {
+                    card.style.display = ''; // Show the card by resetting its display style
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        }
+
+        // Add click event listeners to the filter buttons
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
+            // First, update which button is visually active
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            // Then, get the filter value from the clicked button
+            const filterValue = btn.dataset.filter;
+            
+            // Finally, call the function to filter the list
+            filterListings(filterValue);
           });
         });
+
+        // --- ADDED: Apply the default filter when the page loads ---
+        // Since the "Lost Items" button has the 'active' class in the HTML,
+        // we'll filter for 'lost' items initially.
+        filterListings('lost');
       });
     </script>
   </body>
