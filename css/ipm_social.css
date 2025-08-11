@@ -20,7 +20,7 @@
                 <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
                     <div class="card">
-                        <a href="movie_theatres.html" class="card-link">
+                        <a href="movie_theatres.html" style="text-decoration: none; color: inherit;">
                             <img src="images/MovieTheatre.jpg" alt="Movie Theatres" class="card-image">
                             <div class="card-content">
                                 <h3>Movie Theatres</h3>
