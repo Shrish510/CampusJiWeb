@@ -1,11 +1,19 @@
-function handleLogout() {
-  const logoutLink = document.getElementById("logoutLink");
-  if (logoutLink) {
-    logoutLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      localStorage.removeItem("isLoggedIn");
-      window.location.href = "index.html";
-    });
+function handleLoginLogoutLink() {
+  const loginLogoutLink = document.getElementById("loginLogoutLink");
+  if (loginLogoutLink) {
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      loginLogoutLink.textContent = "Logout";
+      loginLogoutLink.href = "#";
+      loginLogoutLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userInfo");
+        window.location.href = "login.html";
+      });
+    } else {
+      loginLogoutLink.textContent = "Login";
+      loginLogoutLink.href = "login.html";
+    }
   }
 }
 
@@ -14,7 +22,7 @@ function highlightNav() {
   const pageName = path.split("/").pop();
 
   const links = {
-    "main.html": "homeLink",
+    "index.html": "homeLink",
     "about-us.html": "aboutLink",
     "ClubsComs.html": "clubsLink",
     "services.html": "servicesLink",
@@ -55,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const headerContainer = document.getElementById("header-container");
       if (headerContainer) {
         headerContainer.innerHTML = data;
-        handleLogout();
+        handleLoginLogoutLink();
         highlightNav();
         setupMobileMenu(); // Call the new mobile menu function
       }
