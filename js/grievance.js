@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const { data, error } = await supabase
             .from('Grievance Redressal')
             .select('*')
-            .eq('user_id', userEmail)
             .order('id', { ascending: true });
 
         if (error) {
+            console.error('Error loading grievances:', error);
             grievanceTableBody.innerHTML = '<tr><td colspan="4">Error loading grievances.</td></tr>';
             return;
         }
