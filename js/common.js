@@ -21,9 +21,9 @@ function highlightNav() {
     "contact_repository.html": "servicesLink",
     "grievance.html": "servicesLink",
     "ipm_social.html": "socialLink",
-    "pizza_places.html": "socialLink", // Added for pizza places
-    "burger_joints.html": "socialLink", // Added for burger joints
-    "dhaba_places.html": "socialLink", // Added for dhaba places
+    "pizza_places.html": "socialLink",
+    "burger_joints.html": "socialLink",
+    "dhaba_places.html": "socialLink",
   };
 
   const activeLinkId = links[pageName];
@@ -36,6 +36,17 @@ function highlightNav() {
   }
 }
 
+// Function to handle the mobile menu toggle
+function setupMobileMenu() {
+    const hamburger = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch and insert header
   fetch("header.html")
@@ -46,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headerContainer.innerHTML = data;
         handleLogout();
         highlightNav();
+        setupMobileMenu(); // Call the new mobile menu function
       }
     })
     .catch((error) => console.error("Error fetching header:", error));
