@@ -1,12 +1,10 @@
-const SUPABASE_URL = "https://jqiifqmiucpqeiytqhkk.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxaWlmcW1pdWNwcWVpeXRxaGtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NTE4MDEsImV4cCI6MjA3MDEyNzgwMX0.giovr0elKJhb1pAoH19yfJm1Rp50eOHmQ_Uv8PIy7T4";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 
 let supabase = null;
 try {
   if (
-    SUPABASE_URL !== "YOUR_SUPABASE_URL" &&
-    SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY"
+    SUPABASE_URL &&
+    SUPABASE_ANON_KEY
   ) {
     supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     console.log("✅ Supabase client initialized successfully");
@@ -946,3 +944,23 @@ async function cleanupConflictingBookings() {
 }
 
 window.cleanupConflictingBookings = cleanupConflictingBookings;
+
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the date input element by its ID
+  const dateInput = document.getElementById('startDate');
+
+  if (dateInput) {
+    // Listen for the 'change' event, which fires when a date is selected
+    dateInput.addEventListener('change', function() {
+      // If the input has a value (a date was chosen)
+      if (this.value) {
+        // Add the 'date-selected' class to apply our CSS style
+        this.classList.add('date-selected');
+      } else {
+        // If the date is cleared, remove the class to revert to the default style
+        this.classList.remove('date-selected');
+      }
+    });
+  }
+});
