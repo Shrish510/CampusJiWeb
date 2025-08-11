@@ -333,6 +333,19 @@
             }
         });
     </script>
+    // Add this script before the closing </body> tag in your about us file
+document.addEventListener('DOMContentLoaded', function() {
+    // Load header content
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error loading header:', error);
+        });
+});
 </body>
 </html>
+
 
