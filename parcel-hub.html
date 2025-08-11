@@ -36,11 +36,9 @@
           <p>Track and manage all incoming parcels for the campus seamlessly.</p>
         </div>
 
-        <div id="service-login-section" class="card info-box" style="display: none;">
+        <div id="service-login-section" class="card notice-box" style="display: none;">
           <i class="fas fa-user-shield"></i>
-          <p>
-            <strong>Parcel Service Access:</strong> Only authorized personnel can add new parcels. You can still track existing parcels below.
-          </p>
+          <p>Only authorized personnel can add new parcels. You can still track existing parcels using the options below.</p>
         </div>
 
         <div id="service-dashboard" class="card" style="display: none">
@@ -62,11 +60,15 @@
                     <option value="Amazon">Amazon</option>
                     <option value="Flipkart">Flipkart</option>
                     <option value="Myntra">Myntra</option>
+                    <option value="Meesho">Meesho</option>
+                    <option value="JioMart">JioMart</option>
                     <option value="Nykaa">Nykaa</option>
                     <option value="Zomato">Zomato</option>
                     <option value="Swiggy">Swiggy</option>
                     <option value="Blinkit">Blinkit</option>
                     <option value="Zepto">Zepto</option>
+                    <option value="DHL">DHL</option>
+                    <option value="ExpressBees">ExpressBees</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -104,16 +106,39 @@
               </button>
             </div>
           </div>
-
-          <div class="status-filter">
-            <button class="filter-btn active" data-status="all"><i class="fas fa-list-ul"></i> All</button>
-            <button class="filter-btn" data-status="pending"><i class="fas fa-hourglass-half"></i> Pending</button>
-            <button class="filter-btn" data-status="collected"><i class="fas fa-check-circle"></i> Collected</button>
+          
+          <div class="filter-controls">
+              <div class="status-filter">
+                <button class="filter-btn active" data-status="all"><i class="fas fa-list-ul"></i> All</button>
+                <button class="filter-btn" data-status="pending"><i class="fas fa-hourglass-half"></i> Pending</button>
+                <button class="filter-btn" data-status="collected"><i class="fas fa-check-circle"></i> Collected</button>
+              </div>
+              <div class="advanced-filters">
+                <div class="filter-group">
+                    <label for="date-filter">Filter by Date:</label>
+                    <input type="date" id="date-filter">
+                </div>
+                <div class="filter-group">
+                    <label for="company-filter">Filter by Company:</label>
+                    <select id="company-filter">
+                        <option value="all">All Companies</option>
+                        <option value="Amazon">Amazon</option>
+                        <option value="Flipkart">Flipkart</option>
+                        <option value="Myntra">Myntra</option>
+                        <option value="Meesho">Meesho</option>
+                        <option value="JioMart">JioMart</option>
+                        <option value="Nykaa">Nykaa</option>
+                        <option value="DHL">DHL</option>
+                        <option value="ExpressBees">ExpressBees</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+              </div>
           </div>
 
+
           <div class="parcels-container">
-            <div id="parcels-list" class="parcels-list">
-                </div>
+            <div id="parcels-list" class="parcels-list"></div>
             <div id="loading-spinner" class="loading-spinner">
               <i class="fas fa-spinner fa-spin"></i> Loading parcels...
             </div>
