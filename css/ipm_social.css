@@ -155,6 +155,73 @@
     right: 0;
 }
 
+/* Styles for expandable salon cards */
+.salon-card-expandable {
+    position: relative;
+    overflow: hidden;
+    /* Define a fixed height for the collapsed state */
+    height: 280px; /* Adjust as needed */
+    transition: height 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.salon-card-expandable .card-content {
+    /* Ensure content is visible in collapsed state */
+    padding-bottom: 1rem; /* Adjust as needed */
+}
+
+.salon-card-expandable .expanded-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
+}
+
+.salon-card-expandable:hover {
+    /* Expand height on hover */
+    height: 380px; /* Adjust as needed to fit expanded content */
+    box-shadow: 0 15px 30px rgba(8, 31, 92, 0.2);
+}
+
+.salon-card-expandable:hover .expanded-info {
+    max-height: 150px; /* Sufficient height for expanded content */
+    opacity: 1;
+}
+
+.salon-card-expandable .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.salon-card-expandable .info-item i {
+    color: var(--china);
+    width: 18px;
+    text-align: center;
+}
+
+.salon-card-expandable .btn-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 8px 15px;
+    background-color: var(--royal);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.salon-card-expandable .btn-link:hover {
+    background-color: var(--midnight);
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .card {
@@ -167,5 +234,23 @@
 
     .carousel-container {
         margin: 0;
+    }
+
+    .salon-card-expandable {
+        height: auto; /* Allow height to adjust on smaller screens */
+        min-height: 280px; /* Ensure a minimum height */
+    }
+
+    .salon-card-expandable .expanded-info {
+        max-height: none; /* Always show expanded info on small screens */
+        opacity: 1;
+        padding-top: 0.5rem;
+        border-top: 1px solid #eee;
+        margin-top: 0.5rem;
+    }
+
+    .salon-card-expandable:hover {
+        transform: none; /* Disable hover transform on small screens */
+        box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1); /* Reset shadow */
     }
 }
