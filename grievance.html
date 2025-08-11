@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TRVKNL4W');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grievance Redressal - CampusJi</title>
+<<<<<<< fix/image-references
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/grievance.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
+    <link rel="icon" href="images/Campusjilogo.webp" type="image/x-icon" style="border-radius: 50%;">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,123 +146,95 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+=======
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/grievance.css" />
+    <link
+      rel="icon"
+      href="images/Campusjilogo.jpg"
+      type="image/x-icon"
+      style="border-radius: 50%"
+    />
+  </head>
+  <body>
+>>>>>>> main
     <div id="header-container"></div>
 
     <main class="main-content">
-        <h1 class="page-title">Grievance Redressal</h1>
+      <h1 class="page-title">Grievance Redressal</h1>
 
-        <div id="adminControls" style="display: none;">
-            <div class="grievance-form-container">
-                <h2>Admin Controls</h2>
-                <div class="input-group">
-                    <label for="adminStatusFilter">Filter by status</label>
-                    <select id="adminStatusFilter">
-                        <option value="">All</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Resolved">Resolved</option>
-                    </select>
-                </div>
+      <!-- Admin Controls -->
+      <div id="adminControls" style="display: none">
+        <div class="admin-header">
+          <h2>Admin Panel</h2>
+          <button id="toggleViewBtn" class="toggle-btn">
+            Switch to User View
+          </button>
+        </div>
+      </div>
+
+      <!-- User View -->
+      <div id="userView">
+        <div class="grievance-form-container">
+          <h2>Submit a New Grievance</h2>
+          <form id="grievanceForm">
+            <div class="input-group">
+              <label for="grievanceSubject">Subject</label>
+              <input type="text" id="grievanceSubject" required />
             </div>
+            <div class="input-group">
+              <label for="grievanceDescription">Description</label>
+              <textarea id="grievanceDescription" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">
+              Submit Grievance
+            </button>
+          </form>
         </div>
 
-        <div id="userView">
-            <div class="grievance-form-container">
-                <h2>Submit a New Grievance</h2>
-                <form id="grievanceForm">
-                    <div class="input-group">
-                        <label for="grievanceSubject">Subject</label>
-                        <textarea id="grievanceSubject" rows="3" required></textarea>
-                    </div>
-                    <div class="input-group">
-                        <label for="grievanceDescription">Description</label>
-                        <textarea id="grievanceDescription" rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Submit Grievance</button>
-                </form>
-            </div>
-
-            <div class="grievance-table-container">
-                <h2>Your Grievances</h2>
-                <table class="grievance-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Subject</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                            <th>Remarks</th>
-                        </tr>
-                    </thead>
-                    <tbody id="grievanceTableBody">
-                        <!-- Grievances will be dynamically loaded here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <section class="polling-section">
-                <h2>Vote on Common Campus Issues</h2>
-                <p>Your anonymous vote helps the administration prioritize improvements.</p>
-                <ul class="poll-list">
-                    <li>
-                        <span class="poll-issue">Quality of Mess Food</span>
-                        <div class="poll-bar-container">
-                            <div class="poll-bar"><div class="poll-bar-fill" style="width: 75%;"></div></div>
-                            <span class="poll-votes">152 Votes</span>
-                        </div>
-                        <button class="vote-btn" data-poll-id="mess-food">Vote</button>
-                    </li>
-                    <li>
-                        <span class="poll-issue">Campus Wi-Fi Speed & Reliability</span>
-                        <div class="poll-bar-container">
-                            <div class="poll-bar"><div class="poll-bar-fill" style="width: 60%;"></div></div>
-                            <span class="poll-votes">121 Votes</span>
-                        </div>
-                        <button class="vote-btn" data-poll-id="wifi-speed">Vote</button>
-                    </li>
-                    <li>
-                        <span class="poll-issue">Library Opening Hours</span>
-                        <div class="poll-bar-container">
-                            <div class="poll-bar"><div class="poll-bar-fill" style="width: 45%;"></div></div>
-                            <span class="poll-votes">93 Votes</span>
-                        </div>
-                        <button class="vote-btn" data-poll-id="library-hours">Vote</button>
-                    </li>
-                    <li>
-                        <span class="poll-issue">Sports Facility Maintenance</span>
-                        <div class="poll-bar-container">
-                            <div class="poll-bar"><div class="poll-bar-fill" style="width: 30%;"></div></div>
-                            <span class="poll-votes">64 Votes</span>
-                        </div>
-                        <button class="vote-btn" data-poll-id="sports-maintenance">Vote</button>
-                    </li>
-                </ul>
-            </section>
+        <div class="grievance-table-container">
+          <h2>Your Grievances</h2>
+          <table class="grievance-table">
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody id="grievanceTableBody"></tbody>
+          </table>
         </div>
+      </div>
 
-        <div id="adminView" style="display: none;">
-            <div class="grievance-table-container">
-                <h2>All Grievances (Admin)</h2>
-                <table class="grievance-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Subject</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                            <th>Remarks</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="adminGrievanceTableBody"></tbody>
-                </table>
-            </div>
+      <!-- Admin View -->
+      <div id="adminView" style="display: none">
+        <div class="admin-grievance-table-container">
+          <h2>All Grievances (Admin View)</h2>
+          <table class="grievance-table admin-table">
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminGrievanceTableBody">
+              <!-- Admin table will be populated by JavaScript -->
+            </tbody>
+          </table>
         </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/grievance.js"></script>
+    <script src="js/grievance.js?v=4"></script>
     <div id="footer-container"></div>
-</body>
+  </body>
 </html>
