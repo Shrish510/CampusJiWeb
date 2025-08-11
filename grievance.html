@@ -99,6 +99,37 @@
         </div>
         <div id="adminView" style="display: none;"> ... </div>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all buttons with the class 'vote-btn'
+            const voteButtons = document.querySelectorAll('.vote-btn');
+
+            voteButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Find the closest parent 'li' element to scope our search
+                    const pollItem = button.closest('li');
+                    
+                    // Find the element that displays the vote count
+                    const votesSpan = pollItem.querySelector('.poll-votes');
+                    
+                    // Get the current text (e.g., "152 Votes") and extract the number
+                    let currentVotes = parseInt(votesSpan.textContent);
+                    
+                    // Increment the vote count by 1
+                    currentVotes++;
+                    
+                    // Update the text to show the new count
+                    votesSpan.textContent = `${currentVotes} Votes`;
+                    
+                    // Disable the button to prevent multiple votes
+                    button.disabled = true;
+                    // Update the button text to show it's been clicked
+                    button.textContent = 'Voted ✔';
+                });
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/auth.js"></script>
     <script src="js/common.js"></script>
