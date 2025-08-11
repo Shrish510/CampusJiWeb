@@ -1,121 +1,112 @@
-/* Color Variables */
+/* ================= Variables ================= */
 :root {
-    --royal: #334EAC;
-    --moon: #F7F2EB;
-    --china: #7096D1;
-    --asian-pear: #F2F0DE;
-    --midnight: #081F5C;
-    --dawn: #D0E3FF;
-    --jicama: #FFF9F0;
-    --porcelain: #EDF1F6;
-    --sky: #BAD6EB;
+  --royal: #334EAC;
+  --moon: #F7F2EB;
+  --china: #7096D1;
+  --asian-pear: #F2F0DE;
+  --midnight: #081F5C;
+  --dawn: #D0E3FF;
+  --jicama: #FFF9F0;
+  --porcelain: #EDF1F6;
+  --sky: #BAD6EB;
 }
 
+/* ================= Base ================= */
 body {
-    background-color: var(--moon);
+  background: var(--moon);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  color: var(--midnight);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
 }
 
 .section {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
+/* ================= Section Title ================= */
 .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--royal);
-    margin-bottom: 60px;
-    position: relative;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  background: linear-gradient(90deg, var(--royal), var(--china));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
 }
 
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--royal), var(--china));
-    border-radius: 2px;
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--royal), var(--china));
+  border-radius: 2px;
 }
 
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= Cards ================= */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
 }
 
 .card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(8, 31, 92, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(8, 31, 92, 0.2);
 }
 
-.card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.card-logo {
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
-    border-radius: 50%;
-    background: var(--dawn);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid var(--china);
-    flex-shrink: 0;
-    overflow: hidden;
-}
-
-.card-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    color: var(--royal);
-    margin-bottom: 5px;
-}
-
-.card-description {
-    color: var(--midnight);
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
+/* ================= Parallax Banner ================= */
 .card-banner {
-    width: 100%;
-    height: 180px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: background-position;
+  transition: transform 0.5s ease;
 }
 
-/* Banner Image Classes */
+.card:hover .card-banner {
+  transform: scale(1.05);
+}
+
+/* ================= Banner Image Classes ================= */
 .academic-banner { background-image: url('../images/ACBan.png'); }
 .internship-banner { background-image: url('../images/ICBan.png'); }
 .athlos-banner { background-image: url('../images/AthBan.png'); }
@@ -123,192 +114,130 @@ body {
 .literati-banner { background-image: url('../images/LitBan.png'); }
 .utthaan-banner { background-image: url('../images/UtBan.png'); }
 
+/* ================= Card Header ================= */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background: var(--dawn);
+  border: 3px solid var(--china);
+  overflow: hidden;
+}
+
+.card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  color: var(--royal);
+}
+
+.card-description {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* ================= Links ================= */
 .card-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .card-link {
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-link.members {
-    background: var(--sky);
-    color: var(--midnight);
+  background: var(--sky);
+  color: var(--midnight);
 }
 
-.card-link.events, .card-link.photos {
-    background: var(--asian-pear);
-    color: var(--midnight);
+.card-link.events {
+  background: var(--asian-pear);
+  color: var(--midnight);
 }
 
 .card-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.toggle-icon {
-    transition: transform 0.3s ease-out;
-}
-
-/* --- Dropdown Team Section Styles --- */
-
+/* ================= Team Section ================= */
 .team-section {
-    max-height: 0;
-    overflow-y: auto;
-    transition: max-height 0.7s ease-in-out, margin-top 0.7s ease-in-out;
-    margin-top: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, margin-top 0.6s ease;
 }
 
 .team-section.expanded {
-    max-height: 500px; /* Adjust as needed, can be a large value */
-    margin-top: 25px;
+  max-height: 1000px;
+  margin-top: 20px;
 }
 
 .team-title {
-    font-size: 1.2rem;
-    color: var(--royal);
-    margin-top: 20px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid var(--sky);
-}
-
-.team-title:first-of-type {
-    margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--royal);
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--sky);
 }
 
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    padding: 10px;
-    background: var(--asian-pear);
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-.team-grid.two-column {
-    grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  background: var(--asian-pear);
+  border-radius: 12px;
+  padding: 10px;
 }
 
 .team-member-card {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    transition: transform 0.2s ease;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-member-card:hover {
-    transform: scale(1.05);
+  transform: scale(1.07) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .team-member-photo {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin: 0 auto 10px;
-    background: var(--sky);
-    border: 3px solid var(--china);
-    background-size: cover;
-    background-position: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--china);
+  margin: auto;
 }
 
-.team-member-name {
-    font-weight: bold;
-    font-size: 0.95rem;
-    color: var(--midnight);
-    margin-bottom: 4px;
-    word-wrap: break-word;
+/* ================= Scroll Animation Helper ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.team-member-role {
-    font-size: 0.8rem;
-    color: var(--royal);
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-
-/* --- Individual Team Member Photos --- */
-
-/* Academic Committee */
-.photo-shrish { background-image: url('../images/Shrish.jpg'); }
-.photo-akruti { background-image: url('../images/Akruti.jpg'); }
-.photo-madhur { background-image: url('../images/ACMadhur.jpeg'); }
-.photo-sanchi { background-image: url('../images/ACSanchi.jpeg'); }
-
-/* Internship Committee */
-.photo-aditi { background-image: url('../images/Aditi.jpg'); }
-.photo-anushree { background-image: url('../images/Anushree.jpg'); }
-.photo-aryaa { background-image: url('../images/Aryaa.jpg'); }
-.photo-somansha { background-image: url('../images/Somansha.jpg'); }
-.photo-upagnya { background-image: url('../images/Upagnya.jpg'); }
-.photo-utkarsh { background-image: url('../images/Utkarsh.jpg'); }
-.photo-amaeya { background-image: url('../images/Amaeya.jpeg'); }
-.photo-dhruvi { background-image: url('../images/Dhruvi.jpeg'); }
-.photo-jiya { background-image: url('../images/Jiya.jpeg'); }
-.photo-gaurav { background-image: url('../images/Gaurav.jpeg'); }
-.photo-muskan { background-image: url('../images/Muskan.jpeg'); }
-.photo-sanskar { background-image: url('../images/Sanskar.jpeg'); }
-.photo-shashwat { background-image: url('../images/Shashwat.jpeg'); }
-.photo-navyansh { background-image: url('../images/Navyansh.jpeg'); }
-
-
-/* Athlos */
-.photo-dev { background-image: url('../images/Dev.jpg'); }
-.photo-bhavya { background-image: url('../images/Bhavya.jpg'); }
-.photo-kaustubh { background-image: url('../images/Kaustubh.jpg'); }
-.photo-vansh { background-image: url('../images/Vansh.jpg'); }
-.photo-harsh { background-image: url('../images/AthHarsh.jpeg'); }
-.photo-kavya { background-image: url('../images/AthKavya.jpeg'); }
-.photo-khyati { background-image: url('../images/AthKhyati.png'); }
-.photo-rohan { background-image: url('../images/AthRohan.jpeg'); }
-.photo-vincent { background-image: url('../images/AthVincent.jpeg'); }
-.photo-yuktha { background-image: url('../images/AthYuktha.jpeg'); }
-
-/* Riwaayat */
-.photo-ishika { background-image: url('../images/Ishika.jpg'); }
-.photo-mrinali { background-image: url('../images/Mrinali.jpg'); }
-.photo-avi { background-image: url('../images/Avi.jpg'); }
-.photo-yusuf { background-image: url('../images/Yusuf.jpg'); }
-.photo-dhruv { background-image: url('../images/RiwDhruv.jpeg'); }
-.photo-gautam { background-image: url('../images/RiwGautam.jpeg'); }
-.photo-khushi { background-image: url('../images/RiwKhushi.jpeg'); }
-.photo-parth { background-image: url('../images/RiwParth.jpeg'); }
-.photo-samruddhi { background-image: url('../images/RiwSamruddhi.jpeg'); }
-.photo-yashvi { background-image: url('../images/RiwYashvi.jpeg'); }
-
-/* Literati */
-.photo-mannat { background-image: url('../images/Mannat.jpg'); }
-.photo-sarthak { background-image: url('../images/Sarthak.jpg'); }
-.photo-ananya { background-image: url('../images/Ananya.jpg'); }
-.photo-parmi { background-image: url('../images/Parmi.jpg'); }
-.photo-advay { background-image: url('../images/LitAdvay.jpeg'); }
-.photo-akshun { background-image: url('../images/LitAkshun.png'); }
-.photo-arav { background-image: url('../images/LitArav.jpeg'); }
-.photo-arhaan { background-image: url('../images/LitArhaan.jpeg'); }
-.photo-lit-parth { background-image: url('../images/LitParth.png'); }
-.photo-sangeeth { background-image: url('../images/LitSangeeth.jpeg'); }
-
-/* Utthaan */
-.photo-nandini { background-image: url('../images/Nandini.jpg'); }
-.photo-divya { background-image: url('../images/Divya.jpg'); }
-.photo-aryan { background-image: url('../images/Aryan.jpg'); }
-.photo-divanshi { background-image: url('../images/Divanshi.jpg'); }
-.photo-mahek { background-image: url('../images/RiwMahek.png'); }
-.photo-nayan { background-image: url('../images/UthNayan.jpeg'); }
-.photo-nidhi { background-image: url('../images/UthNidhi.jpeg'); }
-.photo-sangeetha { background-image: url('../images/UthSangeetha.jpeg'); }
-.photo-sithi { background-image: url('../images/UthSithi.jpeg'); }
-.photo-srishti { background-image: url('../images/UthSrishti.jpeg'); }
