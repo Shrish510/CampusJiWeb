@@ -114,6 +114,37 @@
 </div>
 </div>
 </main>
-<script src="js/contact.js"></script>
+
+<script>
+    // Wait until the entire HTML document is loaded and ready
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get a list of all the elements with the class 'star-icon'
+        const stars = document.querySelectorAll('.star-icon');
+
+        // Loop through each star icon
+        stars.forEach(star => {
+            // Add a 'click' event listener to it
+            star.addEventListener('click', (event) => {
+                
+                // This stops the click from affecting parent elements, which is good practice
+                event.stopPropagation(); 
+
+                // Add or remove the 'starred' class. This is what changes the color via CSS.
+                star.classList.toggle('starred');
+
+                // Check if the star is now starred
+                if (star.classList.contains('starred')) {
+                    // If it is, change the character to a filled star
+                    star.textContent = '★';
+                } else {
+                    // If not, change it back to an empty star
+                    star.textContent = '☆';
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
