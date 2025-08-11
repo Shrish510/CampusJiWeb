@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRVKNL4W');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Court Booking - CampusJi</title>
@@ -15,8 +22,24 @@
       style="border-radius: 50%"
     />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+      /* Style for the date input when a date is selected */
+      input[type="date"].date-selected {
+        background-color: #d4edda; /* A pleasant light green */
+        border-color: #28a745;      /* A matching green border */
+      }
+      /* Smooth transition for the color change */
+      input[type="date"] {
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+    </style>
   </head>
   <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="header-container"></div>
 
     <main class="main-content">
@@ -58,6 +81,11 @@
               </select>
             </div>
 
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="lookingForPartner" name="lookingForPartner" />
+              <label for="lookingForPartner">I'm looking for a partner</label>
+            </div>
+
             <button type="submit" class="btn-primary">Book Court</button>
           </form>
         </div>
@@ -66,14 +94,20 @@
           <h2>Current Bookings</h2>
           <div class="bookings-controls">
             <button id="refreshBookings" class="btn-secondary">Refresh</button>
-            <button id="showMyBookings" class="btn-secondary">
-              My Bookings
-            </button>
+            <button id="showMyBookings" class="btn-secondary">My Bookings</button>
           </div>
           <div id="bookingsList" class="bookings-list">
             <div class="loading">Loading bookings...</div>
           </div>
         </div>
+
+        <div class="waitlist-section">
+            <h2>My Waitlisted Slots</h2>
+            <div id="waitlistDisplay" class="bookings-list">
+                <p>You are not on any waitlists.</p>
+            </div>
+        </div>
+
 
         <div class="calendar-section">
           <h2>Calendar View</h2>
@@ -91,12 +125,15 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Booking Details</h2>
-        <div id="modalContent"></div>
+        <div id="modalContent">
+          </div>
       </div>
     </div>
 
     <div id="messageContainer" class="message-container"></div>
 
-    <script src="js/court.booking.js?v=2"></script>
+    <script src="js/common.js"></script>
+    <script type="module" src="js/court.booking.js?v=2"></script>
+    <div id="footer-container"></div>
   </body>
 </html>

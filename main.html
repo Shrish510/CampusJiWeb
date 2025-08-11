@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRVKNL4W');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusJi - IPM Student Portal</title>
@@ -9,8 +16,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
    <div id="header-container"></div>
 
     <main class="main-content">
@@ -19,36 +31,36 @@
                 <div class="slide">
                     <img src="images/IMG-20250709-WA0016.jpg" alt="Students celebrating on a stage with a trophy at a campus event at night.">
                     <div class="slide-overlay">
-                        <div class="slide-title">Event Trophy Celebration</div>
-                        <div class="slide-description">Students celebrating achievement at campus event</div>
+                        <div class="slide-title">Grievance Redressal</div>
+                        <div class="slide-description">Submit and track your campus grievances easily.</div>
                     </div>
                 </div>
                 <div class="slide">
                     <img src="images/IMG-20250709-WA0017.jpg" alt="The interior of a modern campus building with multiple floors and a glass roof.">
                     <div class="slide-overlay">
-                        <div class="slide-title">Campus Interior</div>
-                        <div class="slide-description">Modern facilities and learning spaces</div>
+                        <div class="slide-title">Lost and Found</div>
+                        <div class="slide-description">Report lost items or find discovered belongings.</div>
                     </div>
                 </div>
                 <div class="slide">
                     <img src="images/IMG-20250709-WA0018.jpg" alt="The front view of the IIM Rohtak campus buildings under a cloudy sky.">
                     <div class="slide-overlay">
-                        <div class="slide-title">IIM Rohtak Campus</div>
-                        <div class="slide-description">Beautiful campus architecture and grounds</div>
+                        <div class="slide-title">Parcel Hub</div>
+                        <div class="slide-description">Track and manage your incoming parcels.</div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0019.jpg" alt="Students playing a volleyball match on an outdoor court.">
+                    <img src="images/IMG-20250709-WA0019.jpg" alt="A group of students playing a volleyball match on an outdoor court.">
                     <div class="slide-overlay">
-                        <div class="slide-title">Sports Activities</div>
-                        <div class="slide-description">Inter-batch volleyball tournament in action</div>
+                        <div class="slide-title">Court Booking</div>
+                        <div class="slide-description">Reserve sports courts for your games and activities.</div>
                     </div>
                 </div>
                 <div class="slide">
                     <img src="images/IMG-20250709-WA0020.jpg" alt="A group of students performing a synchronized dance routine outdoors.">
                     <div class="slide-overlay">
-                        <div class="slide-title">Cultural Events</div>
-                        <div class="slide-description">Students showcasing talent at cultural fest</div>
+                        <div class="slide-title">IPM Social</div>
+                        <div class="slide-description">Explore local hangouts, restaurants, and services.</div>
                     </div>
                 </div>
             </div>
@@ -76,24 +88,38 @@
                 </div>
             </div>
 
-            <div class="column-card">
-                <h3>Weather</h3>
-                <div class="weather-info">
-                    <div class="weather-location" id="weather-location">Rohtak, Haryana</div>
-                    <div class="weather-temp" id="weather-temp">--°C</div>
-                    <div class="weather-condition" id="weather-condition">Loading...</div>
-                    <div class="weather-details">
-                        <div class="weather-detail">
-                            <strong>Humidity</strong>
-                            <span id="weather-humidity">--%</span>
+            <div class="weather-calendar-container">
+                <div class="column-card weather-card">
+                    <h3>Weather</h3>
+                    <div class="weather-info">
+                        <div class="weather-location" id="weather-location">Rohtak, Haryana</div>
+                        <div class="weather-temp" id="weather-temp">--°C</div>
+                        <div class="weather-condition" id="weather-condition">Loading...</div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <strong>Humidity</strong>
+                                <span id="weather-humidity">--%</span>
+                            </div>
+                            <div class="weather-detail">
+                                <strong>Wind</strong>
+                                <span id="weather-wind">-- km/h</span>
+                            </div>
+                            <div class="weather-detail">
+                                <strong>Feels Like</strong>
+                                <span id="weather-feels-like">--°C</span>
+                            </div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Wind</strong>
-                            <span id="weather-wind">-- km/h</span>
+                    </div>
+                </div>
+                
+                <div class="column-card lost-found-card">
+                    <h3>Latest Lost & Found Items</h3>
+                    <div class="lost-found-container">
+                        <div id="latest-lost-found">
+                            <div class="loading-item">Loading latest items...</div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Feels Like</strong>
-                            <span id="weather-feels-like">--°C</span>
+                        <div class="view-all-link">
+                            <a href="lost-and-found.html" class="view-all-btn">View All Items</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +133,7 @@
                     width="100%"
                     height="500"
                     frameborder="0" style="border:0"
-                    src="https://maps.google.com/maps?q=28.853390835718354,76.54220669325325&hl=es;z=14&output=embed"
+                    src="https://maps.google.com/maps?q=28.853328312561697,76.54179073187943&z=18&output=embed"
                     allowfullscreen>
                 </iframe>
             </div>
@@ -163,6 +189,9 @@
         </div>
     </main>
 
-    <script src="js/main.js"></script>
+    <div id="footer-container"></div>
+
+    <script src="js/common.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

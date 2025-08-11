@@ -1,7 +1,6 @@
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-  const SUPABASE_URL = "https://jqiifqmiucpqeiytqhkk.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxaWlmcW1pdWNwcWVpeXRxaGtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NTE4MDEsImV4cCI6MjA3MDEyNzgwMX0.giovr0elKJhb1pAoH19yfJm1Rp50eOHmQ_Uv8PIy7T4";
   const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
@@ -207,4 +206,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchWeather();
   setInterval(fetchWeather, 1800000);
+
+  // New code for latest lost & found items
+  async function getLatestLostFound() {
+    const latestContainer = document.getElementById("latest-lost-found");
+    if (!latestContainer) return;
+
+    const { data, error } = await supabase
+      .from("lost_and_found")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(1);
+
+    if (error) {
+      console.error("Error fetching latest lost & found items:", error);
+      latestContainer.innerHTML = '<div class="loading-item">Error loading items.</div>';
+      return;
+    }
+
+    if (data && data.length > 0) {
+      latestContainer.innerHTML = "";
+      data.forEach((item) => {
+        const itemElement = document.createElement("div");
+        itemElement.className = "lost-found-item";
+        
+        const date = new Date(item.created_at).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const isFound = !!item.found;
+        const badgeText = isFound ? "Found" : "Lost";
+        
+        itemElement.innerHTML = `
+          <div class="lost-found-item-header">
+            <span class="item-type ${isFound ? 'found' : 'lost'}">${badgeText}</span>
+            <span class="item-date">${date}</span>
+          </div>
+          <div class="item-title">${item.title || "Untitled"}</div>
+          <div class="item-description">${item.description || ""}</div>
+          <div class="item-location">👤 ${item.name || "Anonymous"}</div>
+        `;
+        
+        latestContainer.appendChild(itemElement);
+      });
+    } else {
+      latestContainer.innerHTML = '<div class="loading-item">No items found.</div>';
+    }
+  }
+
+  getLatestLostFound();
 });

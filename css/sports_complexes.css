@@ -1,0 +1,147 @@
+/* Color Variables from main.css and image */
+:root {
+    --royal: #334EAC;
+    --moon: #F7F2EB;
+    --china: #7096D1;
+    --asian-pear: #F2F0DE;
+    --midnight: #081F5C;
+    --dawn: #D0E3FF;
+    --jicama: #FFF9F0;
+    --porcelain: #EDF1F6;
+    --sky: #BAD6EB;
+}
+
+/* Page Title and Section Headings */
+.page-title {
+    text-align: center;
+    color: var(--midnight);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.complexes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.complex-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.complex-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
+}
+
+.card-image-placeholder {
+    width: 100%;
+    height: 220px;
+    background: var(--dawn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--royal);
+    border-bottom: 3px solid var(--china);
+}
+
+.complex-content {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.complex-content h3 {
+    font-size: 1.8rem;
+    color: var(--midnight);
+    margin-bottom: 0.75rem;
+}
+
+.complex-content p {
+    font-size: 1rem;
+    color: var(--royal);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.complex-details {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.detail-item i {
+    color: var(--china);
+    width: 20px;
+    text-align: center;
+}
+
+.complex-links {
+    margin-top: auto; /* Pushes the links to the bottom */
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.btn-link.directions {
+    background-color: var(--sky);
+    color: var(--midnight);
+}
+
+.btn-link.directions:hover {
+    background-color: var(--china);
+    color: white;
+}
+
+.btn-link.photos {
+    background-color: var(--porcelain);
+    color: var(--royal);
+}
+
+.btn-link.photos:hover {
+    background-color: var(--china);
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .complex-card {
+        flex-direction: row;
+    }
+    .card-image-placeholder {
+        min-width: 300px;
+        height: auto;
+        border-right: 3px solid var(--china);
+        border-bottom: none;
+    }
+}

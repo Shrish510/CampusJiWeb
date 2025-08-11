@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRVKNL4W');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPM Social - CampusJi</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ipm_social.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRVKNL4W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="header-container"></div>
 
     <main class="main-content">
         <h1 class="page-title">IPM Social</h1>
-        
+
         <section class="social-section">
             <h2 class="section-heading">Top Places to Hang Out</h2>
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Movie Theatres</h3>
-                            <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
+                    <a href="movie_theatres.html" class="card-link">
+                        <div class="card">
+                            <img src="images/MovieTheatre.jpg" alt="Movie Theatres" class="card-image">
+                            <div class="card-content">
+                                <h3>Movie Theatres</h3>
+                                <p>Catch the latest blockbusters and enjoy a fun evening with friends.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafés & Eateries</h3>
-                            <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
+                    </a>
+                    <a href="cafes.html" class="card-link">
+                        <div class="card">
+                             <img src="images/Social_Cafes.jpg" alt="Cafes" class="card-image">
+                            <div class="card-content">
+                                <h3>Cafés & Eateries</h3>
+                                <p>Find cozy spots for a coffee break or a quick bite to eat near campus.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Shopping Malls</h3>
-                            <p>Explore nearby shopping destinations for fashion, electronics, and more.</p>
+                    </a>
+                    <a href="sports_complexes.html" class="card-link">
+                        <div class="card">
+                            <img src="images/Social_Sports.jpeg" alt="Sports Complexes" class="card-image">
+                            <div class="card-content">
+                                <h3>Sports Complexes</h3>
+                                <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Sports Complex</h3>
-                            <p>Book a court or field for a game of badminton, basketball, or cricket.</p>
+                    </a>
+                    <a href="gaming_zones.html" class="card-link">
+                        <div class="card">
+                            <img src="images/Social_Gaming.jpg" alt="Gaming Zones" class="card-image">
+                            <div class="card-content">
+                                <h3>Gaming Zones</h3>
+                                <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Gaming Zones</h3>
-                            <p>Challenge your friends to video games, bowling, and other arcade fun.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <button class="scroll-button right" onclick="scrollCarousel('hangout-carousel', 'right')">❯</button>
             </div>
@@ -64,32 +78,89 @@
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
+                    <!-- New Salon Cards -->
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/ADD8E6/000000?text=Ozone+Salon" alt="Ozone Salon and Spas" class="card-image">
                         <div class="card-content">
-                            <h3>Modern Cuts</h3>
-                            <p>Haircuts, styling, and grooming services for all students.</p>
+                            <h3>Ozone Salon and Spas</h3>
+                            <p>Wide range of beauty and wellness services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 8:30 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.5 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Ozone-Salon-Spa-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/F08080/FFFFFF?text=Classic+Unisex" alt="Classic Unisex Hair Salon" class="card-image">
                         <div class="card-content">
-                            <h3>Beauty Bliss</h3>
-                            <p>Skincare, facials, and other beauty treatments for a fresh look.</p>
+                            <h3>Classic Unisex Hair Salon</h3>
+                            <p>Trendy haircuts and grooming for men and women.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:30 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.1 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Classic-Unisex-Hair-Salon-Near-Axis-Bank-Civil-Road/9999P1262-1262-220803154805-E9V8_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/DA70D6/FFFFFF?text=Peenaz+Beauty" alt="Peenaz Beauty Spot" class="card-image">
                         <div class="card-content">
-                            <h3>Campus Barber</h3>
-                            <p>A quick and affordable option for a classic trim or shave.</p>
+                            <h3>Peenaz Beauty Spot</h3>
+                            <p>Beauty treatments, facials, and bridal makeup services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 7:30 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.3 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Peenaz-Beauty-Spot-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/6A5ACD/FFFFFF?text=Studio11" alt="Studio11" class="card-image">
                         <div class="card-content">
-                            <h3>Spa & Wellness</h3>
-                            <p>Relaxing massage and spa services to de-stress after a long week.</p>
+                            <h3>Studio11</h3>
+                            <p>Professional hair, skin, and makeup services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:00 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.4 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Studio11-Model-Town/9999P1262-1262-190809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/FFC0CB/000000?text=Garima+Beauty" alt="Garima Beauty Parlour" class="card-image">
+                        <div class="card-content">
+                            <h3>Garima Beauty Parlour</h3>
+                            <p>Personalized beauty treatments and friendly staff.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 8:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 3.9 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Garima-Beauty-Parlour-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/8B0000/FFFFFF?text=Sonu+Hair" alt="Sonu Hair Salon" class="card-image">
+                        <div class="card-content">
+                            <h3>Sonu Hair Salon</h3>
+                            <p>Trusted for classic haircuts and styling.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:00 AM - 8:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.0 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Sonu-Hair-Salon-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/4682B4/FFFFFF?text=Style+N+Scissors" alt="Style N Scissors" class="card-image">
+                        <div class="card-content">
+                            <h3>Style N Scissors</h3>
+                            <p>Wide array of hair and beauty services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.2 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Style-N-Scissors-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,41 +173,33 @@
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="restaurant-carousel">
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>The Food Court</h3>
-                            <p>Variety of cuisines from local vendors and popular chains.</p>
+                     <a href="pizza_places.html" class="card-link">
+                        <div class="card">
+                            <img src="images/Social_Pizza.jpg" alt="Pizza" class="card-image">
+                            <div class="card-content">
+                                <h3>Pizza Palace</h3>
+                                <p>The go-to spot for pizza nights and group study sessions.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Cafeteria</h3>
-                            <p>Our own campus cafeteria serving delicious meals and snacks.</p>
+                    </a>
+                    <a href="burger_joints.html" class="card-link">
+                        <div class="card">
+                             <img src="images/Social_Burger.jpeg" alt="Burger" class="card-image">
+                            <div class="card-content">
+                                <h3>Burger Junction</h3>
+                                <p>Best burgers and fries in the city, with a special student discount.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Pizza Palace</h3>
-                            <p>The go-to spot for pizza nights and group study sessions.</p>
+                    </a>
+                    <a href="dhaba_places.html" class="card-link">
+                        <div class="card">
+                            <img src="images/Social_Dhaba.jpg" alt="Dhaba" class="card-image">
+                            <div class="card-content">
+                                <h3>Dhaba Delight</h3>
+                                <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Burger Junction</h3>
-                            <p>Best burgers and fries in the city, with a special student discount.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image-placeholder"></div>
-                        <div class="card-content">
-                            <h3>Dhaba Delight</h3>
-                            <p>Authentic Indian cuisine, perfect for a hearty dinner with friends.</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <button class="scroll-button right" onclick="scrollCarousel('restaurant-carousel', 'right')">❯</button>
             </div>
@@ -144,6 +207,8 @@
     </main>
 
     <script src="js/auth.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/ipm_social.js"></script>
+    <div id="footer-container"></div>
 </body>
 </html>
