@@ -6,7 +6,8 @@
     font-weight: bold;
 }
 
-.grievance-form-container, .grievance-table-container {
+.grievance-form-container,
+.grievance-table-container {
     background: white;
     padding: 2rem;
     border-radius: 15px;
@@ -33,7 +34,8 @@ h2 {
     font-weight: 500;
 }
 
-.input-group input, .input-group textarea {
+.input-group input,
+.input-group textarea {
     width: 100%;
     padding: 0.875rem 1.25rem;
     border: 2px solid #BAD6EB;
@@ -43,7 +45,8 @@ h2 {
     transition: all 0.3s ease;
 }
 
-.input-group input:focus, .input-group textarea:focus {
+.input-group input:focus,
+.input-group textarea:focus {
     outline: none;
     border-color: #7096D1;
     box-shadow: 0 0 0 3px rgba(112, 150, 209, 0.2);
@@ -71,7 +74,8 @@ h2 {
     border-collapse: collapse;
 }
 
-.grievance-table th, .grievance-table td {
+.grievance-table th,
+.grievance-table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #EDF1F6;
@@ -83,12 +87,22 @@ h2 {
     font-weight: bold;
 }
 
-.status-pending {
+.status-unresolved {
     color: #d9534f;
+    font-weight: bold;
+}
+
+.status-in_progress {
+    color: #f0ad4e;
     font-weight: bold;
 }
 
 .status-resolved {
     color: #5cb85c;
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: #d9534f;
     font-weight: bold;
 }
