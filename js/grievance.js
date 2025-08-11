@@ -10,7 +10,7 @@ grievanceForm.addEventListener('submit', async function(e) {
   const description = document.getElementById('grievanceDescription').value;
 
   const { data, error } = await supabase
-    .from('Grievance Redressal')
+    .from('grievance_redressal')
     .insert([
       {
         subject,
