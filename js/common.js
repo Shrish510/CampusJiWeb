@@ -15,7 +15,7 @@ function highlightNav() {
 
   const links = {
     "main.html": "homeLink",
-    "about.html": "aboutLink",
+    "about-us.html": "aboutLink",
     "ClubsComs.html": "clubsLink",
     "services.html": "servicesLink",
     "contact_repository.html": "servicesLink",
