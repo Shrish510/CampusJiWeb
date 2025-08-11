@@ -96,6 +96,7 @@
     border-bottom: 3px solid var(--china);
 }
 
+/* Updated `card-image` to ensure uniform size */
 .card-image {
     width: 100%;
     height: 200px;
