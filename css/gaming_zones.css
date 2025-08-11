@@ -43,16 +43,20 @@
     box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
 }
 
-.card-image-placeholder {
+/* New consistent image container for all gaming zones */
+.card-media {
     width: 100%;
-    height: 220px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
     background: var(--dawn);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--royal);
     border-bottom: 3px solid var(--china);
+}
+
+.zone-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .zone-content {
@@ -172,11 +176,10 @@
     .zone-card {
         flex-direction: row;
     }
-    .card-image-placeholder {
+    .card-media {
         min-width: 300px;
         height: auto;
         border-right: 3px solid var(--china);
         border-bottom: none;
     }
 }
-
