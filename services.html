@@ -207,40 +207,66 @@
       <section class="status-dashboard">
         <h2>Service Status Dashboard</h2>
         <ul class="status-list">
-          <li>
-            <span>Grievance System</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Operational</span>
-            </div>
-          </li>
-          <li>
-            <span>Sports Court Booking</span>
-            <div class="status-info">
-              <span class="status-dot status-warning"></span>
-              <span>High Demand</span>
-            </div>
-          </li>
-          <li>
-            <span>Parcel Hub</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Available</span>
-            </div>
-          </li>
-          <li>
-            <span>Campus Wi-Fi</span>
-            <div class="status-info">
-              <span class="status-dot status-down"></span>
-              <span>Partial Outage</span>
-            </div>
-          </li>
-        </ul>
+          </ul>
         <p class="last-updated" id="status-time">Last updated: -</p>
       </section>
     </main>
     <script src="js/auth.js"></script>
     <script>
+      // --- [NEW] DYNAMIC STATUS DASHBOARD SCRIPT ---
+
+      // 1. Define your service status data in an array of objects.
+      // To update statuses, you only need to change this array.
+      const serviceData = [
+        { name: 'Grievance System', statusText: 'Operational', statusClass: 'status-ok' },
+        { name: 'Sports Court Booking', statusText: 'High Demand', statusClass: 'status-warning' },
+        { name: 'Parcel Hub', statusText: 'Available', statusClass: 'status-ok' },
+        { name: 'Campus Wi-Fi', statusText: 'Partial Outage', statusClass: 'status-down' },
+        { name: 'Library Portal', statusText: 'Under Maintenance', statusClass: 'status-warning' }
+      ];
+
+      // 2. A function to render the statuses on the page.
+      function renderServiceStatus() {
+        const statusListContainer = document.querySelector('.status-list');
+        if (!statusListContainer) return; // Exit if the container isn't found
+
+        // Clear any existing content
+        statusListContainer.innerHTML = '';
+
+        // 3. Loop through the data and create an HTML element for each service.
+        serviceData.forEach(service => {
+          // Create the main list item <li>
+          const listItem = document.createElement('li');
+
+          // Create the service name <span>
+          const serviceName = document.createElement('span');
+          serviceName.textContent = service.name;
+
+          // Create the container for the status info <div>
+          const statusInfoDiv = document.createElement('div');
+          statusInfoDiv.className = 'status-info';
+
+          // Create the colored status dot <span>
+          const statusDot = document.createElement('span');
+          statusDot.className = `status-dot ${service.statusClass}`;
+
+          // Create the status text <span>
+          const statusText = document.createElement('span');
+          statusText.textContent = service.statusText;
+
+          // 4. Assemble the elements together.
+          statusInfoDiv.appendChild(statusDot);
+          statusInfoDiv.appendChild(statusText);
+          listItem.appendChild(serviceName);
+          listItem.appendChild(statusInfoDiv);
+
+          // 5. Add the final assembled item to the list on the page.
+          statusListContainer.appendChild(listItem);
+        });
+      }
+
+      // --- [EXISTING SCRIPTS] ---
+
       // Navigation Dropdown script
       document.getElementById("service-nav").addEventListener("change", function () {
         if (this.value) {
@@ -258,6 +284,9 @@
           timeElement.textContent = `Last updated: ${formattedDate}, ${formattedTime}`;
         }
       })();
+      
+      // Run the function to build the dashboard when the page loads
+      document.addEventListener('DOMContentLoaded', renderServiceStatus);
     </script>
   </body>
 </html>
