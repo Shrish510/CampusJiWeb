@@ -293,10 +293,11 @@ body {
     to { width: 160px; }
 }
 
-/* Cards Grid */
+/* Cards Grid - FIX FOR MOBILE OVERFLOW */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    /* Changed minmax from 420px to 320px to fit on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
     margin-bottom: 60px;
 }
@@ -908,6 +909,7 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .cards-grid {
+        /* Adjusted minmax to fit on larger mobile devices and tablets */
         grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
         gap: 35px;
     }
@@ -919,12 +921,9 @@ body {
 
 @media (max-width: 768px) {
     .cards-grid {
+        /* Set grid to a single column to prevent overflow on smaller phones */
         grid-template-columns: 1fr;
         gap: 30px;
-    }
-    
-    .page-title {
-        font-size: 3rem;
     }
     
     .section-title {
@@ -949,14 +948,11 @@ body {
         width: 70px;
         height: 70px;
     }
-    
-    .page-header {
-        padding: 60px 20px 40px;
-    }
 }
 
 @media (max-width: 480px) {
     .cards-grid {
+        /* Ensured that it is a single column for all small screens */
         grid-template-columns: 1fr;
         gap: 25px;
     }
