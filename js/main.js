@@ -95,6 +95,16 @@ document.addEventListener("DOMContentLoaded", function () {
   function stopSlider() {
     clearInterval(slideInterval);
   }
+  
+  function nextSlide() {
+    const nextIndex = (currentSlide + 1) % totalSlides;
+    goToSlide(nextIndex);
+  }
+  
+  function prevSlide() {
+    const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(prevIndex);
+  }
 
   if (slider && slides.length > 0 && dots.length > 0) {
     dots.forEach((dot, index) => {
@@ -108,6 +118,24 @@ document.addEventListener("DOMContentLoaded", function () {
       sliderContainer.addEventListener("mouseenter", stopSlider);
       sliderContainer.addEventListener("mouseleave", startSlider);
     }
+    
+    // Add event listeners for the arrow buttons
+    const prevButton = document.getElementById("prev-slide");
+    const nextButton = document.getElementById("next-slide");
+
+    if (prevButton && nextButton) {
+        prevButton.addEventListener("click", () => {
+          stopSlider(); 
+          prevSlide();
+          startSlider();
+        });
+        nextButton.addEventListener("click", () => {
+          stopSlider(); 
+          nextSlide();
+          startSlider();
+        });
+      }
+    
     startSlider();
   }
 
