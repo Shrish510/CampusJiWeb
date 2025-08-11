@@ -1,7 +1,8 @@
-/* Google Font Import */
+/* =========================
+   FONT & RESET
+========================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +11,32 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #eaf7ff, #ffffff);
+    background-color: #F7F2EB; /* original cream */
     line-height: 1.6;
     color: #333;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* ===================== HEADER ===================== */
+/* Background subtle pattern */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+/* =========================
+   HEADER
+========================= */
 .header {
-    background: linear-gradient(135deg, #6EC1E4, #3BAFDA);
+    background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
     padding: 1rem 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -55,7 +72,7 @@ body {
 }
 
 .nav-link {
-    color: white;
+    color: #F7F2EB;
     text-decoration: none;
     font-weight: 600;
     padding: 0.6rem 1rem;
@@ -64,33 +81,38 @@ body {
 }
 
 .nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 
 .nav-link.active {
-    background: white;
-    color: #3BAFDA;
+    background-color: #7096D1;
+    color: white;
 }
 
-/* ===================== MAIN CONTENT ===================== */
+/* =========================
+   MAIN CONTENT
+========================= */
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* ===================== SLIDER ===================== */
+/* =========================
+   SLIDER
+========================= */
 .slider-container {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
     margin-bottom: 2rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .slider img {
     width: 100%;
+    display: block;
     transition: transform 0.5s ease;
 }
 
@@ -101,8 +123,8 @@ body {
 .slide-overlay {
     position: absolute;
     bottom: 0;
-    width: 100%;
     padding: 1.2rem;
+    width: 100%;
     background: linear-gradient(transparent, rgba(0,0,0,0.7));
     color: white;
 }
@@ -121,7 +143,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin: 1rem 0;
+    margin-top: 1rem;
 }
 
 .slider-dot {
@@ -134,11 +156,13 @@ body {
 }
 
 .slider-dot.active, .slider-dot:hover {
-    background: #3BAFDA;
+    background: #334EAC;
     transform: scale(1.2);
 }
 
-/* ===================== THREE COLUMNS ===================== */
+/* =========================
+   THREE-COLUMN SECTION
+========================= */
 .three-column-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -147,46 +171,76 @@ body {
 }
 
 .column-card {
-    background: white;
+    background: rgba(255,255,255,0.9);
     padding: 1.5rem;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    backdrop-filter: blur(6px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.column-card::before {
+    content: "";
+    position: absolute;
+    top: -10px; right: -10px;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle, #7096D1 20%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: 0;
 }
 
 .column-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .column-card h3 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #3BAFDA;
+    color: #334EAC;
+    position: relative;
+    z-index: 1;
 }
 
-/* ===================== MAP SECTION ===================== */
+/* =========================
+   MAP SECTION
+========================= */
 .map-section {
     margin: 3rem 0;
-    background: #f0faff;
+    background: #eef3ff;
     padding: 1.5rem;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.map-section::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; left: -20px;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, #334EAC 30%, transparent 80%);
+    opacity: 0.1;
+    border-radius: 50%;
 }
 
 .map-section h2 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3BAFDA;
+    color: #334EAC;
 }
 
 .map-placeholder iframe {
     border-radius: 15px;
 }
 
-/* ===================== FAQ ===================== */
+/* =========================
+   FAQ SECTION
+========================= */
 .faq-section {
     margin: 3rem 0;
 }
@@ -194,7 +248,7 @@ body {
 .faq-section h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3BAFDA;
+    color: #334EAC;
     margin-bottom: 1.5rem;
 }
 
@@ -206,6 +260,17 @@ body {
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+.faq-item::after {
+    content: "";
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 20px; height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23334EAC" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>') no-repeat center;
+    background-size: contain;
+    opacity: 0.4;
 }
 
 .faq-item:hover {
@@ -220,7 +285,7 @@ body {
 
 .faq-toggle {
     font-size: 1.5rem;
-    color: #3BAFDA;
+    color: #334EAC;
 }
 
 .faq-answer {
@@ -230,7 +295,9 @@ body {
     color: #555;
 }
 
-/* ===================== RESPONSIVE ===================== */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
