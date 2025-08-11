@@ -9,9 +9,10 @@ body {
     font-family: Georgia, serif;
     background-color: #F7F2EB;
     line-height: 1.6;
+    color: #333; /* Improved text color for readability */
 }
 
-/* Header Styles */
+/* Header Styles (Keeping this section as-is per your request) */
 .header {
     background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
     padding: 1rem 0;
@@ -72,4 +73,254 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+/* Slider Section */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.slide-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.slide-description {
+    font-size: 1.2rem;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active, .slider-dot:hover {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Three-Column Section & Cards */
+.three-column-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.column-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+    flex: 1;
+    min-height: 350px;
+}
+
+.column-card h3 {
+    color: #081F5C;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mess-menu-items {
+    list-style: none;
+}
+
+.bulletin-item {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1rem;
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-location {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #334EAC;
+}
+
+.weather-temp {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.weather-condition {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.weather-detail {
+    text-align: center;
+}
+
+.weather-detail strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Map Section */
+.map-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.map-section h2 {
+    color: #081F5C;
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.faq-section h2 {
+    color: #081F5C;
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #f7f2eb;
+    transition: background-color 0.3s ease;
+}
+.faq-question:hover {
+    background-color: #e0e0e0;
+}
+.faq-question h4 {
+    color: #333;
+    margin: 0;
+}
+.faq-toggle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .three-column-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .column-card {
+        width: 100%;
+        min-height: auto;
+    }
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .nav-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .slide img {
+        height: 300px;
+    }
+    .slide-title {
+        font-size: 1.8rem;
+    }
+    .slide-description {
+        font-size: 1rem;
+    }
+    .map-placeholder iframe {
+        height: 300px;
+    }
 }
