@@ -206,4 +206,87 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchWeather();
   setInterval(fetchWeather, 1800000);
+
+  // New code for dynamic calendar
+  const calendarGrid = document.getElementById("calendar-grid");
+  const currentMonthYearSpan = document.getElementById("currentMonthYear");
+  const prevMonthBtn = document.getElementById("prevMonth");
+  const nextMonthBtn = document.getElementById("nextMonth");
+
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
+
+  // Dummy event data for demonstration
+  const dummyEvents = {
+      "2025-08-15": ["Independence Day Celebration"],
+      "2025-08-20": ["Inter-Batch Volleyball Tournament"],
+      "2025-09-05": ["Teachers' Day Event"],
+      "2025-09-25": ["Literati Poetry Slam"],
+      "2025-10-10": ["Annual Cultural Fest - Riwaayat"],
+  };
+
+  function renderCalendar() {
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+      const startDayOfWeek = firstDayOfMonth.getDay();
+      const daysInMonth = lastDayOfMonth.getDate();
+
+      currentMonthYearSpan.textContent = firstDayOfMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      calendarGrid.innerHTML = '';
+
+      const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      daysOfWeek.forEach(day => {
+          const dayHeader = document.createElement('div');
+          dayHeader.classList.add('calendar-day-header');
+          dayHeader.textContent = day;
+          calendarGrid.appendChild(dayHeader);
+      });
+
+      for (let i = 0; i < startDayOfWeek; i++) {
+          const emptyDay = document.createElement('div');
+          emptyDay.classList.add('calendar-day', 'empty');
+          calendarGrid.appendChild(emptyDay);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement('div');
+          dayElement.classList.add('calendar-day');
+          dayElement.textContent = day;
+
+          const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+          if (dummyEvents[dateString]) {
+              const eventList = document.createElement('ul');
+              eventList.classList.add('event-list');
+              dummyEvents[dateString].forEach(event => {
+                  const eventItem = document.createElement('li');
+                  eventItem.textContent = event;
+                  eventList.appendChild(eventItem);
+              });
+              dayElement.appendChild(eventList);
+              dayElement.classList.add('has-event');
+          }
+
+          calendarGrid.appendChild(dayElement);
+      }
+  }
+
+  prevMonthBtn.addEventListener('click', () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+      }
+      renderCalendar();
+  });
+
+  nextMonthBtn.addEventListener('click', () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+      }
+      renderCalendar();
+  });
+
+  renderCalendar();
 });
