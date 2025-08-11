@@ -30,65 +30,14 @@
         text-align: center;
         color: #2c3e50; /* A more refined, professional blue-grey */
         font-size: 2.8rem;
-        margin-bottom: 2.5rem; /* Adjusted margin for new section */
+        margin-bottom: 1.5rem;
         font-weight: 700;
       }
-
-      /* --- Status Dashboard --- */
-      .status-dashboard {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        margin-bottom: 4rem;
-      }
-      .status-dashboard h2 {
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-      }
-      .status-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .status-list li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0.5rem;
-        border-bottom: 1px solid #f0f0f0;
-      }
-      .status-list li:last-child {
-        border-bottom: none;
-      }
-      .status-info {
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-      }
-      .status-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-      .status-ok { background-color: #28a745; } /* Green */
-      .status-warning { background-color: #ffc107; } /* Yellow */
-      .status-down { background-color: #dc3545; } /* Red */
-
-      .last-updated {
-        text-align: center;
-        margin-top: 1.5rem;
-        font-size: 0.9rem;
-        color: #6c757d;
-      }
-
+      
       /* --- Navigation Dropdown --- */
       .service-nav-container {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
       }
 
       #service-nav {
@@ -144,8 +93,6 @@
         flex-grow: 1;
         margin-bottom: 1.5rem;
       }
-
-      /* --- Call-to-Action Buttons --- */
       .service-link {
         display: inline-block;
         padding: 12px 24px;
@@ -160,6 +107,56 @@
         background-color: #0056b3;
         transform: scale(1.05);
       }
+
+      /* --- Status Dashboard --- */
+      .status-dashboard {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-top: 4rem; /* Changed to margin-top for spacing above */
+      }
+      .status-dashboard h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+      }
+      .status-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .status-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .status-list li:last-child {
+        border-bottom: none;
+      }
+      .status-info {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+      }
+      .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .status-ok { background-color: #28a745; } /* Green */
+      .status-warning { background-color: #ffc107; } /* Yellow */
+      .status-down { background-color: #dc3545; } /* Red */
+      .last-updated {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
     </style>
   </head>
   <body>
@@ -167,40 +164,6 @@
     <main class="main-content">
       <h1 class="page-title">CampusJi Services</h1>
 
-      <section class="status-dashboard">
-        <h2>Service Status Dashboard</h2>
-        <ul class="status-list">
-          <li>
-            <span>Grievance System</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Operational</span>
-            </div>
-          </li>
-          <li>
-            <span>Sports Court Booking</span>
-            <div class="status-info">
-              <span class="status-dot status-warning"></span>
-              <span>High Demand</span>
-            </div>
-          </li>
-           <li>
-            <span>Parcel Hub</span>
-            <div class="status-info">
-              <span class="status-dot status-ok"></span>
-              <span>Available</span>
-            </div>
-          </li>
-          <li>
-            <span>Campus Wi-Fi</span>
-            <div class="status-info">
-              <span class="status-dot status-down"></span>
-              <span>Partial Outage</span>
-            </div>
-          </li>
-        </ul>
-        <p class="last-updated" id="status-time">Last updated: -</p>
-      </section>
       <div class="service-nav-container">
         <select id="service-nav">
           <option value="" selected disabled>-- Navigate to a Service --</option>
@@ -211,6 +174,7 @@
           <option value="parcel-hub.html">Parcel Hub</option>
         </select>
       </div>
+      
       <div class="three-column-section">
         <div class="column-card">
           <h3>Grievance Redressal</h3>
@@ -250,7 +214,42 @@
           <a href="parcel-hub.html" class="service-link">Access System</a>
         </div>
       </div>
-    </main>
+
+      <section class="status-dashboard">
+        <h2>Service Status Dashboard</h2>
+        <ul class="status-list">
+          <li>
+            <span>Grievance System</span>
+            <div class="status-info">
+              <span class="status-dot status-ok"></span>
+              <span>Operational</span>
+            </div>
+          </li>
+          <li>
+            <span>Sports Court Booking</span>
+            <div class="status-info">
+              <span class="status-dot status-warning"></span>
+              <span>High Demand</span>
+            </div>
+          </li>
+           <li>
+            <span>Parcel Hub</span>
+            <div class="status-info">
+              <span class="status-dot status-ok"></span>
+              <span>Available</span>
+            </div>
+          </li>
+          <li>
+            <span>Campus Wi-Fi</span>
+            <div class="status-info">
+              <span class="status-dot status-down"></span>
+              <span>Partial Outage</span>
+            </div>
+          </li>
+        </ul>
+        <p class="last-updated" id="status-time">Last updated: -</p>
+      </section>
+      </main>
     <script src="js/auth.js"></script>
     <script>
       // Navigation Dropdown script
@@ -263,10 +262,12 @@
       // Script to set the "Last updated" time dynamically
       (function() {
         const timeElement = document.getElementById('status-time');
-        const now = new Date();
-        const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute:'2-digit', hour12: true });
-        const formattedDate = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
-        timeElement.textContent = `Last updated: ${formattedDate}, ${formattedTime}`;
+        if (timeElement) { // Check if the element exists before trying to update it
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute:'2-digit', hour12: true });
+            const formattedDate = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+            timeElement.textContent = `Last updated: ${formattedDate}, ${formattedTime}`;
+        }
       })();
     </script>
   </body>
