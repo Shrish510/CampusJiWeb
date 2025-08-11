@@ -333,8 +333,28 @@
             }
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('About Us page loaded');
+    
+    // Try to load header
+    fetch('header.html')
+        .then(response => {
+            console.log('Header fetch response:', response.status);
+            return response.text();
+        })
+        .then(data => {
+            console.log('Header content loaded');
+            document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Header loading error:', error);
+        });
+});
+</script>
 </body>
 </html>
+
 
 
 
