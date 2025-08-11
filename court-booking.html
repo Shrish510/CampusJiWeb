@@ -7,7 +7,7 @@
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/court-booking-enhanced.css?v=3" />
+    <link rel="stylesheet" href="css/court-booking.css?v=2" />
     <link
       rel="icon"
       href="images/Campusjilogo.jpg"
@@ -23,7 +23,7 @@
       <div class="court-booking-container">
         <h1 class="page-title">Court Booking System</h1>
 
-        <div class="booking-section card-style">
+        <div class="booking-section">
           <h2>Book a Court</h2>
           <form id="bookingForm" class="booking-form">
             <div class="form-group">
@@ -45,7 +45,6 @@
               <div class="form-group">
                 <label for="endTime">End Time:</label>
                 <input type="time" id="endTime" name="endTime" required />
-                <div class="error-message" id="timeValidationError"></div>
               </div>
             </div>
 
@@ -86,15 +85,15 @@
             </div>
         </div>
 
-        <div class="calendar-section card-style">
+
+        <div class="calendar-section">
           <h2>Calendar View</h2>
           <div class="calendar-controls">
             <button id="prevMonth" class="btn-secondary">&lt; Previous</button>
             <span id="currentMonth" class="month-display">January 2024</span>
             <button id="nextMonth" class="btn-secondary">Next &gt;</button>
           </div>
-          <div id="calendar" class="calendar-grid">
-            </div>
+          <div id="calendar" class="calendar-grid"></div>
         </div>
       </div>
     </main>
@@ -103,12 +102,13 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Booking Details</h2>
-        <div id="modalContent"></div>
+        <div id="modalContent">
+          </div>
       </div>
     </div>
 
     <div id="messageContainer" class="message-container"></div>
 
-    <script src="js/court.booking.js?v=3"></script>
+    <script src="js/court.booking.js?v=2"></script>
   </body>
 </html>
