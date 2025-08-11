@@ -1,314 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>IPM Clubs & Committees</title>
-  <link rel="stylesheet" href="css/clubs_updated.css">
-  <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>IPM Clubs & Committees</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/clubs_redesigned.css">
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="header-container"></div>
-
-  <main class="main-content">
-    <!-- Committees Section -->
-    <section class="section committees-section" id="committees">
-      <div class="container">
-        <h2 class="section-title fade-in">Committees</h2>
-        <div class="cards-grid">
-
-          <!-- Academic Committee -->
-          <div class="card fade-in">
-            <div class="card-banner academic-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/ACLogo.png" alt="Academic Committee Logo"/>
-              </div>
-              <div><h3 class="card-title">Academic Committee</h3></div>
-            </div>
-            <p class="card-description">
-              Acts as the bridge between IPM students and the administration, ensuring seamless communication, organizing workshops, and helping maintain academic discipline. Supports faculty during batch inductions.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('academic')">
-                Meet the Team <span class="toggle-icon" id="academic-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/1iZLwZUkb3_7S3KMgoMzWaqniSzhBocwb?usp=sharing" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="academic-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card">
-                  <div class="team-member-photo photo-shrish"></div>
-                  <div class="team-member-name">Shrish</div>
-                  <div class="team-member-role">Senior Coordinator</div>
-                </div>
-                <div class="team-member-card">
-                  <div class="team-member-photo photo-akruti"></div>
-                  <div class="team-member-name">Akruti</div>
-                  <div class="team-member-role">Senior Coordinator</div>
-                </div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card">
-                  <div class="team-member-photo photo-madhur"></div>
-                  <div class="team-member-name">Madhur</div>
-                  <div class="team-member-role">Junior Member</div>
-                </div>
-                <div class="team-member-card">
-                  <div class="team-member-photo photo-sanchi"></div>
-                  <div class="team-member-name">Sanchi</div>
-                  <div class="team-member-role">Junior Member</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Internship Committee -->
-          <div class="card fade-in">
-            <div class="card-banner internship-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/ICLogoUpdated.png" alt="Internship Committee Logo"/>
-              </div>
-              <div><h3 class="card-title">Internship Committee</h3></div>
-            </div>
-            <p class="card-description">
-              Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('internship')">
-                Meet the Team <span class="toggle-icon" id="internship-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/1_BJ6eCNkwgWQxpsAeC0pE8il9Bd2AKKt?usp=drive_link" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="internship-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-aditi"></div><div class="team-member-name">Aditi</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-anushree"></div><div class="team-member-name">Anushree</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-aryaa"></div><div class="team-member-name">Aryaa</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-somansha"></div><div class="team-member-name">Somansha</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-upagnya"></div><div class="team-member-name">Upagnya</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-utkarsh"></div><div class="team-member-name">Utkarsh</div><div class="team-member-role">Senior Internship Coordinator</div></div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-amaeya"></div><div class="team-member-name">Amaeya</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-dhruvi"></div><div class="team-member-name">Dhruvi</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-jiya"></div><div class="team-member-name">Jiya</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-gaurav"></div><div class="team-member-name">Gaurav</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-muskan"></div><div class="team-member-name">Muskan</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-sanskar"></div><div class="team-member-name">Sanskar</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-shashwat"></div><div class="team-member-name">Shashwat</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-navyansh"></div><div class="team-member-name">Navyansh</div><div class="team-member-role">Junior Internship Coordinator</div></div>
-              </div>
-            </div>
-          </div>
-
+    <!-- Animated Background Elements -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
         </div>
-      </div>
-    </section>
-
-    <!-- Clubs Section -->
-    <section class="section clubs-section" id="clubs">
-      <div class="container">
-        <h2 class="section-title fade-in">Clubs</h2>
-        <div class="cards-grid">
-
-          <!-- Athlos -->
-          <div class="card fade-in">
-            <div class="card-banner athlos-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/AthLogo.png" alt="Athlos - The Sports Club Logo"/>
-              </div>
-              <div><h3 class="card-title">Athlos (Sports Club)</h3></div>
-            </div>
-            <p class="card-description">
-              Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('athlos')">
-                Meet the Team <span class="toggle-icon" id="athlos-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/1k89wXwo4fEuicWUB5NVkdbCRNBTQLQ_d?usp=sharing_eil_se_dm&ts=6870cc1d" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="athlos-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-dev"></div><div class="team-member-name">Dev</div><div class="team-member-role">Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-bhavya"></div><div class="team-member-name">Bhavya</div><div class="team-member-role">Co-coordinator</div></div>
-              </div>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-kaustubh"></div><div class="team-member-name">Kaustubh</div><div class="team-member-role">Core Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-vansh"></div><div class="team-member-name">Vansh</div><div class="team-member-role">Core Member</div></div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-harsh"></div><div class="team-member-name">Harsh</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-kavya"></div><div class="team-member-name">Kavya</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-khyati"></div><div class="team-member-name">Khyati</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-rohan"></div><div class="team-member-name">Rohan</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-vincent"></div><div class="team-member-name">Vincent</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-yuktha"></div><div class="team-member-name">Yuktha</div><div class="team-member-role">Junior Member</div></div>
-              </div>
-            </div>
-          </div>
-          <!-- Riwaayat -->
-          <div class="card fade-in">
-            <div class="card-banner riwaayat-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/RiwLogo.png" alt="Riwaayat - The Cultural Club Logo"/>
-              </div>
-              <div><h3 class="card-title">Riwaayat (Cultural Club)</h3></div>
-            </div>
-            <p class="card-description">
-              Promotes creativity by organizing events and competitions in art & craft, dance, drama, music, and fashion. Keeps students connected with many cultural values and traditions, and coordinates celebrations.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('riwaayat')">
-                Meet the Team <span class="toggle-icon" id="riwaayat-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/17n4DwcJ03-YqdTt0XOTYry7jaBc3U_m8?usp=drive_link" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="riwaayat-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-ishika"></div><div class="team-member-name">Ishika</div><div class="team-member-role">Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-mrinali"></div><div class="team-member-name">Mrinali</div><div class="team-member-role">Co-coordinator</div></div>
-              </div>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-avi"></div><div class="team-member-name">Avi</div><div class="team-member-role">Core Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-yusuf"></div><div class="team-member-name">Yusuf</div><div class="team-member-role">Core Member</div></div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-dhruv"></div><div class="team-member-name">Dhruv</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-gautam"></div><div class="team-member-name">Gautam</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-khushi"></div><div class="team-member-name">Khushi</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-parth"></div><div class="team-member-name">Parth</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-samruddhi"></div><div class="team-member-name">Samruddhi</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-yashvi"></div><div class="team-member-name">Yashvi</div><div class="team-member-role">Junior Member</div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Literati -->
-          <div class="card fade-in">
-            <div class="card-banner literati-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/LitLogo.png" alt="Literati - The Literary Club Logo"/>
-              </div>
-              <div><h3 class="card-title">Literati (Literary Club)</h3></div>
-            </div>
-            <p class="card-description">
-              Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('literati')">
-                Meet the Team <span class="toggle-icon" id="literati-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/1-65C9lqXozICAAtubh2tH5sBL4T5ACtX?usp=sharing" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="literati-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-mannat"></div><div class="team-member-name">Mannat</div><div class="team-member-role">Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-sarthak"></div><div class="team-member-name">Sarthak</div><div class="team-member-role">Co-coordinator</div></div>
-              </div>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-ananya"></div><div class="team-member-name">Ananya</div><div class="team-member-role">Core Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-parmi"></div><div class="team-member-name">Parmi</div><div class="team-member-role">Core Member</div></div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-advay"></div><div class="team-member-name">Advay</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-akshun"></div><div class="team-member-name">Akshun</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-arav"></div><div class="team-member-name">Arav</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-arhaan"></div><div class="team-member-name">Arhaan</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-lit-parth"></div><div class="team-member-name">Parth</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-sangeeth"></div><div class="team-member-name">Sangeeth</div><div class="team-member-role">Junior Member</div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Utthaan -->
-          <div class="card fade-in">
-            <div class="card-banner utthaan-banner"></div>
-            <div class="card-header">
-              <div class="card-logo">
-                <img src="images/UthLogo.png" alt="Utthaan - The Social Welfare Club Logo"/>
-              </div>
-              <div><h3 class="card-title">Utthaan (Social Welfare Club)</h3></div>
-            </div>
-            <p class="card-description">
-              Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
-            </p>
-            <div class="card-links">
-              <button class="card-link members" onclick="toggleTeam('utthaan')">
-                Meet the Team <span class="toggle-icon" id="utthaan-icon">▼</span>
-              </button>
-              <a class="card-link events" href="https://drive.google.com/drive/folders/1EMoi0nsRmRT-MvuDPMuxoG8L6Oxb4u56?usp=share_link" target="_blank">Event Gallery</a>
-            </div>
-            <div class="team-section" id="utthaan-team">
-              <h4 class="team-title">Senior Team</h4>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-nandini"></div><div class="team-member-name">Nandini</div><div class="team-member-role">Coordinator</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-divya"></div><div class="team-member-name">Divya</div><div class="team-member-role">Co-coordinator</div></div>
-              </div>
-              <div class="team-grid two-column">
-                <div class="team-member-card"><div class="team-member-photo photo-aryan"></div><div class="team-member-name">Aryan</div><div class="team-member-role">Core Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-divanshi"></div><div class="team-member-name">Divanshi</div><div class="team-member-role">Core Member</div></div>
-              </div>
-              <h4 class="team-title">Junior Team</h4>
-              <div class="team-grid">
-                <div class="team-member-card"><div class="team-member-photo photo-mahek"></div><div class="team-member-name">Mahek</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-nayan"></div><div class="team-member-name">Nayan</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-nidhi"></div><div class="team-member-name">Nidhi</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-sangeetha"></div><div class="team-member-name">Sangeetha</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-sithi"></div><div class="team-member-name">Sithi</div><div class="team-member-role">Junior Member</div></div>
-                <div class="team-member-card"><div class="team-member-photo photo-srishti"></div><div class="team-member-name">Srishti</div><div class="team-member-role">Junior Member</div></div>
-              </div>
-            </div>
-          </div>
-
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
         </div>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="footer">
-    <p style="text-align:center; padding:20px; font-size:0.85rem; color:#555;">© 2025 CampusJi. All Rights Reserved.</p>
-  </footer>
+    <div id="header-container"></div>
 
-  <script src="js/clubs.js"></script>
-  <script>
-    // Fade-in on scroll
-    document.addEventListener("DOMContentLoaded", () => {
-      const fadeEls = document.querySelectorAll(".fade-in");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+    <main class="main-content">
+        <!-- Page Header with Animation -->
+        <div class="page-header">
+            <h1 class="page-title">IPM Clubs & Committees</h1>
+            <p class="page-subtitle">Building Excellence Through Collaboration</p>
+            <div class="header-decoration"></div>
+        </div>
+
+        <section class="section committees-section" id="committees">
+            <div class="container">
+                <h2 class="section-title fade-in">
+                    <span class="title-text">Committees</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <div class="cards-grid">
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-glow"></div>
+                        <div class="card-banner academic-banner" style="background-image: url('images/AcBanner.png');">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/ACLogo.png" alt="Academic Committee Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Academic Committee</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Acts as the bridge between IPM students and the administration, ensuring seamless communication, organizing workshops, and helping maintain academic discipline. Supports faculty during batch inductions.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('academic')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="academic-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/1iZLwZUkb3_7S3KMgoMzWaqniSzhBocwb?usp=sharing" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="academic-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-shrish">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Shrish</div>
+                                    <div class="team-member-role">Senior Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-akruti">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Akruti</div>
+                                    <div class="team-member-role">Senior Coordinator</div>
+                                </div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-madhur">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Madhur</div>
+                                    <div class="team-member-role">Junior Member</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-sanchi">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Sanchi</div>
+                                    <div class="team-member-role">Junior Member</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-glow"></div>
+                        <div class="card-banner internship-banner">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/ICLogoUpdated.png" alt="Internship Committee Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Internship Committee</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('internship')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="internship-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/1_BJ6eCNkwgWQxpsAeC0pE8il9Bd2AKKt?usp=drive_link" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="internship-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-aditi">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Aditi</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-anushree">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Anushree</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-aryaa">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Aryaa</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-somansha">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Somansha</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-upagnya">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Upagnya</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                                <div class="team-member-card">
+                                    <div class="team-member-photo photo-utkarsh">
+                                        <div class="photo-overlay"></div>
+                                    </div>
+                                    <div class="team-member-name">Utkarsh</div>
+                                    <div class="team-member-role">Senior Internship Coordinator</div>
+                                </div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card"><div class="team-member-photo photo-amaeya"><div class="photo-overlay"></div></div><div class="team-member-name">Amaeya</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-dhruvi"><div class="photo-overlay"></div></div><div class="team-member-name">Dhruvi</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-jiya"><div class="photo-overlay"></div></div><div class="team-member-name">Jiya</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-gaurav"><div class="photo-overlay"></div></div><div class="team-member-name">Gaurav</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-muskan"><div class="photo-overlay"></div></div><div class="team-member-name">Muskan</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-sanskar"><div class="photo-overlay"></div></div><div class="team-member-name">Sanskar</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-shashwat"><div class="photo-overlay"></div></div><div class="team-member-name">Shashwat</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-navyansh"><div class="photo-overlay"></div></div><div class="team-member-name">Navyansh</div><div class="team-member-role">Junior Internship Coordinator</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section clubs-section" id="clubs">
+            <div class="container">
+                <h2 class="section-title fade-in">
+                    <span class="title-text">Clubs</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <div class="cards-grid">
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-glow"></div>
+                        <div class="card-banner athlos-banner">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/AthLogo.png" alt="Athlos - The Sports Club Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Athlos (Sports Club)</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('athlos')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="athlos-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/1k89wXwo4fEuicWUB5NVkdbCRNBTQLQ_d?usp=sharing_eil_se_dm&ts=6870cc1d" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="athlos-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-dev"><div class="photo-overlay"></div></div><div class="team-member-name">Dev</div><div class="team-member-role">Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-bhavya"><div class="photo-overlay"></div></div><div class="team-member-name">Bhavya</div><div class="team-member-role">Co-coordinator</div></div>
+                            </div>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-kaustubh"><div class="photo-overlay"></div></div><div class="team-member-name">Kaustubh</div><div class="team-member-role">Core Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-vansh"><div class="photo-overlay"></div></div><div class="team-member-name">Vansh</div><div class="team-member-role">Core Member</div></div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card"><div class="team-member-photo photo-harsh"><div class="photo-overlay"></div></div><div class="team-member-name">Harsh</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-kavya"><div class="photo-overlay"></div></div><div class="team-member-name">Kavya</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-khyati"><div class="photo-overlay"></div></div><div class="team-member-name">Khyati</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-rohan"><div class="photo-overlay"></div></div><div class="team-member-name">Rohan</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-vincent"><div class="photo-overlay"></div></div><div class="team-member-name">Vincent</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-yuktha"><div class="photo-overlay"></div></div><div class="team-member-name">Yuktha</div><div class="team-member-role">Junior Member</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-glow"></div>
+                        <div class="card-banner riwaayat-banner" style="background-image: url('images/RiwBanner.png');">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/RiwLogo.png" alt="Riwaayat - The Cultural Club Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Riwaayat (Cultural Club)</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Promotes creativity by organizing events and competitions in art & craft, dance, drama, music, and fashion. Keeps students connected with many cultural values and traditions, and coordinates celebrations.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('riwaayat')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="riwaayat-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/17n4DwcJ03-YqdTt0XOTYry7jaBc3U_m8?usp=drive_link" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="riwaayat-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-ishika"><div class="photo-overlay"></div></div><div class="team-member-name">Ishika</div><div class="team-member-role">Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-mrinali"><div class="photo-overlay"></div></div><div class="team-member-name">Mrinali</div><div class="team-member-role">Co-coordinator</div></div>
+                            </div>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-avi"><div class="photo-overlay"></div></div><div class="team-member-name">Avi</div><div class="team-member-role">Core Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-yusuf"><div class="photo-overlay"></div></div><div class="team-member-name">Yusuf</div><div class="team-member-role">Core Member</div></div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card"><div class="team-member-photo photo-dhruv"><div class="photo-overlay"></div></div><div class="team-member-name">Dhruv</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-gautam"><div class="photo-overlay"></div></div><div class="team-member-name">Gautam</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-khushi"><div class="photo-overlay"></div></div><div class="team-member-name">Khushi</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-parth"><div class="photo-overlay"></div></div><div class="team-member-name">Parth</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-samruddhi"><div class="photo-overlay"></div></div><div class="team-member-name">Samruddhi</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-yashvi"><div class="photo-overlay"></div></div><div class="team-member-name">Yashvi</div><div class="team-member-role">Junior Member</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-glow"></div>
+                        <div class="card-banner literati-banner">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/LitLogo.png" alt="Literati - The Literary Club Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Literati (Literary Club)</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('literati')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="literati-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/1-65C9lqXozICAAtubh2tH5sBL4T5ACtX?usp=sharing" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="literati-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-mannat"><div class="photo-overlay"></div></div><div class="team-member-name">Mannat</div><div class="team-member-role">Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-sarthak"><div class="photo-overlay"></div></div><div class="team-member-name">Sarthak</div><div class="team-member-role">Co-coordinator</div></div>
+                            </div>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-ananya"><div class="photo-overlay"></div></div><div class="team-member-name">Ananya</div><div class="team-member-role">Core Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-parmi"><div class="photo-overlay"></div></div><div class="team-member-name">Parmi</div><div class="team-member-role">Core Member</div></div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card"><div class="team-member-photo photo-advay"><div class="photo-overlay"></div></div><div class="team-member-name">Advay</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-akshun"><div class="photo-overlay"></div></div><div class="team-member-name">Akshun</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-arav"><div class="photo-overlay"></div></div><div class="team-member-name">Arav</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-arhaan"><div class="photo-overlay"></div></div><div class="team-member-name">Arhaan</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-lit-parth"><div class="photo-overlay"></div></div><div class="team-member-name">Parth</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-sangeeth"><div class="photo-overlay"></div></div><div class="team-member-name">Sangeeth</div><div class="team-member-role">Junior Member</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in card-hover-effect" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-glow"></div>
+                        <div class="card-banner utthaan-banner">
+                            <div class="banner-overlay"></div>
+                            <div class="banner-particles"></div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-logo">
+                                <img src="images/UthLogo.png" alt="Utthaan - The Social Welfare Club Logo"/>
+                                <div class="logo-ring"></div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Utthaan (Social Welfare Club)</h3>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
+                        </p>
+                        <div class="card-links">
+                            <button class="card-link members" onclick="toggleTeam('utthaan')">
+                                <span class="button-text">Meet the Team</span>
+                                <span class="toggle-icon" id="utthaan-icon">▼</span>
+                                <div class="button-ripple"></div>
+                            </button>
+                            <a class="card-link events" href="https://drive.google.com/drive/folders/1EMoi0nsRmRT-MvuDPMuxoG8L6Oxb4u56?usp=share_link" target="_blank">
+                                <span class="button-text">Event Gallery</span>
+                                <div class="button-ripple"></div>
+                            </a>
+                        </div>
+                        <div class="team-section" id="utthaan-team">
+                            <h4 class="team-title">Senior Team</h4>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-nandini"><div class="photo-overlay"></div></div><div class="team-member-name">Nandini</div><div class="team-member-role">Coordinator</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-divya"><div class="photo-overlay"></div></div><div class="team-member-name">Divya</div><div class="team-member-role">Co-coordinator</div></div>
+                            </div>
+                            <div class="team-grid two-column">
+                                <div class="team-member-card"><div class="team-member-photo photo-aryan"><div class="photo-overlay"></div></div><div class="team-member-name">Aryan</div><div class="team-member-role">Core Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-divanshi"><div class="photo-overlay"></div></div><div class="team-member-name">Divanshi</div><div class="team-member-role">Core Member</div></div>
+                            </div>
+                            <h4 class="team-title">Junior Team</h4>
+                            <div class="team-grid">
+                                <div class="team-member-card"><div class="team-member-photo photo-mahek"><div class="photo-overlay"></div></div><div class="team-member-name">Mahek</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-nayan"><div class="photo-overlay"></div></div><div class="team-member-name">Nayan</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-nidhi"><div class="photo-overlay"></div></div><div class="team-member-name">Nidhi</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-sangeetha"><div class="photo-overlay"></div></div><div class="team-member-name">Sangeetha</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-sithi"><div class="photo-overlay"></div></div><div class="team-member-name">Sithi</div><div class="team-member-role">Junior Member</div></div>
+                                <div class="team-member-card"><div class="team-member-photo photo-srishti"><div class="photo-overlay"></div></div><div class="team-member-name">Srishti</div><div class="team-member-role">Junior Member</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/clubs.js"></script>
+    <script>
+        // Enhanced animation script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Staggered fade-in animation for cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Particle animation for banners
+            const banners = document.querySelectorAll('.card-banner');
+            banners.forEach(banner => {
+                const particles = banner.querySelector('.banner-particles');
+                if (particles) {
+                    for (let i = 0; i < 3; i++) {
+                        const particle = document.createElement('div');
+                        particle.classList.add('particle');
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 3 + 's';
+                        particles.appendChild(particle);
+                    }
+                }
+            });
+
+            // Button ripple effect
+            const buttons = document.querySelectorAll('.card-link');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = this.querySelector('.button-ripple');
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('animate');
+                    
+                    setTimeout(() => {
+                        ripple.classList.remove('animate');
+                    }, 600);
+                });
+            });
         });
-      }, { threshold: 0.2 });
-      fadeEls.forEach(el => observer.observe(el));
-    });
-
-    // Parallax effect for banners
-    document.addEventListener("scroll", () => {
-      const banners = document.querySelectorAll(".card-banner");
-      banners.forEach(banner => {
-        const speed = 0.3;
-        const offset = window.scrollY * speed;
-        banner.style.backgroundPosition = `center calc(50% + ${offset}px)`;
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
