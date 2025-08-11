@@ -451,29 +451,6 @@ body::before {
     font-weight: 700;
 }
 
-/* --- Navigation Dropdown --- */
-.service-nav-container {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-#service-nav {
-    padding: 12px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ced4da;
-    min-width: 320px;
-    cursor: pointer;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-#service-nav:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
-}
-
 /* --- Service Cards Section --- */
 .three-column-section {
     display: flex;
@@ -782,46 +759,6 @@ body::before {
     margin-bottom: 1.5rem;
 
     font-weight: 700;
-
-}
-
-/* --- Navigation Dropdown --- */
-
-.service-nav-container {
-
-    text-align: center;
-
-    margin-bottom: 3rem;
-
-}
-
-#service-nav {
-
-    padding: 12px 15px;
-
-    font-size: 1rem;
-
-    border-radius: 8px;
-
-    border: 1px solid #ced4da;
-
-    min-width: 320px;
-
-    cursor: pointer;
-
-    background-color: #ffffff;
-
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-
-}
-
-#service-nav:focus {
-
-    outline: none;
-
-    border-color: #007bff;
-
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
 
 }
 
