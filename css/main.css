@@ -9,15 +9,15 @@ body {
     font-family: Georgia, serif;
     background-color: #F7F2EB;
     line-height: 1.6;
-    display: flex; /* Added for sticky footer */
-    flex-direction: column; /* Added for sticky footer */
-    min-height: 100vh; /* Added for sticky footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header Styles */
 .header {
     background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
-    padding: 0.5rem 0;
+    padding: 1rem 0; /* Default padding for desktop */
     box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
 }
 
@@ -28,41 +28,42 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    position: relative; /* Added for mobile menu positioning */
+    position: relative;
 }
 
 .logo-section {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .iim-logo, .campusji-logo {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
 }
 
+/* Desktop navigation links are flex by default */
 .nav-menu {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .nav-link {
     color: #F7F2EB;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
@@ -78,9 +79,9 @@ body {
     color: white;
 }
 
-/* Mobile Hamburger Menu */
+/* Mobile Hamburger Menu (Hidden on desktop) */
 .hamburger-menu {
-    display: none; /* Hidden by default on desktop */
+    display: none;
     cursor: pointer;
     flex-direction: column;
     justify-content: space-around;
@@ -100,7 +101,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    flex: 1; /* Added for sticky footer */
+    flex: 1;
 }
 
 /* Footer Styles */
@@ -108,7 +109,7 @@ body {
     background: linear-gradient(135deg, #081F5C 0%, #334EAC 100%);
     color: #F7F2EB;
     padding: 3rem 2rem;
-    margin-top: 3rem; /* Space above footer */
+    margin-top: 3rem;
     box-shadow: 0 -2px 10px rgba(8, 31, 92, 0.15);
 }
 
@@ -218,4 +219,65 @@ body {
 
     .social-links {
         display: flex;
-        justify-content
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        margin: 0;
+    }
+}
+
+/* --- MOBILE-FIRST DESIGN FOR HEADER (New Code) --- */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #081F5C;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: none;
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links li:last-child a {
+      border-bottom: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
