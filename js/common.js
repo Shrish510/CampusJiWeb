@@ -21,6 +21,9 @@ function highlightNav() {
     "contact_repository.html": "servicesLink",
     "grievance.html": "servicesLink",
     "ipm_social.html": "socialLink",
+    "pizza_places.html": "socialLink", // Added for pizza places
+    "burger_joints.html": "socialLink", // Added for burger joints
+    "dhaba_places.html": "socialLink", // Added for dhaba places
   };
 
   const activeLinkId = links[pageName];
@@ -28,12 +31,13 @@ function highlightNav() {
     document.getElementById(activeLinkId)?.classList.add("active");
   } else if (pageName === "ClubsComs.html") {
     document.querySelector('a[href="ClubsComs.html"]')?.classList.add("active");
-  } else if (pageName === "ipm_social.html") {
+  } else if (pageName === "ipm_social.html" || pageName === "pizza_places.html" || pageName === "burger_joints.html" || pageName === "dhaba_places.html") {
     document.querySelector('a[href="ipm_social.html"]')?.classList.add("active");
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Fetch and insert header
   fetch("header.html")
     .then((response) => response.text())
     .then((data) => {
@@ -45,4 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch((error) => console.error("Error fetching header:", error));
+
+  // Fetch and insert footer
+  fetch("footer.html")
+    .then((response) => response.text())
+    .then((data) => {
+      const footerContainer = document.getElementById("footer-container");
+      if (footerContainer) {
+        footerContainer.innerHTML = data;
+      }
+    })
+    .catch((error) => console.error("Error fetching footer:", error));
 });
