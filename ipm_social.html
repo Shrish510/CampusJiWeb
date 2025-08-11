@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ipm_social.css">
     <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div id="header-container"></div>
@@ -65,18 +67,113 @@
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('salon-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="salon-carousel">
-                    <div class="card">
+                    <div class="card salon-card-expandable">
                         <img src="images/Social_Salon.jpg" alt="Salon" class="card-image">
                         <div class="card-content">
                             <h3>Modern Cuts</h3>
                             <p>Haircuts, styling, and grooming services for all students.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.0 Rating</div>
+                                <a href="#" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card salon-card-expandable">
                          <img src="images/Social_Spa.jpg" alt="Spa" class="card-image">
                         <div class="card-content">
                             <h3>Spa & Wellness</h3>
                             <p>Relaxing massage and spa services to de-stress after a long week.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 11:00 AM - 8:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.2 Rating</div>
+                                <a href="#" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Salon Cards -->
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/ADD8E6/000000?text=Ozone+Salon" alt="Ozone Salon and Spas" class="card-image">
+                        <div class="card-content">
+                            <h3>Ozone Salon and Spas</h3>
+                            <p>Offers a wide range of beauty and wellness services, including hair, skin, and spa treatments.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 8:30 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.5 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Ozone-Salon-Spa-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/F08080/FFFFFF?text=Classic+Unisex" alt="Classic Unisex Hair Salon" class="card-image">
+                        <div class="card-content">
+                            <h3>Classic Unisex Hair Salon</h3>
+                            <p>A popular choice for both men and women, providing trendy haircuts and grooming services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:30 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.1 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Classic-Unisex-Hair-Salon-Near-Axis-Bank-Civil-Road/9999P1262-1262-220803154805-E9V8_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/DA70D6/FFFFFF?text=Peenaz+Beauty" alt="Peenaz Beauty Spot" class="card-image">
+                        <div class="card-content">
+                            <h3>Peenaz Beauty Spot</h3>
+                            <p>Offers a range of beauty treatments, facials, and bridal makeup services.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 7:30 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.3 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Peenaz-Beauty-Spot-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/6A5ACD/FFFFFF?text=Studio11" alt="Studio11" class="card-image">
+                        <div class="card-content">
+                            <h3>Studio11</h3>
+                            <p>A modern salon providing professional hair, skin, and makeup services with expert stylists.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:00 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.4 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Studio11-Model-Town/9999P1262-1262-190809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/FFC0CB/000000?text=Garima+Beauty" alt="Garima Beauty Parlour" class="card-image">
+                        <div class="card-content">
+                            <h3>Garima Beauty Parlour</h3>
+                            <p>Known for its personalized beauty treatments and friendly staff, catering to various beauty needs.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 8:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 3.9 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Garima-Beauty-Parlour-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/8B0000/FFFFFF?text=Sonu+Hair" alt="Sonu Hair Salon" class="card-image">
+                        <div class="card-content">
+                            <h3>Sonu Hair Salon</h3>
+                            <p>A trusted salon for classic haircuts and styling, offering reliable services at affordable prices.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 9:00 AM - 8:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.0 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Sonu-Hair-Salon-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card salon-card-expandable">
+                        <img src="https://placehold.co/400x200/4682B4/FFFFFF?text=Style+N+Scissors" alt="Style N Scissors" class="card-image">
+                        <div class="card-content">
+                            <h3>Style N Scissors</h3>
+                            <p>Offers a wide array of hair and beauty services, known for its professional approach and customer satisfaction.</p>
+                            <div class="expanded-info">
+                                <div class="info-item"><i class="fas fa-clock"></i> 10:00 AM - 9:00 PM</div>
+                                <div class="info-item"><i class="fas fa-star"></i> 4.2 Rating</div>
+                                <a href="https://www.justdial.com/Rohtak/Style-N-Scissors-Model-Town/9999P1262-1262-180809180708-H6C3_BZDET" target="_blank" class="btn-link">View Services</a>
+                            </div>
                         </div>
                     </div>
                 </div>
