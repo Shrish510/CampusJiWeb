@@ -265,6 +265,14 @@ body {
     color: #666;
 }
 
+.weather-reminder {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #334EAC;
+    animation: fadeIn 1s ease-in-out;
+}
+
 /* Map Section */
 .map-section {
     background-color: white;
