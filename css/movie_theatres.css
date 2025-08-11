@@ -21,17 +21,21 @@
 }
 
 .theatres-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .theatre-card {
     background: white;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .theatre-card:hover {
@@ -39,24 +43,104 @@
     box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
 }
 
-.theatre-image {
+.card-image-placeholder {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 220px;
+    background: var(--dawn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--royal);
     border-bottom: 3px solid var(--china);
 }
 
 .theatre-content {
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .theatre-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--midnight);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
+
 .theatre-content p {
     font-size: 1rem;
     color: var(--royal);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.theatre-details {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.detail-item i {
+    color: var(--china);
+    width: 20px;
+    text-align: center;
+}
+
+.theatre-links {
+    margin-top: auto; /* Pushes the links to the bottom */
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.btn-link.directions {
+    background-color: var(--sky);
+    color: var(--midnight);
+}
+
+.btn-link.directions:hover {
+    background-color: var(--china);
+    color: white;
+}
+
+.btn-link.booking {
+    background-color: var(--royal);
+    color: white;
+}
+
+.btn-link.booking:hover {
+    background-color: var(--midnight);
+}
+
+@media (min-width: 768px) {
+    .theatre-card {
+        flex-direction: row;
+    }
+    .card-image-placeholder {
+        width: 300px;
+        height: auto;
+        border-right: 3px solid var(--china);
+        border-bottom: none;
+    }
 }
