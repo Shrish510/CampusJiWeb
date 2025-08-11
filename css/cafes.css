@@ -1,0 +1,166 @@
+/* Color Variables from main.css */
+:root {
+    --royal: #334EAC;
+    --moon: #F7F2EB;
+    --china: #7096D1;
+    --asian-pear: #F2F0DE;
+    --midnight: #081F5C;
+    --dawn: #D0E3FF;
+    --jicama: #FFF9F0;
+    --porcelain: #EDF1F6;
+    --sky: #BAD6EB;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    color: var(--midnight);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+/* Cafe Section Layout */
+.cafes-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+/* Cafe Card Styling */
+.cafe-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cafe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
+}
+
+.card-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--dawn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--royal);
+    border-bottom: 3px solid var(--china);
+}
+
+.cafe-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cafe-content h3 {
+    font-size: 1.6rem;
+    color: var(--midnight);
+    margin-bottom: 0.5rem;
+}
+
+.cafe-content p {
+    font-size: 1rem;
+    color: var(--royal);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Cafe Info Section */
+.cafe-info {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.info-item i {
+    color: var(--china);
+    width: 20px;
+    text-align: center;
+}
+
+/* Star Rating */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars-outer {
+    position: relative;
+    display: inline-block;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400; /* Regular style for empty stars */
+}
+
+.stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005"; /* 5 empty stars */
+    color: #ccc;
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* Solid style for filled stars */
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005"; /* 5 solid stars */
+    color: #f8ce0b; /* Gold color for stars */
+}
+
+
+/* Links/Buttons */
+.cafe-links {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 2px solid var(--sky);
+    background-color: var(--porcelain);
+    color: var(--royal);
+    flex-grow: 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-link:hover {
+    background-color: var(--china);
+    border-color: var(--china);
+    color: white;
+}
