@@ -4,165 +4,608 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusJi - IPM Student Portal</title>
-    <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon" style="border-radius: 50%;">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" href="images/Campusjilogo.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-   <div id="header-container"></div>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Header with Glassmorphism -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-wrapper">
+                    <img src="images/Campusjilogo.jpg" alt="CampusJi Logo" class="campusji-logo">
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="brand-text">
+                    <h1 class="brand-name">CampusJi</h1>
+                    <p class="brand-subtitle">IIM Rohtak Portal</p>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+            </nav>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="User Avatar">
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Welcome to Your
+                    <span class="gradient-text">Digital Campus</span>
+                </h1>
+                <p class="hero-description">
+                    Experience seamless campus life with CampusJi - your one-stop portal for everything at IIM Rohtak
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">1,200+</div>
+                        <div class="stat-label">Active Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Campus Services</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Academic Excellence</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Growth</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <main class="main-content">
-        <div class="slider-container">
-            <div class="slider">
-                <div class="slide">
-                    <img src="images/IMG-20250709-WA0016.jpg" alt="Students celebrating on a stage with a trophy at a campus event at night.">
-                    <div class="slide-overlay">
-                        <div class="slide-title">Event Trophy Celebration</div>
-                        <div class="slide-description">Students celebrating achievement at campus event</div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG-20250709-WA0017.jpg" alt="The interior of a modern campus building with multiple floors and a glass roof.">
-                    <div class="slide-overlay">
-                        <div class="slide-title">Campus Interior</div>
-                        <div class="slide-description">Modern facilities and learning spaces</div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG-20250709-WA0018.jpg" alt="The front view of the IIM Rohtak campus buildings under a cloudy sky.">
-                    <div class="slide-overlay">
-                        <div class="slide-title">IIM Rohtak Campus</div>
-                        <div class="slide-description">Beautiful campus architecture and grounds</div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG-20250709-WA0019.jpg" alt="Students playing a volleyball match on an outdoor court.">
-                    <div class="slide-overlay">
-                        <div class="slide-title">Sports Activities</div>
-                        <div class="slide-description">Inter-batch volleyball tournament in action</div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="images/IMG-20250709-WA0020.jpg" alt="A group of students performing a synchronized dance routine outdoors.">
-                    <div class="slide-overlay">
-                        <div class="slide-title">Cultural Events</div>
-                        <div class="slide-description">Students showcasing talent at cultural fest</div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-nav">
-                <div class="slider-dot active" data-slide="0"></div>
-                <div class="slider-dot" data-slide="1"></div>
-                <div class="slider-dot" data-slide="2"></div>
-                <div class="slider-dot" data-slide="3"></div>
-                <div class="slider-dot" data-slide="4"></div>
-            </div>
-        </div>
-
-        <div class="three-column-section">
-            <div class="column-card">
-                <h3>Mess Menu Today</h3>
-                <ul id="mess-menu-list" class="mess-menu-items">
-                    <li>Loading menu...</li>
-                </ul>
-            </div>
-
-            <div class="column-card">
-                <h3>Bulletin</h3>
-                <div id="bulletin-list">
-                    <div class="bulletin-item">Loading bulletins...</div>
-                </div>
-            </div>
-
-            <div class="column-card">
-                <h3>Weather</h3>
-                <div class="weather-info">
-                    <div class="weather-location" id="weather-location">Rohtak, Haryana</div>
-                    <div class="weather-temp" id="weather-temp">--°C</div>
-                    <div class="weather-condition" id="weather-condition">Loading...</div>
-                    <div class="weather-details">
-                        <div class="weather-detail">
-                            <strong>Humidity</strong>
-                            <span id="weather-humidity">--%</span>
+        <!-- Interactive Image Slider -->
+        <section class="slider-section">
+            <h2 class="section-title">Campus Life Highlights</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active" data-bg="#FF6B6B">
+                        <img src="images/IMG-20250709-WA0016.jpg" alt="Event Trophy Celebration">
+                        <div class="slide-overlay">
+                            <div class="slide-content">
+                                <div class="slide-badge">Achievement</div>
+                                <h3 class="slide-title">Event Trophy Celebration</h3>
+                                <p class="slide-description">Students celebrating achievement at campus event</p>
+                                <button class="slide-btn">
+                                    <span>View Gallery</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Wind</strong>
-                            <span id="weather-wind">-- km/h</span>
+                    </div>
+                    <div class="slide" data-bg="#4ECDC4">
+                        <img src="images/IMG-20250709-WA0017.jpg" alt="Campus Interior">
+                        <div class="slide-overlay">
+                            <div class="slide-content">
+                                <div class="slide-badge">Facilities</div>
+                                <h3 class="slide-title">Modern Campus Interior</h3>
+                                <p class="slide-description">State-of-the-art facilities and learning spaces</p>
+                                <button class="slide-btn">
+                                    <span>Virtual Tour</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="weather-detail">
-                            <strong>Feels Like</strong>
-                            <span id="weather-feels-like">--°C</span>
+                    </div>
+                    <div class="slide" data-bg="#45B7D1">
+                        <img src="images/IMG-20250709-WA0018.jpg" alt="IIM Rohtak Campus">
+                        <div class="slide-overlay">
+                            <div class="slide-content">
+                                <div class="slide-badge">Architecture</div>
+                                <h3 class="slide-title">IIM Rohtak Campus</h3>
+                                <p class="slide-description">Beautiful campus architecture and green spaces</p>
+                                <button class="slide-btn">
+                                    <span>Explore More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide" data-bg="#96CEB4">
+                        <img src="images/IMG-20250709-WA0019.jpg" alt="Sports Activities">
+                        <div class="slide-overlay">
+                            <div class="slide-content">
+                                <div class="slide-badge">Sports</div>
+                                <h3 class="slide-title">Athletic Excellence</h3>
+                                <p class="slide-description">Inter-batch volleyball tournament in action</p>
+                                <button class="slide-btn">
+                                    <span>Join Teams</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide" data-bg="#DDA0DD">
+                        <img src="images/IMG-20250709-WA0020.jpg" alt="Cultural Events">
+                        <div class="slide-overlay">
+                            <div class="slide-content">
+                                <div class="slide-badge">Culture</div>
+                                <h3 class="slide-title">Cultural Festivities</h3>
+                                <p class="slide-description">Students showcasing talent at cultural fest</p>
+                                <button class="slide-btn">
+                                    <span>View Events</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="slider-nav">
+                    <button class="slider-dot active" data-slide="0"></button>
+                    <button class="slider-dot" data-slide="1"></button>
+                    <button class="slider-dot" data-slide="2"></button>
+                    <button class="slider-dot" data-slide="3"></button>
+                    <button class="slider-dot" data-slide="4"></button>
+                </div>
+                <button class="slider-arrow prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-        </div>
+        </section>
 
-        <div class="map-section">
-            <h2>Map of IIM Rohtak</h2>
-            <div class="map-placeholder">
-                <iframe
-                    width="100%"
-                    height="500"
-                    frameborder="0" style="border:0"
-                    src="https://maps.google.com/maps?q=28.853328312561697,76.54179073187943&z=18&output=embed"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+        <!-- Dashboard Cards -->
+        <section class="dashboard-section">
+            <div class="dashboard-grid">
+                <div class="dashboard-card card-mess">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Today's Menu</h3>
+                        <div class="card-badge">Fresh</div>
+                    </div>
+                    <div class="card-content">
+                        <ul id="mess-menu-list" class="menu-list">
+                            <li class="menu-item">
+                                <span class="meal-type">Breakfast</span>
+                                <span class="meal-name">Poha, Tea, Fruits</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="meal-type">Lunch</span>
+                                <span class="meal-name">Dal, Rice, Sabzi, Roti</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="meal-type">Dinner</span>
+                                <span class="meal-name">Paneer Curry, Naan, Salad</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="card-action-btn">
+                            <span>View Full Menu</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
 
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>How do I book the basketball court?</h4>
-                    <span class="faq-toggle">+</span>
+                <div class="dashboard-card card-bulletin">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Campus Bulletin</h3>
+                        <div class="card-badge pulse">Live</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="bulletin-list">
+                            <div class="bulletin-item">
+                                <div class="bulletin-priority high"></div>
+                                <div class="bulletin-text">
+                                    <h4>Library Extended Hours</h4>
+                                    <p>Open till 2 AM during exam week</p>
+                                    <span class="bulletin-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="bulletin-item">
+                                <div class="bulletin-priority medium"></div>
+                                <div class="bulletin-text">
+                                    <h4>Cultural Fest Registration</h4>
+                                    <p>Register by Friday for Sangam 2025</p>
+                                    <span class="bulletin-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="bulletin-item">
+                                <div class="bulletin-priority low"></div>
+                                <div class="bulletin-text">
+                                    <h4>Gym Maintenance</h4>
+                                    <p>Closed for cleaning on Sunday</p>
+                                    <span class="bulletin-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="card-action-btn">
+                            <span>All Announcements</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    You can book the basketball court through the Services section. Navigate to Court Booking System and select your preferred time slot. Bookings are prioritized based on requirement and availability.
+
+                <div class="dashboard-card card-weather">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h3>Weather</h3>
+                        <div class="weather-location">Rohtak, Haryana</div>
+                    </div>
+                    <div class="card-content weather-content">
+                        <div class="current-weather">
+                            <div class="weather-temp" id="weather-temp">28°C</div>
+                            <div class="weather-condition" id="weather-condition">Partly Cloudy</div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility</span>
+                                <span>10 km</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity</span>
+                                <span id="weather-humidity">65%</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind</span>
+                                <span id="weather-wind">12 km/h</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Feels Like</span>
+                                <span id="weather-feels-like">30°C</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Where can I report a lost item?</h4>
-                    <span class="faq-toggle">+</span>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="map-section">
+            <div class="section-header">
+                <h2 class="section-title">Campus Navigation</h2>
+                <p class="section-subtitle">Explore IIM Rohtak with our interactive map</p>
+            </div>
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <iframe
+                        width="100%"
+                        height="500"
+                        frameborder="0" 
+                        style="border:0; border-radius: 20px;"
+                        src="https://maps.google.com/maps?q=28.853328312561697,76.54179073187943&z=18&output=embed"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="faq-answer">
-                    Visit the Services section and click on Lost and Found Center. You can report lost items with photos and description, or check if your item has been found by others.
+                <div class="map-info">
+                    <div class="map-quick-links">
+                        <h4>Quick Links</h4>
+                        <div class="quick-link-grid">
+                            <button class="quick-link-btn">
+                                <i class="fas fa-building"></i>
+                                <span>Academic Block</span>
+                            </button>
+                            <button class="quick-link-btn">
+                                <i class="fas fa-bed"></i>
+                                <span>Hostels</span>
+                            </button>
+                            <button class="quick-link-btn">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>Sports Complex</span>
+                            </button>
+                            <button class="quick-link-btn">
+                                <i class="fas fa-book"></i>
+                                <span>Library</span>
+                            </button>
+                            <button class="quick-link-btn">
+                                <i class="fas fa-utensils"></i>
+                                <span>Mess Hall</span>
+                            </button>
+                            <button class="quick-link-btn">
+                                <i class="fas fa-car"></i>
+                                <span>Parking</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>How do I track my parcel delivery?</h4>
-                    <span class="faq-toggle">+</span>
+        </section>
+
+        <!-- Enhanced FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Get quick answers to common queries</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <h4>How do I book the basketball court?</h4>
+                        <span class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can book the basketball court through the Services section. Navigate to Court Booking System and select your preferred time slot. Bookings are prioritized based on requirement and availability.</p>
+                        <div class="faq-actions">
+                            <button class="faq-action-btn primary">Book Now</button>
+                            <button class="faq-action-btn secondary">View Schedule</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Go to Services > Parcel Management Module to track your deliveries. You'll receive real-time updates on parcels received at the parcel room and pickup instructions.
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Where can I report a lost item?</h4>
+                        <span class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Visit the Services section and click on Lost and Found Center. You can report lost items with photos and description, or check if your item has been found by others.</p>
+                        <div class="faq-actions">
+                            <button class="faq-action-btn primary">Report Lost Item</button>
+                            <button class="faq-action-btn secondary">Browse Found Items</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h4>How do I track my parcel delivery?</h4>
+                        <span class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Go to Services > Parcel Management Module to track your deliveries. You'll receive real-time updates on parcels received at the parcel room and pickup instructions.</p>
+                        <div class="faq-actions">
+                            <button class="faq-action-btn primary">Track Parcel</button>
+                            <button class="faq-action-btn secondary">Delivery History</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <h4>Can I submit grievances anonymously?</h4>
+                        <span class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, the Grievance Redressal System allows anonymous submissions. You can track responses and see the status of all grievances on the platform while maintaining confidentiality.</p>
+                        <div class="faq-actions">
+                            <button class="faq-action-btn primary">Submit Grievance</button>
+                            <button class="faq-action-btn secondary">Track Status</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>How do I join clubs and committees?</h4>
+                        <span class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Check the Clubs and Committees section for updated profiles of student bodies, upcoming events, and contact details. You can reach out to the respective coordinators for membership information.</p>
+                        <div class="faq-actions">
+                            <button class="faq-action-btn primary">Browse Clubs</button>
+                            <button class="faq-action-btn secondary">View Events</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Can I submit grievances anonymously?</h4>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Yes, the Grievance Redressal System allows anonymous submissions. You can track responses and see the status of all grievances on the platform while maintaining confidentiality.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>How do I join clubs and committees?</h4>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Check the Clubs and Committees section for updated profiles of student bodies, upcoming events, and contact details. You can reach out to the respective coordinators for membership information.
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <script src="js/main.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>CampusJi</h4>
+                <p>Making campus life seamless and connected for IIM Rohtak students.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Mess Menu</a></li>
+                    <li><a href="#">Sports Booking</a></li>
+                    <li><a href="#">Lost & Found</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Admin</a></li>
+                    <li><a href="#">Report Issue</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Campus Info</h4>
+                <ul>
+                    <li><a href="#">Emergency Contacts</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Transportation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CampusJi - IIM Rohtak Student Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide
+        setInterval(nextSlide, 5000);
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // FAQ functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-toggle i').className = 'fas fa-plus';
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+                element.querySelector('.faq-toggle i').className = 'fas fa-minus';
+            }
+        }
+
+        // Smooth scroll for hero stats animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start) + element.dataset.suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            // Animate floating cards
+            const cards = document.querySelectorAll('.floating-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Add scroll effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Parallax effect for background shapes
+            document.querySelector('.shape-1').style.transform = `translateY(${rate}px) rotate(${scrolled * 0.1}deg)`;
+            document.querySelector('.shape-2').style.transform = `translateY(${rate * 0.8}px) rotate(${-scrolled * 0.05}deg)`;
+        });
+    </script>
 </body>
 </html>
