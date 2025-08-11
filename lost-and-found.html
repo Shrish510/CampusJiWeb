@@ -598,53 +598,77 @@
     <script src="js/auth.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // --- Element Selections ---
         const newListingBtn = document.getElementById('cta-new-listing');
         const formSection = document.getElementById('form-section');
         const closeFormBtn = document.getElementById('close-form');
         const cancelFormBtn = document.getElementById('cancel-form');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('search-listings');
+        const searchBtn = document.getElementById('search-btn');
+        const noListingsMsg = document.getElementById('no-listings');
         
+        // --- Form Toggle Logic ---
         const showForm = () => formSection.classList.remove('hidden');
         const hideForm = () => formSection.classList.add('hidden');
-
         newListingBtn.addEventListener('click', showForm);
         closeFormBtn.addEventListener('click', hideForm);
         cancelFormBtn.addEventListener('click', hideForm);
         
-        // --- NEW AND IMPROVED FILTERING LOGIC ---
+        // --- UNIFIED FILTERING AND SEARCHING LOGIC ---
 
-        // Function to filter listings based on a category ('lost' or 'found')
-        function filterListings(category) {
-            const listings = document.querySelectorAll('#listings-list .listing-card');
-            listings.forEach(card => {
-                // Check if the card's data-status matches the selected category
-                if (card.dataset.status === category) {
-                    card.style.display = ''; // Show the card by resetting its display style
-                } else {
-                    card.style.display = 'none'; // Hide the card
-                }
-            });
+        function updateDisplayedListings() {
+          // Get the current active filter category (e.g., 'lost' or 'found')
+          const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+          // Get the search term and convert to lowercase for case-insensitive search
+          const searchTerm = searchInput.value.toLowerCase();
+          
+          const allListings = document.querySelectorAll('#listings-list .listing-card');
+          let visibleCount = 0;
+
+          allListings.forEach(card => {
+            const itemStatus = card.dataset.status;
+            const itemTitle = card.querySelector('.card-title').textContent.toLowerCase();
+            const itemDescription = card.querySelector('.card-description').textContent.toLowerCase();
+
+            // Check if the card matches the active category filter
+            const categoryMatch = itemStatus === activeFilter;
+            // Check if the card's title or description includes the search term
+            const searchMatch = itemTitle.includes(searchTerm) || itemDescription.includes(searchTerm);
+
+            // Show the card only if it matches both the category and the search term
+            if (categoryMatch && searchMatch) {
+              card.style.display = ''; // Show the card
+              visibleCount++;
+            } else {
+              card.style.display = 'none'; // Hide the card
+            }
+          });
+
+          // Display the "no listings" message if no cards are visible
+          noListingsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
         }
 
-        // Add click event listeners to the filter buttons
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        // --- Event Listeners ---
+
+        // 1. For Filter Buttons (Lost/Found)
         filterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
-            // First, update which button is visually active
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            // Then, get the filter value from the clicked button
-            const filterValue = btn.dataset.filter;
-            
-            // Finally, call the function to filter the list
-            filterListings(filterValue);
+            updateDisplayedListings();
           });
         });
 
-        // --- ADDED: Apply the default filter when the page loads ---
-        // Since the "Lost Items" button has the 'active' class in the HTML,
-        // we'll filter for 'lost' items initially.
-        filterListings('lost');
+        // 2. For Live Search as user types
+        searchInput.addEventListener('input', updateDisplayedListings);
+
+        // 3. For Search Button click (optional, but good practice)
+        searchBtn.addEventListener('click', updateDisplayedListings);
+        
+        // --- Initial Page Load ---
+        // Call the function once to set the initial state based on default filters.
+        updateDisplayedListings();
       });
     </script>
   </body>
