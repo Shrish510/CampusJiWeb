@@ -406,16 +406,20 @@
         font-size: 1rem;
     }
 
-    .three-column-section,
-    .weather-calendar-container {
-        display: block;
-        gap: 0;
+    .three-column-section {
+        display: block !important;
+        gap: 1rem !important;
+        margin: 1rem 0 !important;
     }
 
     .column-card {
-        width: 100%;
+        width: 100% !important;
         margin-bottom: 1rem;
-        box-sizing: border-box; /* This ensures padding doesn't push the card out of its container */
+        box-sizing: border-box;
+    }
+
+    .weather-calendar-container {
+        display: block !important;
     }
 
     .weather-card,
@@ -657,52 +661,4 @@ body::before {
     font-size: 0.7rem;
     margin: 0.1rem 0;
     color: #334EAC;
-}
-
-/* Responsive Lost & Found and Weather */
-@media (max-width: 768px) {
-    .weather-calendar-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .weather-card {
-        min-height: 180px;
-    }
-
-    .lost-found-card {
-        min-height: 320px;
-    }
-
-    .weather-temp {
-        font-size: 2rem;
-    }
-
-    .weather-details {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .lost-found-item {
-        padding: 0.8rem;
-        margin-bottom: 0.6rem;
-    }
-
-    .item-title {
-        font-size: 0.9rem;
-    }
-
-    .item-description {
-        font-size: 0.8rem;
-    }
-
-    .view-all-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .three-column-section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
 }
