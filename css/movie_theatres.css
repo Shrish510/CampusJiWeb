@@ -1,146 +1,164 @@
 /* Color Variables from main.css and image */
 :root {
-    --royal: #334EAC;
-    --moon: #F7F2EB;
-    --china: #7096D1;
-    --asian-pear: #F2F0DE;
-    --midnight: #081F5C;
-    --dawn: #D0E3FF;
-    --jicama: #FFF9F0;
-    --porcelain: #EDF1F6;
-    --sky: #BAD6EB;
+  --royal: #334EAC;
+  --moon: #F7F2EB;
+  --china: #7096D1;
+  --asian-pear: #F2F0DE;
+  --midnight: #081F5C;
+  --dawn: #D0E3FF;
+  --jicama: #FFF9F0;
+  --porcelain: #EDF1F6;
+  --sky: #BAD6EB;
 }
 
 /* Page Title and Section Headings */
 .page-title {
-    text-align: center;
-    color: var(--midnight);
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    font-weight: bold;
+  text-align: center;
+  color: var(--midnight);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
 }
 
 .theatres-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .theatre-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .theatre-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(8, 31, 92, 0.15);
 }
 
-.card-image-placeholder {
-    width: 100%;
-    height: 220px;
-    background: var(--dawn);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--royal);
-    border-bottom: 3px solid var(--china);
+/* CONSISTENT media area */
+.card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;      /* same shape on all cards */
+  overflow: hidden;
+  background: var(--dawn);
+  border-bottom: 3px solid var(--china);
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* nicely crops different source sizes */
+  display: block;
 }
 
 .theatre-content {
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .theatre-content h3 {
-    font-size: 1.8rem;
-    color: var(--midnight);
-    margin-bottom: 0.75rem;
+  font-size: 1.8rem;
+  color: var(--midnight);
+  margin-bottom: 0.5rem;
 }
 
 .theatre-content p {
-    font-size: 1rem;
-    color: var(--royal);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--royal);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .theatre-details {
-    margin-bottom: 1.5rem;
-    text-align: left;
+  margin-bottom: 1.2rem;
+  text-align: left;
 }
 
 .detail-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--midnight);
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--midnight);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
 }
 
 .detail-item i {
-    color: var(--china);
-    width: 20px;
-    text-align: center;
+  color: var(--china);
+  width: 20px;
+  text-align: center;
 }
 
+/* Rating pill */
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-weight: 600;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: #f6f7fb;
+  border: 1px solid #e6e8ef;
+  color: var(--midnight);
+  margin: .25rem 0 1rem;
+}
+.rating i { color: #f5b301; }
+.rating small { font-weight: 500; color: #6b7280; }
+
 .theatre-links {
-    margin-top: auto; /* Pushes the links to the bottom */
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+  margin-top: auto; /* Pushes the links to the bottom */
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .btn-link {
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 2px solid transparent;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid transparent;
 }
 
 .btn-link.directions {
-    background-color: var(--sky);
-    color: var(--midnight);
+  background-color: var(--sky);
+  color: var(--midnight);
 }
 
 .btn-link.directions:hover {
-    background-color: var(--china);
-    color: white;
+  background-color: var(--china);
+  color: white;
 }
 
 .btn-link.booking {
-    background-color: var(--royal);
-    color: white;
+  background-color: var(--royal);
+  color: white;
 }
 
 .btn-link.booking:hover {
-    background-color: var(--midnight);
+  background-color: var(--midnight);
 }
 
 @media (min-width: 768px) {
-    .theatre-card {
-        flex-direction: row;
-    }
-    .card-image-placeholder {
-        width: 300px;
-        height: auto;
-        border-right: 3px solid var(--china);
-        border-bottom: none;
-    }
+  .theatre-card { flex-direction: row; }
+  .card-media {
+    width: 300px;
+    min-width: 300px;       /* prevents layout wobble */
+    aspect-ratio: 4 / 3;    /* slightly taller on desktop */
+    border-right: 3px solid var(--china);
+    border-bottom: none;
+  }
 }
