@@ -11,6 +11,10 @@
     --sky: #BAD6EB;
 }
 
+body {
+    background-color: var(--moon);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
