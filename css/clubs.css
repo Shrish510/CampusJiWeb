@@ -163,7 +163,6 @@ body {
 }
 
 /* --- Dropdown Team Section Styles --- */
-
 .team-section {
     max-height: 0;
     overflow-y: auto;
@@ -313,3 +312,72 @@ body {
 .photo-sithi { background-image: url('../images/UthSithi.webp'); }
 .photo-srishti { background-image: url('../images/UthSrishti.webp'); }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .card-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-description {
+        margin-bottom: 20px;
+    }
+
+    .card-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .card-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .team-member-card {
+        padding: 10px;
+    }
+    
+    .team-member-photo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .team-member-name {
+        font-size: 0.8rem;
+    }
+    
+    .team-member-role {
+        font-size: 0.7rem;
+    }
+
+    .team-section.expanded {
+        padding: 20px;
+    }
+
+    .team-title {
+        font-size: 1.1rem;
+    }
+}
