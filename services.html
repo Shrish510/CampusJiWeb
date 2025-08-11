@@ -156,4 +156,33 @@
             >View Contacts</a
           >
         </div>
-        <div class="column-card
+        <div class="column-card">
+          <h3>Lost and Found</h3>
+          <p>Report lost items or check for items that have been found by others.</p>
+          <a href="lost-and-found.html" class="service-link"
+            >Open Lost & Found</a
+          >
+        </div>
+        <div class="column-card">
+          <h3>Court Booking</h3>
+          <p>Book a court for your sports needs. Reserve your time slot now!</p>
+          <a href="court-booking.html" class="service-link">Book Court</a>
+        </div>
+        <div class="column-card">
+          <h3>Parcel Hub</h3>
+          <p>Track your parcels and manage your deliveries.</p>
+          <a href="parcel-hub.html" class="service-link">Access System</a>
+        </div>
+      </div>
+    </main>
+    <script src="js/auth.js"></script>
+    <script>
+      // The JavaScript remains untouched as it is fully functional.
+      document.getElementById("service-nav").addEventListener("change", function () {
+        if (this.value) {
+          window.location.href = this.value;
+        }
+      });
+    </script>
+  </body>
+</html>
