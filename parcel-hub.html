@@ -14,6 +14,9 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/parcel-hub.css" />
     <link
@@ -33,8 +36,63 @@
           <p>Track and manage all incoming parcels for the campus seamlessly.</p>
         </div>
 
+        <div id="service-login-section" class="card info-box" style="display: none;">
+          <i class="fas fa-user-shield"></i>
+          <p>
+            <strong>Parcel Service Access:</strong> Only authorized personnel can add new parcels. You can still track existing parcels below.
+          </p>
+        </div>
+
         <div id="service-dashboard" class="card" style="display: none">
-            </div>
+          <div class="dashboard-header">
+            <h2><i class="fas fa-tachometer-alt"></i> Service Dashboard</h2>
+          </div>
+          <div class="add-parcel-section">
+            <h3><i class="fas fa-plus-circle"></i> Add New Parcel</h3>
+            <form id="add-parcel-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="recipient-name">Recipient Name</label>
+                  <input type="text" id="recipient-name" placeholder="e.g., John Doe" required />
+                </div>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <select id="company" required>
+                    <option value="" disabled selected>Select a Company</option>
+                    <option value="Amazon">Amazon</option>
+                    <option value="Flipkart">Flipkart</option>
+                    <option value="Myntra">Myntra</option>
+                    <option value="Nykaa">Nykaa</option>
+                    <option value="Zomato">Zomato</option>
+                    <option value="Swiggy">Swiggy</option>
+                    <option value="Blinkit">Blinkit</option>
+                    <option value="Zepto">Zepto</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-number">Contact Number</label>
+                  <input type="tel" id="contact-number" pattern="[0-9]{10}" placeholder="10-digit number" required />
+                </div>
+                <div class="form-group">
+                  <label for="token-number">Token Number</label>
+                  <input type="number" id="token-number" placeholder="e.g., 1234" required />
+                </div>
+              </div>
+              <div class="form-row" id="other-company-row" style="display: none;">
+                <div class="form-group">
+                  <label for="other-company">Other Company Name</label>
+                  <input type="text" id="other-company" placeholder="Enter the company name" />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Add Parcel
+              </button>
+            </form>
+          </div>
+        </div>
 
         <div class="parcel-tracking-section card">
           <div class="tracking-header">
@@ -46,91 +104,35 @@
               </button>
             </div>
           </div>
-          
-          <div class="filter-controls">
-            <div class="filter-group status-filter">
-                <label><i class="fas fa-list-ul"></i> Status</label>
-                <div class="segmented-control">
-                    <button class="filter-btn active" data-status="all">All</button>
-                    <button class="filter-btn" data-status="pending">Pending</button>
-                    <button class="filter-btn" data-status="collected">Collected</button>
-                </div>
-            </div>
-            <div class="filter-group">
-                <label for="date-filter"><i class="fas fa-calendar-alt"></i> Date</label>
-                <input type="date" id="date-filter">
-            </div>
-            <div class="filter-group">
-                <label for="company-filter"><i class="fas fa-building"></i> Company</label>
-                <select id="company-filter">
-                    <option value="all">All Companies</option>
-                    <option value="Amazon">Amazon</option>
-                    <option value="Flipkart">Flipkart</option>
-                    <option value="Myntra">Myntra</option>
-                    <option value="Meesho">Meesho</option>
-                </select>
-            </div>
-            <button id="clear-filters-btn" class="btn-secondary"><i class="fas fa-times-circle"></i> Clear</button>
+
+          <div class="status-filter">
+            <button class="filter-btn active" data-status="all"><i class="fas fa-list-ul"></i> All</button>
+            <button class="filter-btn" data-status="pending"><i class="fas fa-hourglass-half"></i> Pending</button>
+            <button class="filter-btn" data-status="collected"><i class="fas fa-check-circle"></i> Collected</button>
           </div>
 
           <div class="parcels-container">
             <div id="parcels-list" class="parcels-list">
-                <div class="parcel-card" data-status="pending" data-company="Amazon" data-date="2025-08-11">
-                    <div class="parcel-card-header">
-                        <span class="parcel-company">Amazon</span>
-                        <span class="parcel-status pending">Pending</span>
-                    </div>
-                    <div class="parcel-card-body">
-                        <p><strong>Recipient:</strong> Priya Sharma</p>
-                        <p><strong>Token:</strong> #1023</p>
-                        <p><strong>Contact:</strong> 9876543210</p>
-                    </div>
-                    <div class="parcel-card-footer">
-                        <p><strong>Received:</strong> 11 Aug 2025</p>
-                    </div>
                 </div>
-                <div class="parcel-card" data-status="collected" data-company="Flipkart" data-date="2025-08-10">
-                    <div class="parcel-card-header">
-                        <span class="parcel-company">Flipkart</span>
-                        <span class="parcel-status collected">Collected</span>
-                    </div>
-                    <div class="parcel-card-body">
-                        <p><strong>Recipient:</strong> Rohan Verma</p>
-                        <p><strong>Token:</strong> #1024</p>
-                        <p><strong>Contact:</strong> 9876543211</p>
-                    </div>
-                    <div class="parcel-card-footer">
-                        <p><strong>Received:</strong> 10 Aug 2025</p>
-                    </div>
-                </div>
-                <div class="parcel-card" data-status="pending" data-company="Myntra" data-date="2025-08-11">
-                    <div class="parcel-card-header">
-                        <span class="parcel-company">Myntra</span>
-                        <span class="parcel-status pending">Pending</span>
-                    </div>
-                    <div class="parcel-card-body">
-                        <p><strong>Recipient:</strong> Anjali Mehta</p>
-                        <p><strong>Token:</strong> #1025</p>
-                         <p><strong>Contact:</strong> 9876543212</p>
-                    </div>
-                    <div class="parcel-card-footer">
-                        <p><strong>Received:</strong> 11 Aug 2025</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="loading-spinner" class="loading-spinner" style="display: none;">
+            <div id="loading-spinner" class="loading-spinner">
               <i class="fas fa-spinner fa-spin"></i> Loading parcels...
             </div>
-
-            <div id="no-parcels" class="no-parcels" style="display: none;">
+            <div id="no-parcels" class="no-parcels" style="display: none">
               <i class="fas fa-box-open"></i>
-              <p>No parcels match your current filters.</p>
+              <p>No parcels match your search.</p>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-message"></div>
+      </div>
+    </div>
+
     <script src="js/parcel-hub.js"></script>
   </body>
 </html>
