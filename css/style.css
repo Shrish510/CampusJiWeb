@@ -431,5 +431,117 @@ body::before {
   color: #6c757d;
 }
 
+/* Calendar Styles for Main Page */
+.calendar-section {
+    margin: 3rem 0;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(8, 31, 92, 0.1);
+}
 
+.calendar-section h2 {
+    color: #081F5C;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-bottom: 3px solid #7096D1;
+    padding-bottom: 1rem;
+}
 
+.calendar-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-header .nav-btn {
+    background: none;
+    border: none;
+    color: #334EAC;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.calendar-header .nav-btn:hover {
+    color: #7096D1;
+}
+
+.calendar-header .month-year {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #081F5C;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #E6E6E6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.calendar-day-header {
+    background-color: #334EAC;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.75rem;
+}
+
+.calendar-day {
+    background-color: #FFFFFF;
+    padding: 1rem 0.5rem;
+    min-height: 100px;
+    text-align: right;
+    position: relative;
+    font-size: 1.2rem;
+    color: #081F5C;
+}
+
+.calendar-day.empty {
+    background-color: #F7F2EB;
+    color: #D0D0D0;
+}
+
+.calendar-day.has-event {
+    background-color: #E6F3FF;
+}
+
+.calendar-day.has-event::before {
+    content: '•';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #7096D1;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.calendar-day .event-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.calendar-day .event-list li {
+    background-color: #D0E3FF;
+    color: #081F5C;
+    padding: 3px 5px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
