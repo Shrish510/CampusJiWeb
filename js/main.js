@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menuList.appendChild(dayElement);
 
     if (data && data.length > 0) {
+
       data.forEach((item) => {
         const menuItem = document.createElement("li");
         menuItem.innerHTML = `<strong>${item.meal_time}</strong><br>${item.food_items}`;
