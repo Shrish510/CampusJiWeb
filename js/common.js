@@ -14,7 +14,7 @@ function highlightNav() {
   const pageName = path.split("/").pop();
 
   const links = {
-    "main.html": "homeLink",
+    "index.html": "homeLink",
     "about-us.html": "aboutLink",
     "ClubsComs.html": "clubsLink",
     "services.html": "servicesLink",
@@ -47,6 +47,13 @@ function setupMobileMenu() {
     }
 }
 
+function loadScript(src, callback) {
+  const script = document.createElement("script");
+  script.src = src;
+  script.onload = callback;
+  document.head.appendChild(script);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch and insert header
   fetch("header.html")
@@ -58,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         handleLogout();
         highlightNav();
         setupMobileMenu(); // Call the new mobile menu function
+        loadScript("js/header.js");
       }
     })
     .catch((error) => console.error("Error fetching header:", error));

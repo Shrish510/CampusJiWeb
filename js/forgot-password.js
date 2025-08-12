@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             alert('If an account with that email exists, a password reset link has been sent.');
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
         });
     }
 });
