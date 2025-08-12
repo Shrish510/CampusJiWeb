@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("isLoggedIn") === "true") {
-    window.location.href = "main.html";
+    window.location.href = "index.html";
     return;
   }
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
-      window.location.href = "main.html";
+      window.location.href = "index.html";
     });
   }
 });
