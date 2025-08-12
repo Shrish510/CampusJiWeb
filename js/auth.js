@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const isLoginPage =
-    window.location.pathname.endsWith("login.html") ||
-    window.location.pathname.endsWith("/") ||
-    window.location.pathname.endsWith("signup.html") ||
-    window.location.pathname.endsWith("forgot-password.html");
+  const protectedPages = ["parcel-hub.html", "grievance.html", "lost-and-found.html"];
+  const currentPage = window.location.pathname.split("/").pop();
 
-  if (localStorage.getItem("isLoggedIn") !== "true" && !isLoginPage) {
+  const isProtected = protectedPages.includes(currentPage);
+
+  if (localStorage.getItem("isLoggedIn") !== "true" && isProtected) {
     window.location.href = "login.html";
     return;
   }
