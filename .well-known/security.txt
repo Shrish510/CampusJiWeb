@@ -5,5 +5,6 @@ Contact: mailto:ipm05shrishb@iimrohtak.ac.in
 Contact: mailto:ipm05aditin@iimrohtak.ac.in
 Contact: mailto:ipm05nandinij@iimrohtak.ac.in
 Contact: mailto:ipm05aryaak2iimrohtak.ac.in
+Canonical: https://www.campusji.me/.well-known/security.txt
 Expires: 2028-04-10T11:34:00.000Z
 Preferred-Languages: en
