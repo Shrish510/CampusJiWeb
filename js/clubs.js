@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const path = window.location.pathname;
         if (path.includes("ClubsComs.html")) {
           document
-            .querySelector('a[href="ClubsComs.html"]')
+            .querySelector('a[href="/ClubsComs/"]')
             ?.classList.add("active");
         } else if (path.includes("login.html")) {
           document.getElementById("loginLink")?.classList.add("active");
