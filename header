@@ -9,27 +9,27 @@
         {
           "@type": "NavigateAction",
           "name": "Home",
-          "url": "https://www.campusji.me/index.html"
+          "url": "https://www.campusji.me/index"
         },
         {
           "@type": "NavigateAction",
           "name": "Services",
-          "url": "https://www.campusji.me/services.html"
+          "url": "https://www.campusji.me/services"
         },
         {
           "@type": "NavigateAction",
           "name": "Clubs and Committees",
-          "url": "https://www.campusji.me/ClubsComs.html"
+          "url": "https://www.campusji.me/ClubsComs"
         },
         {
           "@type": "NavigateAction",
           "name": "IPM Social",
-          "url": "https://www.campusji.me/ipm_social.html"
+          "url": "https://www.campusji.me/ipm_social"
         },
         {
           "@type": "NavigateAction",
           "name": "About Us",
-          "url": "https://www.campusji.me/about-us.html"
+          "url": "https://www.campusji.me/about-us"
         }
       ]
     }
@@ -50,18 +50,18 @@
     </div>
     <nav class="nav-menu" id="nav-menu">
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link" id="homeLink">Home</a></li>
+        <li><a href="/index" class="nav-link" id="homeLink">Home</a></li>
         <li>
-          <a href="services.html" class="nav-link" id="servicesLink"
+          <a href="/services" class="nav-link" id="servicesLink"
             >Services</a
           >
         </li>
         <li>
-          <a href="ClubsComs.html" class="nav-link">Clubs and Committees</a>
+          <a href="/ClubsComs" class="nav-link">Clubs and Committees</a>
         </li>
-        <li><a href="ipm_social.html" class="nav-link">IPM Social</a></li>
+        <li><a href="/ipm_social" class="nav-link">IPM Social</a></li>
         <li>
-          <a href="about-us.html" class="nav-link" id="aboutLink">About Us</a>
+          <a href="/about-us" class="nav-link" id="aboutLink">About Us</a>
         </li>
         <li id="login-logout-link-container"></li>
       </ul>

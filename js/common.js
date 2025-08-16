@@ -4,35 +4,37 @@ function handleLogout() {
     logoutLink.addEventListener("click", function (e) {
       e.preventDefault();
       localStorage.removeItem("isLoggedIn");
-      window.location.href = "index.html";
+      window.location.href = "/";
     });
   }
 }
 
 function highlightNav() {
-  const path = window.location.pathname;
-  const pageName = path.split("/").pop();
+  let pageName = window.location.pathname.split("/").pop();
+  if (pageName === "" || pageName === "index") {
+    pageName = "index";
+  }
 
   const links = {
-    "index.html": "homeLink",
-    "about-us.html": "aboutLink",
-    "ClubsComs.html": "clubsLink",
-    "services.html": "servicesLink",
-    "contact_repository.html": "servicesLink",
-    "grievance.html": "servicesLink",
-    "ipm_social.html": "socialLink",
-    "pizza_places.html": "socialLink",
-    "burger_joints.html": "socialLink",
-    "dhaba_places.html": "socialLink",
+    "index": "homeLink",
+    "about-us": "aboutLink",
+    "ClubsComs": "clubsLink",
+    "services": "servicesLink",
+    "contact_repository": "servicesLink",
+    "grievance": "servicesLink",
+    "ipm_social": "socialLink",
+    "pizza_places": "socialLink",
+    "burger_joints": "socialLink",
+    "dhaba_places": "socialLink",
   };
 
   const activeLinkId = links[pageName];
   if (activeLinkId) {
     document.getElementById(activeLinkId)?.classList.add("active");
-  } else if (pageName === "ClubsComs.html") {
-    document.querySelector('a[href="ClubsComs.html"]')?.classList.add("active");
-  } else if (pageName === "ipm_social.html" || pageName === "pizza_places.html" || pageName === "burger_joints.html" || pageName === "dhaba_places.html") {
-    document.querySelector('a[href="ipm_social.html"]')?.classList.add("active");
+  } else if (pageName === "ClubsComs") {
+    document.querySelector('a[href="/ClubsComs"]')?.classList.add("active");
+  } else if (pageName === "ipm_social" || pageName === "pizza_places" || pageName === "burger_joints" || pageName === "dhaba_places") {
+    document.querySelector('a[href="/ipm_social"]')?.classList.add("active");
   }
 }
 
@@ -56,7 +58,7 @@ function loadScript(src, callback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch and insert header
-  fetch("header.html")
+  fetch("/header")
     .then((response) => response.text())
     .then((data) => {
       const headerContainer = document.getElementById("header-container");
@@ -71,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("Error fetching header:", error));
 
   // Fetch and insert footer
-  fetch("footer.html")
+  fetch("/footer")
     .then((response) => response.text())
     .then((data) => {
       const footerContainer = document.getElementById("footer-container");

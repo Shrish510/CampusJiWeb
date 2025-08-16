@@ -10,19 +10,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password - CampusJi</title>
-    <meta name="description" content="Reset your password for the CampusJi student portal at IPM IIM Rohtak. Recover your account access quickly and securely.">
-    <meta name="keywords" content="CampusJi, IPM, forgot password, student portal, IIM Rohtak, reset password, account recovery">
+    <title>Login - CampusJi</title>
+    <meta name="description" content="Login to the CampusJi student portal for IPM IIM Rohtak. Access all campus services and features by logging into your account.">
+    <meta name="keywords" content="CampusJi, IPM, login, student portal, IIM Rohtak, account, sign in">
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Forgot Password - CampusJi Student Portal">
-    <meta property="og:description" content="Easily reset your CampusJi account password and regain access to the IPM IIM Rohtak student portal.">
+    <meta property="og:title" content="Login - CampusJi Student Portal">
+    <meta property="og:description" content="Access your CampusJi account to connect with the IPM IIM Rohtak campus community.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/forgot-password.html">
+    <meta property="og:url" content="https://www.campusji.me/login">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/login.css"> <link rel="icon" href="images/Campusjilogo.webp" type="image/x-icon" style="border-radius: 50%;">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="images/Campusjilogo.webp" type="image/x-icon" style="border-radius: 50%;">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -33,22 +34,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main class="main-content">
     <div class="login-container">
         <div class="login-card">
-            <h2>Reset Password</h2>
-            <p style="color: #334EAC; margin-top: -1rem; margin-bottom: 2rem;">Enter your email to receive a password reset link.</p>
-            <form id="forgotPasswordForm">
+            <h2>Login to CampusJi</h2>
+            <form id="loginForm">
                 <div class="input-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <button type="submit" class="login-button">Send Reset Link</button>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
             </form>
             <div class="login-footer">
-                <a href="login.html">Back to Login</a>
+                <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+                <a href="/forgot-password">Forgot Password?</a>
             </div>
         </div>
     </div>
 </main>
 
-<script src="js/forgot-password.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>

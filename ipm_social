@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="IPM Social - Your Guide to Campus Life">
     <meta property="og:description" content="Explore the best social spots, restaurants, and services near IPM IIM Rohtak with the CampusJi student portal.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/ipm_social.html">
+    <meta property="og:url" content="https://www.campusji.me/ipm_social">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css">
@@ -37,7 +37,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('hangout-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="hangout-carousel">
-                    <a href="movie_theatres.html" class="card-link">
+                    <a href="/movie_theatres" class="card-link">
                         <div class="card">
                             <img src="images/MovieTheatre.webp" alt="Movie Theatres" class="card-image">
                             <div class="card-content">
@@ -46,7 +46,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </a>
-                    <a href="cafes.html" class="card-link">
+                    <a href="/cafes" class="card-link">
                         <div class="card">
                              <img src="images/Social_Cafes.webp" alt="Cafes" class="card-image">
                             <div class="card-content">
@@ -55,7 +55,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </a>
-                    <a href="sports_complexes.html" class="card-link">
+                    <a href="/sports_complexes" class="card-link">
                         <div class="card">
                             <img src="images/Social_Sports.webp" alt="Sports Complexes" class="card-image">
                             <div class="card-content">
@@ -64,7 +64,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </a>
-                    <a href="gaming_zones.html" class="card-link">
+                    <a href="/gaming_zones" class="card-link">
                         <div class="card">
                             <img src="images/Social_Gaming.webp" alt="Gaming Zones" class="card-image">
                             <div class="card-content">
@@ -192,7 +192,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="carousel-container">
                 <button class="scroll-button left" onclick="scrollCarousel('restaurant-carousel', 'left')">❮</button>
                 <div class="card-carousel" id="restaurant-carousel">
-                     <a href="pizza_places.html" class="card-link">
+                     <a href="/pizza_places" class="card-link">
                         <div class="card">
                             <img src="images/Social_Pizza.webp" alt="Pizza" class="card-image">
                             <div class="card-content">
@@ -201,7 +201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </a>
-                    <a href="burger_joints.html" class="card-link">
+                    <a href="/burger_joints" class="card-link">
                         <div class="card">
                              <img src="images/Social_Burger.webp" alt="Burger" class="card-image">
                             <div class="card-content">
@@ -210,7 +210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </a>
-                    <a href="dhaba_places.html" class="card-link">
+                    <a href="/dhaba_places" class="card-link">
                         <div class="card">
                             <img src="images/Social_Dhaba.webp" alt="Dhaba" class="card-image">
                             <div class="card-content">

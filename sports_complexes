@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="Sports Complexes in Rohtak - CampusJi">
     <meta property="og:description" content="Your guide to the best sports complexes in Rohtak. Find facilities for your favorite sports, curated for IPM students by CampusJi.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/sports_complexes.html">
+    <meta property="og:url" content="https://www.campusji.me/sports_complexes">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css">

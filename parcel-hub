@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="Parcel Hub - CampusJi Student Portal">
     <meta property="og:description" content="The CampusJi Parcel Hub provides a centralized system for tracking and managing student parcels at IPM IIM Rohtak.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/parcel-hub.html">
+    <meta property="og:url" content="https://www.campusji.me/parcel-hub">
     <meta property="og:type" content="website">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">

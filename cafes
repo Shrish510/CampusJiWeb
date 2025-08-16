@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="Best Cafes & Eateries in Rohtak - CampusJi">
     <meta property="og:description" content="Looking for a place to unwind? Explore this list of top-rated cafes and eateries in Rohtak, curated for IPM students by CampusJi.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/cafes.html">
+    <meta property="og:url" content="https://www.campusji.me/cafes">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css">

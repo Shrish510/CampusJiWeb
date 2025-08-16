@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="Best Dhaba Places in Rohtak - CampusJi">
     <meta property="og:description" content="Discover the top dhabas in Rohtak for a hearty meal. A guide curated for IPM students by CampusJi.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/dhaba_places.html">
+    <meta property="og:url" content="https://www.campusji.me/dhaba_places">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css">

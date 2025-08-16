@@ -11,7 +11,7 @@
     <meta property="og:title" content="Lost & Found - CampusJi Student Portal">
     <meta property="og:description" content="Easily report or find lost items within the IPM IIM Rohtak campus community through the CampusJi portal.">
     <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-    <meta property="og:url" content="https://www.campusji.me/lost-and-found.html">
+    <meta property="og:url" content="https://www.campusji.me/lost-and-found">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/main.css" />

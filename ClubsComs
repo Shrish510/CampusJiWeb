@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:title" content="Clubs & Committees - CampusJi Student Portal">
   <meta property="og:description" content="Discover and connect with student-run clubs and committees at IPM IIM Rohtak. Get involved in campus life.">
   <meta property="og:image" content="https://www.campusji.me/images/Campusjilogo.webp">
-  <meta property="og:url" content="https://www.campusji.me/ClubsComs.html">
+  <meta property="og:url" content="https://www.campusji.me/ClubsComs">
   <meta property="og:type" content="website">
 
   <link rel="stylesheet" href="css/main.css">
