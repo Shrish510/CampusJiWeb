@@ -4,7 +4,7 @@ function handleLogout() {
     logoutLink.addEventListener("click", function (e) {
       e.preventDefault();
       localStorage.removeItem("isLoggedIn");
-      window.location.href = "index.html";
+      window.location.href = "/";
     });
   }
 }
@@ -56,7 +56,7 @@ function loadScript(src, callback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch and insert header
-  fetch("header.html")
+  fetch("/header.html")
     .then((response) => response.text())
     .then((data) => {
       const headerContainer = document.getElementById("header-container");
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("Error fetching header:", error));
 
   // Fetch and insert footer
-  fetch("footer.html")
+  fetch("/footer.html")
     .then((response) => response.text())
     .then((data) => {
       const footerContainer = document.getElementById("footer-container");

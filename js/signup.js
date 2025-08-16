@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             alert('Sign up successful! You can now log in.');
-            window.location.href = 'login.html';
+            window.location.href = '/login/';
         });
     }
 });

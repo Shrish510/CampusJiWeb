@@ -11,12 +11,12 @@ if (localStorage.getItem("isLoggedIn") === "true") {
     e.preventDefault();
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userInfo");
-    window.location.href = "login.html";
+    window.location.href = "/login/";
   });
   loginLogoutLinkContainer.appendChild(logoutLink);
 } else {
   const loginLink = document.createElement("a");
-  loginLink.href = "login.html";
+  loginLink.href = "/login/";
   loginLink.classList.add("nav-link");
   loginLink.textContent = "Login";
   loginLogoutLinkContainer.appendChild(loginLink);

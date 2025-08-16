@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const isProtected = protectedPages.includes(currentPage);
 
   if (localStorage.getItem("isLoggedIn") !== "true" && isProtected) {
-    window.location.href = "login.html";
+    window.location.href = "/login/";
     return;
   }
 });
