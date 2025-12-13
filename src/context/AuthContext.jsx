@@ -1,5 +1,6 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { supabase } from '../utils/supabaseClient';
 
 const AuthContext = createContext();
 
@@ -7,50 +8,103 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Check localStorage on mount (mimicking legacy behavior)
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (isLoggedIn) {
-      const storedUser = localStorage.getItem('userInfo');
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
-      }
-    }
-    setLoading(false);
-  }, []);
+  // Helper to fetch profile details (role/permissions)
+  const fetchProfile = async (sessionUser) => {
+    if (!sessionUser) return null;
 
-  const login = (email, password) => {
-    // Mock login logic from legacy js/login.js
-    const userInfo = {
-        email: email,
-        loginTime: new Date().toISOString(),
-        isLoggedIn: true,
+    try {
+      // Attempt to fetch from 'profiles' table
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', sessionUser.id)
+        .single();
+
+      if (error) {
+        console.warn("Could not fetch profile, falling back to basic user info:", error.message);
+        // Fallback or use metadata if available
+        return {
+          ...sessionUser,
+          role: 'student', // Default role
+          permission: 'user',
+          name: sessionUser.email.split('@')[0],
+        };
+      }
+
+      return {
+        ...sessionUser,
+        ...profile, // Merge profile data (e.g., role, name)
       };
-
-      if (email === "parceldude@gmail.com" && password === "parcel") {
-        userInfo.permission = "parcel";
-        userInfo.role = "parcel_service";
-        userInfo.name = "Parcel Service";
-      } else if (email === "admin.iimrohtak@gmail.com") {
-        userInfo.permission = "admin";
-        userInfo.role = "admin";
-        userInfo.name = "Admin";
-      } else {
-        userInfo.permission = "user";
-        userInfo.role = "student";
-        userInfo.name = email.split("@")[0];
-      }
-
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userInfo", JSON.stringify(userInfo));
-      setUser(userInfo);
-      return true;
+    } catch (err) {
+      console.error("Error in fetchProfile:", err);
+      return {
+          ...sessionUser,
+          role: 'student',
+          permission: 'user',
+          name: sessionUser.email.split('@')[0],
+      };
+    }
   };
 
-  const logout = () => {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userInfo');
-    setUser(null);
+  useEffect(() => {
+    // Check active session on mount
+    const initializeAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (session?.user) {
+        const enrichedUser = await fetchProfile(session.user);
+        setUser(enrichedUser);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    };
+
+    initializeAuth();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+        if (session?.user) {
+            const enrichedUser = await fetchProfile(session.user);
+            setUser(enrichedUser);
+        } else {
+            setUser(null);
+        }
+        setLoading(false);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  const login = async (email, password) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        console.error("Login error:", error.message);
+        return { success: false, error: error.message };
+      }
+
+      // User state will be updated by onAuthStateChange
+      return { success: true };
+    } catch (err) {
+        console.error("Unexpected login error:", err);
+        return { success: false, error: err.message };
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await supabase.auth.signOut();
+      // User state will be updated by onAuthStateChange
+    } catch (error) {
+      console.error("Logout error:", error.message);
+    }
   };
 
   const value = {
