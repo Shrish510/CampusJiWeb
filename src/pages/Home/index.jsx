@@ -15,70 +15,79 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // 1. Fetch Slider Data
-      const { data: slider, error: sliderError } = await supabase
-        .from('slider')
-        .select('*');
-      if (sliderError) {
-        console.warn("Error fetching slider data:", sliderError.message);
-        // Fallback dummy data if DB is empty or fails
-        setSliderData([
-            { id: 1, image_url: '/images/slider1.jpg', title: 'Welcome to CampusJi', description: 'Your campus companion' },
-             // Add more dummy slides if needed for testing
-        ]);
-      } else if (slider) {
+      try {
+        // 1. Fetch Slider Data
+        let { data: slider, error: sliderError } = await supabase
+            .from('slider')
+            .select('*');
+
+        // If error or empty, use fallback
+        if (sliderError || !slider || slider.length === 0) {
+            console.warn("Using fallback slider data. Error:", sliderError?.message);
+            slider = [
+                { id: 1, image_url: '/images/AcBanner.webp', title: 'Welcome to CampusJi', description: 'Your campus companion' },
+                { id: 2, image_url: '/images/LitBan.webp', title: 'Stay Connected', description: 'Find all campus updates here' }
+            ];
+        }
         setSliderData(slider);
-      }
 
-      // 2. Fetch Lost & Found Data
-      const { data: lostFound, error: lfError } = await supabase
-        .from('lost_found')
-        .select('*')
-        .order('date', { ascending: false })
-        .limit(3);
+        // 2. Fetch Lost & Found Data
+        const { data: lostFound, error: lfError } = await supabase
+            .from('lost_found')
+            .select('*')
+            .order('date', { ascending: false })
+            .limit(3);
 
-      if (lfError) {
-          console.warn("Error fetching lost & found:", lfError.message);
-      } else {
-          setLostFoundData(lostFound || []);
-      }
+        if (lfError) {
+            console.warn("Error fetching lost & found:", lfError.message);
+            // Don't set fallback data for Lost Found, let it show "No recent items"
+        } else {
+            setLostFoundData(lostFound || []);
+        }
 
-      // 3. Fetch Events (Calendar)
-      // Assuming 'events' table
-      const { data: events, error: eventsError } = await supabase
-        .from('events')
-        .select('*')
-        .gte('date', new Date().toISOString()) // Upcoming events
-        .order('date', { ascending: true })
-        .limit(5);
+        // 3. Fetch Events (Calendar)
+        const { data: events, error: eventsError } = await supabase
+            .from('events')
+            .select('*')
+            .gte('date', new Date().toISOString()) // Upcoming events
+            .order('date', { ascending: true })
+            .limit(5);
 
-      if (eventsError) {
-          console.warn("Error fetching events:", eventsError.message);
-      } else {
-          setEventsData(events || []);
-      }
+        if (eventsError) {
+            console.warn("Error fetching events:", eventsError.message);
+        } else {
+            setEventsData(events || []);
+        }
 
-      // 4. Fetch Weather (or mock)
-      // Since weather is dynamic/real-time, checking if there is a 'weather_updates' table or similar.
-      // If not, we might want to use a mock or fetch from a public API if we had keys.
-      // For now, I'll set a static state or fetch from a simple 'weather' table if it exists.
-      const { data: weather, error: weatherError } = await supabase
-          .from('weather')
-          .select('*')
-          .limit(1)
-          .single();
+        // 4. Fetch Weather
+        // Since we don't have a real weather API key here, we rely on a 'weather' table or mock
+        const { data: weather, error: weatherError } = await supabase
+            .from('weather')
+            .select('*')
+            .limit(1)
+            .single();
 
-      if (weatherError || !weather) {
-          // Mock weather if fetch fails
-          setWeatherData({
-              temp: '28°C',
-              condition: 'Sunny',
-              location: 'Rohtak',
-              humidity: '45%',
-              wind: '10 km/h'
-          });
-      } else {
-          setWeatherData(weather);
+        if (weatherError || !weather) {
+            setWeatherData({
+                temp: '28°C',
+                condition: 'Sunny',
+                location: 'Rohtak',
+                humidity: '45%',
+                wind: '10 km/h'
+            });
+        } else {
+            setWeatherData(weather);
+        }
+
+      } catch (err) {
+        console.error("Critical error in Home fetchData:", err);
+        // Ensure at least slider has something so page isn't empty
+        setSliderData([
+             { id: 1, image_url: '/images/AcBanner.webp', title: 'Welcome to CampusJi', description: 'Your campus companion' }
+        ]);
+        setWeatherData({
+             temp: '--', condition: 'Data Error', location: 'Unknown', humidity: '--', wind: '--'
+        });
       }
     };
 
@@ -96,27 +105,37 @@ const Home = () => {
   }, [sliderData]);
 
   const nextSlide = () => {
-      setCurrentSlide((prev) => (prev + 1) % sliderData.length);
+      if (sliderData.length > 0)
+        setCurrentSlide((prev) => (prev + 1) % sliderData.length);
   };
 
   const prevSlide = () => {
-      setCurrentSlide((prev) => (prev - 1 + sliderData.length) % sliderData.length);
+      if (sliderData.length > 0)
+        setCurrentSlide((prev) => (prev - 1 + sliderData.length) % sliderData.length);
   };
 
   return (
     <div className="page-container">
       <Header />
-      <main className="main-content home-content">
+      <main className="main-content home-content" style={{ marginTop: '2rem' }}>
 
         {/* Slider Section */}
-        {sliderData.length > 0 && (
+        {sliderData.length > 0 ? (
             <section className="slider-container">
                 <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                     {sliderData.map((slide, index) => (
                         <div className="slide" key={slide.id || index}>
-                            {/* Use a placeholder if image_url is missing or relative */}
-                            <img src={slide.image_url || '/images/placeholder.jpg'} alt={slide.title}
-                                 onError={(e) => {e.target.src = '/images/placeholder.jpg'}} />
+                            <img
+                                src={slide.image_url || '/images/placeholder.jpg'}
+                                alt={slide.title}
+                                onError={(e) => {
+                                    console.warn("Image failed to load:", slide.image_url);
+                                    e.target.src = '/images/Campusjilogo.webp'; // Safe fallback
+                                    e.target.style.objectFit = "contain";
+                                    e.target.style.padding = "2rem";
+                                    e.target.style.backgroundColor = "#f0f0f0";
+                                }}
+                            />
                             <div className="slide-overlay">
                                 <h2 className="slide-title">{slide.title}</h2>
                                 <p className="slide-description">{slide.description}</p>
@@ -124,25 +143,35 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-                <button className="slider-arrow left-arrow" onClick={prevSlide}>&#10094;</button>
-                <button className="slider-arrow right-arrow" onClick={nextSlide}>&#10095;</button>
+                {sliderData.length > 1 && (
+                    <>
+                        <button className="slider-arrow left-arrow" onClick={prevSlide}>&#10094;</button>
+                        <button className="slider-arrow right-arrow" onClick={nextSlide}>&#10095;</button>
 
-                <div className="slider-nav">
-                    {sliderData.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
-                            onClick={() => setCurrentSlide(index)}
-                        ></div>
-                    ))}
-                </div>
+                        <div className="slider-nav">
+                            {sliderData.map((_, index) => (
+                                <div
+                                    key={index}
+                                    className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
+                                    onClick={() => setCurrentSlide(index)}
+                                ></div>
+                            ))}
+                        </div>
+                    </>
+                )}
             </section>
+        ) : (
+             // Fallback if slider data is completely empty (should satisfy "not empty")
+             <div style={{ textAlign: 'center', padding: '2rem', background: 'white', borderRadius: '10px', marginBottom: '2rem' }}>
+                 <h2>Welcome to CampusJi</h2>
+                 <p>Loading updates...</p>
+             </div>
         )}
 
         {/* 3-Column Section: Weather, Calendar, Lost & Found */}
         <section className="three-column-section">
 
-            {/* Weather & Calendar (Grouped visually in CSS usually, but let's follow the grid) */}
+            {/* Weather & Calendar */}
             <div className="weather-calendar-container">
                 {/* Weather Card */}
                 <div className="column-card weather-card">
@@ -172,7 +201,7 @@ const Home = () => {
                 <div className="column-card calendar-card" style={{ marginTop: '1rem' }}>
                     <h3>Upcoming Events</h3>
                     {eventsData.length > 0 ? (
-                        <ul className="mess-menu-items"> {/* Reusing list style */}
+                        <ul className="mess-menu-items">
                             {eventsData.map(event => (
                                 <li key={event.id}>
                                     <strong>{new Date(event.date).toLocaleDateString()}</strong>: {event.title}
