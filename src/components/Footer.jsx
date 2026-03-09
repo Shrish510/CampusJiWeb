@@ -6,7 +6,7 @@ import '../styles/main.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">
+      <div className="footer-container">
         <div className="footer-section">
           <h3>CampusJi</h3>
           <p>Connecting the IPM community at IIM Rohtak.</p>
