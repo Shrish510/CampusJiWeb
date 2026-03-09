@@ -103,3 +103,4 @@ dist-ssr/
 
 # Legacy
 _legacy/
+test_dir/

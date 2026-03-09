@@ -20,7 +20,7 @@ const Header = () => {
       <div className="logo-container">
         {/* Adjust path to assets if needed, or put images in public folder */}
         <Link to="/">
-            <img src="/images/Campusjilogo.webp" alt="CampusJi Logo" className="logo" />
+            <img src={`${import.meta.env.BASE_URL}images/Campusjilogo.webp`} alt="CampusJi Logo" className="logo" />
         </Link>
         <span className="logo-text">CampusJi</span>
       </div>
