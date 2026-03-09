@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename)
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Ensures assets are loaded with relative paths (crucial for GitHub Pages & Capacitor)
+  base: '/CampusJiWeb/', // Ensure assets are loaded properly for GitHub Pages
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
