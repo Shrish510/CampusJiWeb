@@ -23,7 +23,7 @@ const Home = () => {
         console.warn("Error fetching slider data:", sliderError.message);
         // Fallback dummy data if DB is empty or fails
         setSliderData([
-            { id: 1, image_url: '/images/slider1.jpg', title: 'Welcome to CampusJi', description: 'Your campus companion' },
+            { id: 1, image_url: `${import.meta.env.BASE_URL}images/slider1.jpg`, title: 'Welcome to CampusJi', description: 'Your campus companion' },
              // Add more dummy slides if needed for testing
         ]);
       } else if (slider) {
@@ -115,8 +115,8 @@ const Home = () => {
                     {sliderData.map((slide, index) => (
                         <div className="slide" key={slide.id || index}>
                             {/* Use a placeholder if image_url is missing or relative */}
-                            <img src={slide.image_url || '/images/placeholder.jpg'} alt={slide.title}
-                                 onError={(e) => {e.target.src = '/images/placeholder.jpg'}} />
+                            <img src={slide.image_url || `${import.meta.env.BASE_URL}images/placeholder.jpg`} alt={slide.title}
+                                 onError={(e) => {e.target.src = `${import.meta.env.BASE_URL}images/placeholder.jpg`}} />
                             <div className="slide-overlay">
                                 <h2 className="slide-title">{slide.title}</h2>
                                 <p className="slide-description">{slide.description}</p>
