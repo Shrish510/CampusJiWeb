@@ -24,7 +24,11 @@ function handleLogout() {
 
 function highlightNav() {
   const path = window.location.pathname;
-  const pageName = path.split("/").pop();
+  let pageName = path.split("/").pop();
+
+  if (pageName === "" || pageName === "CampusJiWeb") {
+      pageName = "index.html";
+  }
 
   const links = {
     "index.html": "homeLink",
@@ -74,7 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       const headerContainer = document.getElementById("header-container");
       if (headerContainer) {
-        headerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => attr + '="' + basePath + path + '"');
+        headerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => {
+          if (path === "/") return attr + '="' + basePath + '"';
+          return attr + '="' + basePath + path + '"';
+        });
         handleLogout();
         highlightNav();
         setupMobileMenu(); // Call the new mobile menu function
@@ -89,7 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       const footerContainer = document.getElementById("footer-container");
       if (footerContainer) {
-        footerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => attr + '="' + basePath + path + '"');
+        footerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => {
+          if (path === "/") return attr + '="' + basePath + '"';
+          return attr + '="' + basePath + path + '"';
+        });
       }
     })
     .catch((error) => console.error("Error fetching footer:", error));
