@@ -1,3 +1,16 @@
+
+
+window.getBasePath = window.getBasePath || function() {
+    let path = window.location.pathname;
+    if (path.includes('/CampusJiWeb/')) {
+        path = path.split('/CampusJiWeb/')[1];
+    }
+    const parts = path.split('/').filter(p => p !== '' && !p.endsWith('.html'));
+    return parts.length > 0 ? '../'.repeat(parts.length) : './';
+};
+var basePath = window.getBasePath();
+
+
 const loginLogoutLinkContainer = document.getElementById(
   "login-logout-link-container"
 );
@@ -11,12 +24,12 @@ if (localStorage.getItem("isLoggedIn") === "true") {
     e.preventDefault();
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userInfo");
-    window.location.href = "/login/";
+    window.location.href = basePath + "login/";
   });
   loginLogoutLinkContainer.appendChild(logoutLink);
 } else {
   const loginLink = document.createElement("a");
-  loginLink.href = "/login/";
+  loginLink.href = basePath + "login/";
   loginLink.classList.add("nav-link");
   loginLink.textContent = "Login";
   loginLogoutLinkContainer.appendChild(loginLink);

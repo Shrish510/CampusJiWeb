@@ -1,6 +1,19 @@
+
+
+window.getBasePath = window.getBasePath || function() {
+    let path = window.location.pathname;
+    if (path.includes('/CampusJiWeb/')) {
+        path = path.split('/CampusJiWeb/')[1];
+    }
+    const parts = path.split('/').filter(p => p !== '' && !p.endsWith('.html'));
+    return parts.length > 0 ? '../'.repeat(parts.length) : './';
+};
+var basePath = window.getBasePath();
+
+
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("isLoggedIn") === "true") {
-    window.location.href = "/";
+    window.location.href = basePath;
     return;
   }
 
@@ -39,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
-      window.location.href = "/";
+      window.location.href = basePath;
     });
   }
 });

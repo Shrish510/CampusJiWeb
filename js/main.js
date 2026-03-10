@@ -1,3 +1,16 @@
+
+
+window.getBasePath = window.getBasePath || function() {
+    let path = window.location.pathname;
+    if (path.includes('/CampusJiWeb/')) {
+        path = path.split('/CampusJiWeb/')[1];
+    }
+    const parts = path.split('/').filter(p => p !== '' && !p.endsWith('.html'));
+    return parts.length > 0 ? '../'.repeat(parts.length) : './';
+};
+var basePath = window.getBasePath();
+
+
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
