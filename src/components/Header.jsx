@@ -37,6 +37,7 @@ const Header = () => {
             <li><Link to="/" className={`nav-link ${isActive('/')}`} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
             <li><Link to="/about-us" className={`nav-link ${isActive('/about-us')}`} onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
             <li><Link to="/services" className={`nav-link ${isActive('/services')}`} onClick={() => setIsMenuOpen(false)}>Services</Link></li>
+            <li><Link to="/clubs" className={`nav-link ${isActive('/clubs')}`} onClick={() => setIsMenuOpen(false)}>Clubs</Link></li>
 
             {user ? (
               <>
