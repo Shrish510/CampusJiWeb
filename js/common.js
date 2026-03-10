@@ -1,10 +1,23 @@
+
+
+window.getBasePath = window.getBasePath || function() {
+    let path = window.location.pathname;
+    if (path.includes('/CampusJiWeb/')) {
+        path = path.split('/CampusJiWeb/')[1];
+    }
+    const parts = path.split('/').filter(p => p !== '' && !p.endsWith('.html'));
+    return parts.length > 0 ? '../'.repeat(parts.length) : './';
+};
+var basePath = window.getBasePath();
+
+
 function handleLogout() {
   const logoutLink = document.getElementById("logoutLink");
   if (logoutLink) {
     logoutLink.addEventListener("click", function (e) {
       e.preventDefault();
       localStorage.removeItem("isLoggedIn");
-      window.location.href = "/";
+      window.location.href = basePath;
     });
   }
 }
@@ -30,9 +43,9 @@ function highlightNav() {
   if (activeLinkId) {
     document.getElementById(activeLinkId)?.classList.add("active");
   } else if (pageName === "ClubsComs.html") {
-    document.querySelector('a[href="/ClubsComs/"]')?.classList.add("active");
+    document.querySelector('a[href="' + basePath + 'ClubsComs/"]')?.classList.add("active");
   } else if (pageName === "ipm_social.html" || pageName === "pizza_places.html" || pageName === "burger_joints.html" || pageName === "dhaba_places.html") {
-    document.querySelector('a[href="/ipm_social/"]')?.classList.add("active");
+    document.querySelector('a[href="' + basePath + 'ipm_social/"]')?.classList.add("active");
   }
 }
 
@@ -56,12 +69,12 @@ function loadScript(src, callback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch and insert header
-  fetch("/header.html")
+  fetch(basePath + "header.html")
     .then((response) => response.text())
     .then((data) => {
       const headerContainer = document.getElementById("header-container");
       if (headerContainer) {
-        headerContainer.innerHTML = data;
+        headerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => attr + '="' + basePath + path + '"');
         handleLogout();
         highlightNav();
         setupMobileMenu(); // Call the new mobile menu function
@@ -71,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("Error fetching header:", error));
 
   // Fetch and insert footer
-  fetch("/footer.html")
+  fetch(basePath + "footer.html")
     .then((response) => response.text())
     .then((data) => {
       const footerContainer = document.getElementById("footer-container");
       if (footerContainer) {
-        footerContainer.innerHTML = data;
+        footerContainer.innerHTML = data.replace(/(href|src)=\"([^\"#:]+)\"/g, (match, attr, path) => attr + '="' + basePath + path + '"');
       }
     })
     .catch((error) => console.error("Error fetching footer:", error));
